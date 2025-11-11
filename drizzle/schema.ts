@@ -25,4 +25,22 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+// Contact form submissions
+export const contactSubmissions = mysqlTable("contact_submissions", {
+  id: int("id").autoincrement().primaryKey(),
+  role: varchar("role", { length: 64 }).notNull(),
+  company: varchar("company", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  phone: varchar("phone", { length: 32 }),
+  siteSize: varchar("site_size", { length: 64 }),
+  legalDescription: text("legal_description"),
+  soilTestUrl: text("soil_test_url"),
+  timeline: varchar("timeline", { length: 64 }),
+  method: varchar("method", { length: 64 }),
+  deliveryNeeds: text("delivery_needs"),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type ContactSubmission = typeof contactSubmissions.$inferSelect;
+export type InsertContactSubmission = typeof contactSubmissions.$inferInsert;
