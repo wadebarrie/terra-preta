@@ -235,8 +235,8 @@ export default function MiningIndustrial() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <Card>
               <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 flex items-center justify-center">
-                  <span className="text-muted-foreground">Before/After Image</span>
+                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
+                  <img src="/field-worker-equipment.jpg" alt="Field operations" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-semibold mb-2">Mine Tailings Area</h3>
                 <p className="text-sm text-muted-foreground mb-2">
@@ -251,8 +251,8 @@ export default function MiningIndustrial() {
 
             <Card>
               <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 flex items-center justify-center">
-                  <span className="text-muted-foreground">Before/After Image</span>
+                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
+                  <img src="/field-worker-equipment.jpg" alt="Field operations" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-semibold mb-2">Industrial Stockpile</h3>
                 <p className="text-sm text-muted-foreground mb-2">
@@ -267,8 +267,8 @@ export default function MiningIndustrial() {
 
             <Card>
               <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 flex items-center justify-center">
-                  <span className="text-muted-foreground">Before/After Image</span>
+                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
+                  <img src="/field-worker-equipment.jpg" alt="Field operations" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-semibold mb-2">Haul Road</h3>
                 <p className="text-sm text-muted-foreground mb-2">

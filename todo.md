@@ -89,3 +89,15 @@
 - [ ] Assessment form schema as JSON
 - [ ] Calculator logic blocks and example outputs as JSON
 - [ ] Launch QA checklist for performance, accessibility, analytics, schema
+
+## Asset Integration (Current Work)
+- [x] Copy Terra Preta logo to public directory
+- [x] Update logo reference in const.ts
+- [x] Copy all field photography to public directory with optimized names
+- [x] Replace hero section background image with field photo
+- [x] Replace product snapshot images with pellet close-up
+- [x] Replace evidence section placeholder images with real field photos
+- [x] Replace solution page images with relevant field photography
+- [x] Update About page with team/facility photos if available (using available field photos)
+- [x] Test all image loading and aspect ratios
+- [x] Verify image quality and performance

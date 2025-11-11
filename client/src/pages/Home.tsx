@@ -219,6 +219,9 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
               Product snapshot: Terra Revive
             </h2>
+            <div className="mb-8 rounded-lg overflow-hidden">
+              <img src="/pellets-closeup.jpg" alt="Terra Revive pelleted soil amendment close-up" className="w-full h-64 object-cover" />
+            </div>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div>
                 <h3 className="font-semibold mb-2">Application Rate</h3>
@@ -259,8 +262,8 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <Card>
               <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 flex items-center justify-center">
-                  <span className="text-muted-foreground">Before/After Image</span>
+                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
+                  <img src="/field-dozer.jpg" alt="Dozer working on reclamation site" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-semibold mb-2">Oil and Gas Wellsite</h3>
                 <p className="text-sm text-muted-foreground mb-2">
@@ -275,8 +278,8 @@ export default function Home() {
 
             <Card>
               <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 flex items-center justify-center">
-                  <span className="text-muted-foreground">Before/After Image</span>
+                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
+                  <img src="/field-tractor-wide.jpg" alt="Tractor seeding reclaimed land" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-semibold mb-2">Stockpiled Topsoil</h3>
                 <p className="text-sm text-muted-foreground mb-2">
@@ -291,8 +294,8 @@ export default function Home() {
 
             <Card>
               <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 flex items-center justify-center">
-                  <span className="text-muted-foreground">Before/After Image</span>
+                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
+                  <img src="/field-site-overview.jpg" alt="Overview of reclamation site with equipment" className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-semibold mb-2">Pipeline Right-of-Way</h3>
                 <p className="text-sm text-muted-foreground mb-2">
