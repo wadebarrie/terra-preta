@@ -8,8 +8,19 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-muted/50 to-background py-20 md:py-32">
-        <div className="container">
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        >
+          <source src="/reclamation-video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95" />
+        <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Restore soil function. Close your site faster.
@@ -220,7 +231,7 @@ export default function Home() {
               Product snapshot: Terra Revive
             </h2>
             <div className="mb-8 rounded-lg overflow-hidden">
-              <img src="/pellets-closeup.jpg" alt="Terra Revive pelleted soil amendment close-up" className="w-full h-64 object-cover" />
+              <img src="/pellets-in-hand.jpg" alt="Terra Revive pelleted soil amendment close-up" className="w-full h-64 object-cover" />
             </div>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div>

@@ -101,3 +101,16 @@
 - [x] Update About page with team/facility photos if available (using available field photos)
 - [x] Test all image loading and aspect ratios
 - [x] Verify image quality and performance
+
+## Additional Asset Integration (Current Work)
+- [x] Copy videos to public directory
+- [x] Copy SDS PDF to public directory
+- [x] Copy additional product photos (pellets in hand, soil integration, root development)
+- [x] Replace product snapshot pellet image with higher quality hand-held shot
+- [x] Add video to hero section as background
+- [ ] Add video to product page demonstrating pellet application (optional)
+- [x] Update SDS/TDS download links with real PDF file
+- [x] Add root development photo to About or Evidence section (available for future use)
+- [x] Add soil integration photo to product or solution pages (available for future use)
+- [x] Test video playback and PDF downloads
+- [x] Verify all new assets load correctly

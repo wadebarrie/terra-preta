@@ -45,11 +45,17 @@ export default function SdsTds() {
                       information.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <Button>
-                        <Download className="mr-2 h-4 w-4" />
-                        Download SDS (PDF)
+                      <Button asChild>
+                        <a href="/terra-revive-sds.pdf" download="Terra-Revive-SDS.pdf">
+                          <Download className="mr-2 h-4 w-4" />
+                          Download SDS (PDF)
+                        </a>
                       </Button>
-                      <Button variant="outline">View Online</Button>
+                      <Button variant="outline" asChild>
+                        <a href="/terra-revive-sds.pdf" target="_blank" rel="noopener noreferrer">
+                          View Online
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -73,11 +79,17 @@ export default function SdsTds() {
                       seeding methods, and quality assurance procedures.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <Button>
-                        <Download className="mr-2 h-4 w-4" />
-                        Download TDS (PDF)
+                      <Button asChild>
+                        <a href="/terra-revive-sds.pdf" download="Terra-Revive-TDS.pdf">
+                          <Download className="mr-2 h-4 w-4" />
+                          Download TDS (PDF)
+                        </a>
                       </Button>
-                      <Button variant="outline">View Online</Button>
+                      <Button variant="outline" asChild>
+                        <a href="/terra-revive-sds.pdf" target="_blank" rel="noopener noreferrer">
+                          View Online
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </div>
