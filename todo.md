@@ -114,3 +114,11 @@
 - [x] Add soil integration photo to product or solution pages (available for future use)
 - [x] Test video playback and PDF downloads
 - [x] Verify all new assets load correctly
+
+## Partner Logo Integration (Current Work)
+- [x] Copy Gran Tierra Energy logo to public directory
+- [x] Copy Trace Associates logo to public directory
+- [x] Copy Choice Environmental logo to public directory
+- [x] Update TrustStrip component with real partner logos
+- [x] Test logo display and sizing in trust strip
+- [x] Verify logos display correctly on all pages
