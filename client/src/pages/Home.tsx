@@ -3,6 +3,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import TrustStrip from "@/components/TrustStrip";
 import { ArrowRight, CheckCircle, Download, Layers, Leaf, Sprout } from "lucide-react";
 import { Link } from "wouter";
+import homeContent from "../../../content/pages/home.json";
+
+// Map icon names to components
+const iconMap: Record<string, any> = {
+  Sprout,
+  Leaf,
+  Layers,
+};
 
 export default function Home() {
   return (
@@ -10,25 +18,25 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        >
-          <source src="/reclamation-video.mp4" type="video/mp4" />
-        </video>
+        {homeContent.heroVideoUrl && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+          >
+            <source src={homeContent.heroVideoUrl} type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95" />
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Restore soil function. Close your site faster.
+              {homeContent.heroTitle}
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Terra Revive is a pelleted soil amendment that rebuilds biology,
-              structure, and nutrient cycling so native species establish without
-              synthetics.
+              {homeContent.heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" asChild>
@@ -58,59 +66,27 @@ export default function Home() {
             Who it's for
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <Sprout className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">
-                  Oil and Gas Reclamation
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Restore soil function on wellsites and access roads. Faster
-                  vegetative cover and smoother audits.
-                </p>
-                <Button variant="link" asChild className="p-0">
-                  <Link href="/solutions/reclamation">
-                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <Leaf className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">
-                  Municipal and Utilities
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Rebuild stockpiled topsoil and establish vegetation on
-                  disturbed sites with minimal re-mobilizations.
-                </p>
-                <Button variant="link" asChild className="p-0">
-                  <Link href="/solutions/hydroseeding">
-                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <Layers className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">
-                  Contractors and EPCs
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Deliver reliable reclamation outcomes with spec-grade products
-                  and on-site support.
-                </p>
-                <Button variant="link" asChild className="p-0">
-                  <Link href="/solutions/mining">
-                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+            {homeContent.features.map((feature, index) => {
+              const IconComponent = iconMap[feature.icon] || Layers;
+              return (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6">
+                    <IconComponent className="h-12 w-12 text-primary mb-4" />
+                    <h3 className="text-xl font-semibold mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4">
+                      {feature.description}
+                    </p>
+                    <Button variant="link" asChild className="p-0">
+                      <Link href={feature.link}>
+                        Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -172,52 +148,17 @@ export default function Home() {
           </h2>
           <div className="max-w-3xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">Faster vegetative cover</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Native species establish in the first growing season on
-                    properly prepared sites.
-                  </p>
+              {homeContent.outcomes.map((outcome, index) => (
+                <div key={index} className="flex gap-3">
+                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">{outcome.title}</h3>
+                    <p className="text-muted-foreground text-sm">
+                      {outcome.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">
-                    Higher germination on stockpiled topsoil
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Rebuild biology in degraded topsoil and improve seed
-                    establishment rates.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">
-                    Fewer re-mobilizations and smoother audits
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Reduce risk of failed inspections and costly return visits.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">Compatible with standard methods</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Works with broadcast, drill incorporation, hydroseeding, and
-                    drone application.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
