@@ -1,0 +1,20 @@
+{
+  "productName": "Terra Revive",
+  "description": "A pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics.",
+  "applicationRate": "1,500 to 2,000 lb per acre based on soil degradation",
+  "leadTime": "36 to 48 hours",
+  "deliveryArea": "Alberta and across the Prairies",
+  "packagingOptions": [
+    {
+      "type": "Bulk Totes",
+      "size": "1,500 lb",
+      "price": "$1.50/lb"
+    },
+    {
+      "type": "Bags",
+      "size": "50 lb",
+      "price": "$1.75/lb"
+    }
+  ]
+}
+

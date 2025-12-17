@@ -1,0 +1,44 @@
+{
+  "heroTitle": "Restore soil function. Close your site faster.",
+  "heroSubtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics.",
+  "heroVideoUrl": "/reclamation-video.mp4",
+  "features": [
+    {
+      "title": "Oil and Gas Reclamation",
+      "description": "Restore soil function on wellsites and access roads. Faster vegetative cover and smoother audits.",
+      "icon": "Sprout",
+      "link": "/solutions/reclamation"
+    },
+    {
+      "title": "Municipal and Utilities",
+      "description": "Rebuild stockpiled topsoil and establish vegetation on disturbed sites with minimal re-mobilizations.",
+      "icon": "Leaf",
+      "link": "/solutions/hydroseeding"
+    },
+    {
+      "title": "Contractors and EPCs",
+      "description": "Deliver reliable reclamation outcomes with spec-grade products and on-site support.",
+      "icon": "Layers",
+      "link": "/solutions/mining"
+    }
+  ],
+  "outcomes": [
+    {
+      "title": "Faster vegetative cover",
+      "description": "Native species establish in the first growing season on properly prepared sites."
+    },
+    {
+      "title": "Higher germination on stockpiled topsoil",
+      "description": "Rebuild biology in degraded topsoil and improve seed establishment rates."
+    },
+    {
+      "title": "Fewer re-mobilizations and smoother audits",
+      "description": "Reduce risk of failed inspections and costly return visits."
+    },
+    {
+      "title": "Compatible with standard methods",
+      "description": "Works with broadcast, drill incorporation, hydroseeding, and drone application."
+    }
+  ]
+}
+
