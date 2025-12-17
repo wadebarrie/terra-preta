@@ -105,3 +105,8 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+# Exclude large video files
+client/public/*.mp4
+client/public/reclamation-video.mp4
+client/public/application-video.mp4
+client/public/field-demo-video.mp4
