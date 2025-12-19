@@ -35,36 +35,51 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Netlify Forms submission
-      const form = e.currentTarget;
-      const formDataToSend = new FormData(form);
-      
-      await fetch("/", {
+      // Formspree submission
+      const response = await fetch("https://formspree.io/f/mnjaqwoe", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formDataToSend as any).toString(),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          role: formData.role,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          siteSize: formData.siteSize,
+          legalDescription: formData.legalDescription,
+          timeline: formData.timeline,
+          method: formData.method,
+          deliveryNeeds: formData.deliveryNeeds,
+          notes: formData.notes,
+          _subject: `New Contact Form: ${formData.company}`,
+        }),
       });
 
-      toast.success(
-        "Thank you for your inquiry! We'll be in touch within 24 hours."
-      );
-      
-      // Reset form
-      setFormData({
-        role: "",
-        company: "",
-        email: "",
-        phone: "",
-        siteSize: "",
-        legalDescription: "",
-        timeline: "",
-        method: "",
-        deliveryNeeds: "",
-        notes: "",
-      });
-      setStep(1);
+      if (response.ok) {
+        toast.success(
+          "Thank you for your inquiry! We'll be in touch within 24 hours."
+        );
+        
+        // Reset form
+        setFormData({
+          role: "",
+          company: "",
+          email: "",
+          phone: "",
+          siteSize: "",
+          legalDescription: "",
+          timeline: "",
+          method: "",
+          deliveryNeeds: "",
+          notes: "",
+        });
+        setStep(1);
+      } else {
+        throw new Error("Form submission failed");
+      }
     } catch (error) {
-      toast.error("Failed to submit form. Please try again or contact us directly.");
+      toast.error("Failed to submit form. Please try again or contact us directly at sales@terrapreta.ca");
       console.error(error);
     } finally {
       setIsSubmitting(false);
@@ -177,18 +192,8 @@ export default function Contact() {
 
                 <form 
                   onSubmit={handleSubmit}
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
+                  className="space-y-6"
                 >
-                  {/* Hidden fields for Netlify Forms - Required for React/SPA */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <p className="hidden">
-                    <label>
-                      Don't fill this out if you're human: <input name="bot-field" />
-                    </label>
-                  </p>
                   {/* Step 1: Your Information */}
                   {step === 1 && (
                     <div className="space-y-6">
