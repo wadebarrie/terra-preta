@@ -13,10 +13,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 
 export default function Contact() {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     role: "",
     company: "",
@@ -24,18 +24,31 @@ export default function Contact() {
     phone: "",
     siteSize: "",
     legalDescription: "",
-    soilTest: null as File | null,
     timeline: "",
     method: "",
     deliveryNeeds: "",
     notes: "",
   });
 
-  const submitMutation = trpc.contact.submit.useMutation({
-    onSuccess: () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Netlify Forms submission
+      const form = e.currentTarget;
+      const formDataToSend = new FormData(form);
+      
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formDataToSend as any).toString(),
+      });
+
       toast.success(
-        "Thank you for your inquiry! We'll be in touch within 24 hours and send you the bid ready spec pack via email."
+        "Thank you for your inquiry! We'll be in touch within 24 hours."
       );
+      
       // Reset form
       setFormData({
         role: "",
@@ -44,35 +57,18 @@ export default function Contact() {
         phone: "",
         siteSize: "",
         legalDescription: "",
-        soilTest: null,
         timeline: "",
         method: "",
         deliveryNeeds: "",
         notes: "",
       });
       setStep(1);
-    },
-    onError: (error) => {
+    } catch (error) {
       toast.error("Failed to submit form. Please try again or contact us directly.");
       console.error(error);
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitMutation.mutate({
-      role: formData.role,
-      company: formData.company,
-      email: formData.email,
-      phone: formData.phone,
-      siteSize: formData.siteSize,
-      legalDescription: formData.legalDescription,
-      soilTestUrl: formData.soilTest ? "uploaded" : undefined, // File upload would need S3 integration
-      timeline: formData.timeline,
-      method: formData.method,
-      deliveryNeeds: formData.deliveryNeeds,
-      notes: formData.notes,
-    });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextStep = () => {
@@ -179,13 +175,27 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit}>
+                <form 
+                  onSubmit={handleSubmit}
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                >
+                  {/* Hidden fields for Netlify Forms - Required for React/SPA */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p className="hidden">
+                    <label>
+                      Don't fill this out if you're human: <input name="bot-field" />
+                    </label>
+                  </p>
                   {/* Step 1: Your Information */}
                   {step === 1 && (
                     <div className="space-y-6">
                       <div>
                         <Label htmlFor="role">Role *</Label>
                         <Select
+                          required
                           value={formData.role}
                           onValueChange={(value) =>
                             setFormData({ ...formData, role: value })
@@ -195,17 +205,17 @@ export default function Contact() {
                             <SelectValue placeholder="Select your role" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="consultant">
+                            <SelectItem value="Reclamation Consultant">
                               Reclamation Consultant
                             </SelectItem>
-                            <SelectItem value="epc">EPC / Contractor</SelectItem>
-                            <SelectItem value="operator">
+                            <SelectItem value="EPC / Contractor">EPC / Contractor</SelectItem>
+                            <SelectItem value="Site Operator">
                               Site Operator
                             </SelectItem>
-                            <SelectItem value="environmental">
+                            <SelectItem value="Environmental Manager">
                               Environmental Manager
                             </SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
+                            <SelectItem value="Other">Other</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -214,6 +224,7 @@ export default function Contact() {
                         <Label htmlFor="company">Company *</Label>
                         <Input
                           id="company"
+                          required
                           value={formData.company}
                           onChange={(e) =>
                             setFormData({ ...formData, company: e.target.value })
@@ -227,6 +238,7 @@ export default function Contact() {
                         <Input
                           id="email"
                           type="email"
+                          required
                           value={formData.email}
                           onChange={(e) =>
                             setFormData({ ...formData, email: e.target.value })
@@ -262,6 +274,7 @@ export default function Contact() {
                         <Input
                           id="siteSize"
                           type="number"
+                          required
                           value={formData.siteSize}
                           onChange={(e) =>
                             setFormData({ ...formData, siteSize: e.target.value })
@@ -285,26 +298,6 @@ export default function Contact() {
                           }
                           placeholder="e.g., NW 12-34-5-W5M or 51.0447° N, 114.0719° W"
                         />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="soilTest">
-                          Soil Test Upload (optional)
-                        </Label>
-                        <Input
-                          id="soilTest"
-                          type="file"
-                          accept=".pdf,.doc,.docx,.jpg,.png"
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              soilTest: e.target.files?.[0] || null,
-                            })
-                          }
-                        />
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Accepts PDF, Word, or image files
-                        </p>
                       </div>
 
                       <div className="flex gap-4">
@@ -333,6 +326,7 @@ export default function Contact() {
                       <div>
                         <Label htmlFor="timeline">Timeline *</Label>
                         <Select
+                          required
                           value={formData.timeline}
                           onValueChange={(value) =>
                             setFormData({ ...formData, timeline: value })
@@ -342,12 +336,12 @@ export default function Contact() {
                             <SelectValue placeholder="Select timeline" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="immediate">
+                            <SelectItem value="Immediate (within 2 weeks)">
                               Immediate (within 2 weeks)
                             </SelectItem>
-                            <SelectItem value="1-month">1-2 months</SelectItem>
-                            <SelectItem value="3-months">3-6 months</SelectItem>
-                            <SelectItem value="planning">
+                            <SelectItem value="1-2 months">1-2 months</SelectItem>
+                            <SelectItem value="3-6 months">3-6 months</SelectItem>
+                            <SelectItem value="Planning stage">
                               Planning stage
                             </SelectItem>
                           </SelectContent>
@@ -368,15 +362,15 @@ export default function Contact() {
                             <SelectValue placeholder="Select method" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="broadcast">Broadcast</SelectItem>
-                            <SelectItem value="drill">
+                            <SelectItem value="Broadcast">Broadcast</SelectItem>
+                            <SelectItem value="Drill Incorporation">
                               Drill Incorporation
                             </SelectItem>
-                            <SelectItem value="hydroseeding">
+                            <SelectItem value="Hydroseeding">
                               Hydroseeding
                             </SelectItem>
-                            <SelectItem value="drone">Drone</SelectItem>
-                            <SelectItem value="unsure">Not sure yet</SelectItem>
+                            <SelectItem value="Drone">Drone</SelectItem>
+                            <SelectItem value="Not sure yet">Not sure yet</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -418,8 +412,8 @@ export default function Contact() {
                         >
                           Back
                         </Button>
-                        <Button type="submit" className="flex-1" disabled={submitMutation.isPending}>
-                          {submitMutation.isPending ? "Submitting..." : "Submit Request"}
+                        <Button type="submit" className="flex-1" disabled={isSubmitting}>
+                          {isSubmitting ? "Submitting..." : "Submit Request"}
                         </Button>
                       </div>
                     </div>
