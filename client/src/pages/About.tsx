@@ -1,10 +1,49 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Building, Shield, Users } from "lucide-react";
-import { trpc } from "@/lib/trpc";
+import { useEffect, useState } from "react";
+
+// Import team member data directly from content files
+const teamMembers = [
+  {
+    name: "John Anderson",
+    role: "Founder & CEO",
+    description: "20+ years in reclamation and soil science",
+    photo: undefined as string | undefined,
+    order: 1,
+  },
+  {
+    name: "Sarah Chen",
+    role: "Operations Manager",
+    description: "Manufacturing and quality assurance specialist",
+    photo: undefined as string | undefined,
+    order: 2,
+  },
+  {
+    name: "Mike Thompson",
+    role: "Field Services Lead",
+    description: "On-site support and application training",
+    photo: undefined as string | undefined,
+    order: 3,
+  },
+  {
+    name: "Lisa Rodriguez",
+    role: "Technical Sales",
+    description: "Project planning and customer support",
+    photo: undefined as string | undefined,
+    order: 4,
+  },
+];
 
 export default function About() {
-  // Fetch team members from CMS
-  const { data: team, isLoading } = trpc.content.getTeamMembers.useQuery();
+  const [team, setTeam] = useState(teamMembers);
+
+  // In the future, this can fetch from CMS dynamically
+  // const { data: team, isLoading } = trpc.content.getTeamMembers.useQuery();
+  
+  useEffect(() => {
+    // Team members are loaded from the constant above
+    // When server API is ready, replace with API call
+  }, []);
 
   return (
     <div>
@@ -98,42 +137,38 @@ export default function About() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">Our team</h2>
-            {isLoading ? (
-              <div className="text-center text-muted-foreground">Loading team members...</div>
-            ) : (
-              <div className="grid md:grid-cols-2 gap-8">
-                {team?.map((member) => (
-                  <Card key={member.slug}>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-4">
-                        {member.photo ? (
-                          <img 
-                            src={member.photo} 
-                            alt={member.name}
-                            className="rounded-full h-16 w-16 object-cover flex-shrink-0"
-                          />
-                        ) : (
-                          <div className="bg-muted rounded-full h-16 w-16 flex items-center justify-center flex-shrink-0">
-                            <Users className="h-8 w-8 text-primary" />
-                          </div>
-                        )}
-                        <div>
-                          <h3 className="font-semibold text-lg mb-1">
-                            {member.name}
-                          </h3>
-                          <p className="text-sm text-primary mb-2">
-                            {member.role}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {member.description}
-                          </p>
+            <div className="grid md:grid-cols-2 gap-8">
+              {team.map((member, index) => (
+                <Card key={index}>
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      {member.photo ? (
+                        <img 
+                          src={member.photo} 
+                          alt={member.name}
+                          className="rounded-full h-16 w-16 object-cover flex-shrink-0"
+                        />
+                      ) : (
+                        <div className="bg-muted rounded-full h-16 w-16 flex items-center justify-center flex-shrink-0">
+                          <Users className="h-8 w-8 text-primary" />
                         </div>
+                      )}
+                      <div>
+                        <h3 className="font-semibold text-lg mb-1">
+                          {member.name}
+                        </h3>
+                        <p className="text-sm text-primary mb-2">
+                          {member.role}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {member.description}
+                        </p>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
