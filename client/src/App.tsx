@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { StructuredData, organizationSchema, localBusinessSchema } from "./components/StructuredData";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -59,6 +60,10 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          {/* Global Structured Data */}
+          <StructuredData data={organizationSchema} />
+          <StructuredData data={localBusinessSchema} />
+          
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">

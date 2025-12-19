@@ -6,12 +6,44 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Terra Preta Organics provides pelleted soil amendments for reclamation sites across Alberta and the Prairies. Terra Revive rebuilds soil biology and structure for faster native species establishment." />
+    <meta name="keywords" content="soil amendment, reclamation, Alberta, Terra Revive, soil biology, native species, oil and gas reclamation, land restoration" />
+    <meta name="author" content="Terra Preta Organics" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Terra Preta Organics - Soil Amendments for Reclamation Sites" />
+    <meta property="og:description" content="Restore soil function. Close your site faster. Terra Revive is a pelleted soil amendment for Alberta reclamation sites." />
+    <meta property="og:image" content="/pellets-in-hand.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Terra Preta Organics - Soil Amendments for Reclamation Sites" />
+    <meta name="twitter:description" content="Restore soil function. Close your site faster. Terra Revive rebuilds soil biology for native species establishment." />
+    <meta name="twitter:image" content="/pellets-in-hand.jpg" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
-    <title>Terra Preta Organics</title>
+    
+    <title>Terra Preta Organics - Soil Amendments for Reclamation Sites in Alberta</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2RWSMCV2DD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2RWSMCV2DD');
+    </script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
     <!-- Netlify Identity Widget for CMS authentication -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
@@ -19,6 +51,7 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
     <!-- Netlify Identity redirect script -->
     <script>
       if (window.netlifyIdentity) {

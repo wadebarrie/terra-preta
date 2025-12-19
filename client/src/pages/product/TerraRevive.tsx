@@ -8,10 +8,13 @@ import {
 } from "@/components/ui/accordion";
 import { Download } from "lucide-react";
 import { Link } from "wouter";
+import { StructuredData, productSchema } from "@/components/StructuredData";
 
 export default function TerraRevive() {
   return (
     <div>
+      {/* Product Structured Data */}
+      <StructuredData data={productSchema} />
       {/* Sticky CTAs */}
       <div className="fixed bottom-4 right-4 z-40 flex flex-col gap-2 md:hidden">
         <Button asChild>

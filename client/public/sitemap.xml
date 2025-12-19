@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://terrapretaorganics.ca/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://terrapretaorganics.ca/about</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://terrapretaorganics.ca/contact</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Product Pages -->
+  <url>
+    <loc>https://terrapretaorganics.ca/product/terra-revive</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://terrapretaorganics.ca/pellets-in-hand.jpg</image:loc>
+      <image:title>Terra Revive Pelleted Soil Amendment</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Solutions Pages -->
+  <url>
+    <loc>https://terrapretaorganics.ca/solutions/reclamation</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrapretaorganics.ca/solutions/hydroseeding</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrapretaorganics.ca/solutions/mining</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Evidence Library -->
+  <url>
+    <loc>https://terrapretaorganics.ca/evidence</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrapretaorganics.ca/evidence/case-studies</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrapretaorganics.ca/evidence/method-statements</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrapretaorganics.ca/evidence/sds-tds</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Calculator Pages -->
+  <url>
+    <loc>https://terrapretaorganics.ca/calculator/pellet-selector</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://terrapretaorganics.ca/calculator/cost-payback</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
+

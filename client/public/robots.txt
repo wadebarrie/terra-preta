@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow CMS admin
+User-agent: *
+Disallow: /admin/
+
+# Disallow API routes
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://terrapretaorganics.ca/sitemap.xml
+
