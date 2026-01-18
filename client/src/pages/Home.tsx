@@ -4,6 +4,7 @@ import TrustStrip from "@/components/TrustStrip";
 import { ArrowRight, CheckCircle, Download, Layers, Leaf, Sprout } from "lucide-react";
 import { Link } from "wouter";
 import homeContent from "../../../content/pages/home.json";
+import { WistiaVideo, extractWistiaId } from "@/components/WistiaVideo";
 
 // Map icon names to components
 const iconMap: Record<string, any> = {
@@ -13,22 +14,28 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Home() {
+  // Extract Wistia ID if video is configured
+  const wistiaId = homeContent.heroVideo?.wistiaUrl 
+    ? extractWistiaId(homeContent.heroVideo.wistiaUrl)
+    : null;
+
   return (
     <div>
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* Background Video */}
-        {homeContent.heroVideoUrl && (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
-          >
-            <source src={homeContent.heroVideoUrl} type="video/mp4" />
-          </video>
-        )}
+        {wistiaId && homeContent.heroVideo ? (
+          <div className="absolute inset-0 w-full h-full opacity-20">
+            <WistiaVideo
+              videoId={wistiaId}
+              autoplay={homeContent.heroVideo.autoplay ?? true}
+              loop={homeContent.heroVideo.loop ?? true}
+              controls={homeContent.heroVideo.controls ?? false}
+              muted={homeContent.heroVideo.muted ?? true}
+              className="absolute inset-0"
+            />
+          </div>
+        ) : null}
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95" />
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">

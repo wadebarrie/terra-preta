@@ -1,7 +1,13 @@
 {
   "heroTitle": "Restore soil function. Close your site faster.",
   "heroSubtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics.",
-  "heroVideoUrl": "/reclamation-video.mp4",
+  "heroVideo": {
+    "wistiaUrl": "",
+    "autoplay": true,
+    "loop": true,
+    "controls": false,
+    "muted": true
+  },
   "features": [
     {
       "title": "Oil and Gas Reclamation",

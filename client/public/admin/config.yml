@@ -58,7 +58,16 @@ collections:
         fields:
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
-          - { label: "Hero Video URL", name: "heroVideoUrl", widget: "string", required: false }
+          - label: "Hero Video"
+            name: "heroVideo"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Wistia Video URL or ID", name: "wistiaUrl", widget: "string", required: false, hint: "Enter Wistia video URL (e.g., https://home.wistia.com/medias/abc123) or just the video ID" }
+              - { label: "Autoplay", name: "autoplay", widget: "boolean", default: true, hint: "Automatically play video when page loads" }
+              - { label: "Loop", name: "loop", widget: "boolean", default: true, hint: "Loop video continuously" }
+              - { label: "Show Controls", name: "controls", widget: "boolean", default: false, hint: "Show video player controls" }
+              - { label: "Muted", name: "muted", widget: "boolean", default: true, hint: "Mute video (recommended for autoplay)" }
           - label: "Features"
             name: "features"
             widget: "list"
