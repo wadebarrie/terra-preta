@@ -37,20 +37,9 @@ export function WistiaVideo({
       script.src = 'https://fast.wistia.com/assets/external/E-v1.js';
       script.async = true;
       document.head.appendChild(script);
-      
-      console.log('Wistia script added to page');
     }
 
-    // Give Wistia time to initialize
-    const timer = setTimeout(() => {
-      if (window._wq) {
-        console.log('Wistia API available, video ID:', videoId);
-      }
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => {};
   }, [videoId]);
 
   // Build options string for Wistia
@@ -68,8 +57,6 @@ export function WistiaVideo({
   ]
     .filter(Boolean)
     .join('&');
-
-  console.log('Rendering Wistia video with ID:', videoId, 'options:', options);
 
   return (
     <div
@@ -154,12 +141,10 @@ export function extractWistiaId(url: string): string {
   for (const pattern of patterns) {
     const match = url.match(pattern);
     if (match) {
-      console.log('Extracted Wistia ID:', match[1], 'from URL:', url);
       return match[1];
     }
   }
 
   // If no pattern matches, assume it's already an ID
-  console.log('No pattern matched, returning as-is:', url);
   return url;
 }
