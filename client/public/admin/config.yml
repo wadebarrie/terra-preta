@@ -68,6 +68,15 @@ collections:
               - { label: "Loop", name: "loop", widget: "boolean", default: true, hint: "Loop video continuously" }
               - { label: "Show Controls", name: "controls", widget: "boolean", default: false, hint: "Show video player controls" }
               - { label: "Muted", name: "muted", widget: "boolean", default: true, hint: "Mute video (recommended for autoplay)" }
+              - label: "Gradient Overlay"
+                name: "gradient"
+                widget: "object"
+                required: false
+                collapsed: true
+                fields:
+                  - { label: "Top Opacity (%)", name: "topOpacity", widget: "number", default: 60, min: 0, max: 100, hint: "Opacity at the top of the gradient (0-100)" }
+                  - { label: "Bottom Opacity (%)", name: "bottomOpacity", widget: "number", default: 90, min: 0, max: 100, hint: "Opacity at the bottom of the gradient (0-100)" }
+                  - { label: "Direction", name: "direction", widget: "select", default: "to-b", options: ["to-b", "to-t", "to-br", "to-bl", "to-tr", "to-tl"], hint: "Gradient direction: to-b (top to bottom), to-t (bottom to top), etc." }
           - label: "Features"
             name: "features"
             widget: "list"

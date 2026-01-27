@@ -19,6 +19,20 @@ export default function Home() {
     ? extractWistiaId(homeContent.heroVideo.wistiaUrl)
     : null;
 
+  // Build gradient class from CMS settings
+  const getGradientClass = () => {
+    const gradient = homeContent.heroVideo?.gradient;
+    if (!gradient) {
+      return "bg-gradient-to-b from-background/60 to-background/90";
+    }
+    
+    const direction = gradient.direction || "to-b";
+    const topOpacity = gradient.topOpacity ?? 60;
+    const bottomOpacity = gradient.bottomOpacity ?? 90;
+    
+    return `bg-gradient-${direction} from-background/${topOpacity} to-background/${bottomOpacity}`;
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -36,7 +50,7 @@ export default function Home() {
             />
           </div>
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 to-background/90 z-10" />
+        <div className={`absolute inset-0 ${getGradientClass()} z-10`} />
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">

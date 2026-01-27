@@ -25,6 +25,10 @@ The CMS now has a "Hero Video" section with these controls:
 - **Loop** - Toggle (default: true)
 - **Show Controls** - Toggle (default: false)
 - **Muted** - Toggle (default: true)
+- **Gradient Overlay** - Collapsible section with:
+  - **Top Opacity** - Number slider (0-100%, default: 60)
+  - **Bottom Opacity** - Number slider (0-100%, default: 90)
+  - **Direction** - Dropdown (to-b, to-t, to-br, to-bl, to-tr, to-tl)
 
 ### 3. Home Page Integration
 **Location:** `client/src/pages/Home.tsx`
@@ -55,6 +59,11 @@ Autoplay: ☑ Yes
 Loop: ☑ Yes
 Show Controls: ☐ No
 Muted: ☑ Yes (recommended for autoplay)
+
+Gradient Overlay (optional):
+  Top Opacity: 60 (lighter at top)
+  Bottom Opacity: 90 (darker at bottom)
+  Direction: to-b (top to bottom)
 ```
 
 5. Click **Publish**
@@ -104,6 +113,36 @@ All formats work the same way!
 - **Recommendation**: ON for autoplay (browsers require it)
 - **Note**: Browsers block autoplay with sound!
 
+### Gradient Overlay
+
+Control the dark overlay on top of the video to ensure text is readable:
+
+#### Top Opacity (0-100%)
+- **Lower values (20-40)**: Video is more visible at the top
+- **Medium values (50-70)**: Balanced visibility
+- **Higher values (80-100)**: Video is barely visible at the top
+- **Recommendation**: 60 for a good balance
+
+#### Bottom Opacity (0-100%)
+- **Lower values (20-40)**: Video is more visible at the bottom
+- **Medium values (50-70)**: Balanced visibility
+- **Higher values (80-100)**: Video is barely visible at the bottom
+- **Recommendation**: 90 to darken the bottom for better text readability
+
+#### Direction
+- **to-b**: Top to bottom (most common for hero sections)
+- **to-t**: Bottom to top (reverse gradient)
+- **to-br**: Top-left to bottom-right (diagonal)
+- **to-bl**: Top-right to bottom-left (diagonal)
+- **to-tr**: Bottom-left to top-right (diagonal)
+- **to-tl**: Bottom-right to top-left (diagonal)
+- **Recommendation**: `to-b` for standard hero sections
+
+**Example Settings:**
+- Light overlay (more video visible): Top: 30, Bottom: 60
+- Standard overlay (balanced): Top: 60, Bottom: 90
+- Dark overlay (text-focused): Top: 80, Bottom: 100
+
 ---
 
 ## 🎨 Common Configurations
@@ -114,8 +153,12 @@ Autoplay: ✓ Yes
 Loop: ✓ Yes
 Show Controls: ☐ No
 Muted: ✓ Yes
+Gradient:
+  Top Opacity: 60
+  Bottom Opacity: 90
+  Direction: to-b
 ```
-**Result:** Video plays automatically, loops forever, no controls, silent
+**Result:** Video plays automatically, loops forever, no controls, silent, with balanced gradient overlay
 
 ### Content Video (Inline)
 ```

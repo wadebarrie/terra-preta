@@ -6,7 +6,12 @@
     "autoplay": true,
     "loop": true,
     "controls": false,
-    "muted": true
+    "muted": true,
+    "gradient": {
+      "topOpacity": 60,
+      "bottomOpacity": 90,
+      "direction": "to-b"
+    }
   },
   "features": [
     {
