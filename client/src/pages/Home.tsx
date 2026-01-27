@@ -19,10 +19,21 @@ export default function Home() {
     ? extractWistiaId(homeContent.heroVideo.wistiaUrl)
     : null;
 
+  // Debug logging
+  console.log('Hero Video Config:', homeContent.heroVideo);
+  console.log('Extracted Wistia ID:', wistiaId);
+
   return (
     <div>
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Debug info - remove later */}
+        {wistiaId && (
+          <div style={{ position: 'fixed', top: 10, right: 10, background: 'red', color: 'white', padding: '10px', zIndex: 9999 }}>
+            Video ID: {wistiaId}
+          </div>
+        )}
+        
         {/* Background Video */}
         {wistiaId && homeContent.heroVideo ? (
           <div className="absolute inset-0 w-full h-full opacity-20 z-0">
@@ -35,7 +46,11 @@ export default function Home() {
               className="w-full h-full"
             />
           </div>
-        ) : null}
+        ) : (
+          <div style={{ position: 'fixed', top: 10, right: 10, background: 'orange', color: 'white', padding: '10px', zIndex: 9999 }}>
+            No wistiaId found. URL: {homeContent.heroVideo?.wistiaUrl || 'none'}
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95" />
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">

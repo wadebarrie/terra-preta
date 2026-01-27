@@ -30,19 +30,28 @@ export function WistiaVideo({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Load Wistia script
-    const script = document.createElement('script');
-    script.src = 'https://fast.wistia.com/assets/external/E-v1.js';
-    script.async = true;
-    document.body.appendChild(script);
+    // Check if Wistia script is already loaded
+    if (!document.getElementById('wistia-script')) {
+      const script = document.createElement('script');
+      script.id = 'wistia-script';
+      script.src = 'https://fast.wistia.com/assets/external/E-v1.js';
+      script.async = true;
+      document.head.appendChild(script);
+      
+      console.log('Wistia script added to page');
+    }
+
+    // Give Wistia time to initialize
+    const timer = setTimeout(() => {
+      if (window._wq) {
+        console.log('Wistia API available, video ID:', videoId);
+      }
+    }, 1000);
 
     return () => {
-      // Cleanup script on unmount
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+      clearTimeout(timer);
     };
-  }, []);
+  }, [videoId]);
 
   // Build options string for Wistia
   const options = [
@@ -55,10 +64,12 @@ export function WistiaVideo({
     !controls && 'settingsControl=false',
     !controls && 'volumeControl=false',
     !controls && 'fullscreenButton=false',
-    'fitStrategy=cover', // This ensures video covers the container like CSS object-fit: cover
+    'fitStrategy=cover',
   ]
     .filter(Boolean)
     .join('&');
+
+  console.log('Rendering Wistia video with ID:', videoId, 'options:', options);
 
   return (
     <div
@@ -123,6 +134,7 @@ export function WistiaVideoBackground({
  * 
  * Supports:
  * - https://home.wistia.com/medias/abc123xyz
+ * - https://growdoug.wistia.com/medias/abc123xyz (with subdomain)
  * - https://fast.wistia.net/embed/iframe/abc123xyz
  * - Just the ID: abc123xyz
  */
@@ -132,9 +144,9 @@ export function extractWistiaId(url: string): string {
     return url;
   }
 
-  // Extract from common Wistia URL patterns
+  // Extract from common Wistia URL patterns (with subdomain support)
   const patterns = [
-    /wistia\.com\/medias\/([a-z0-9]+)/i,
+    /wistia\.com\/medias\/([a-z0-9]+)/i,      // Matches any.wistia.com/medias/ID
     /wistia\.net\/embed\/iframe\/([a-z0-9]+)/i,
     /wistia\.net\/embed\/medias\/([a-z0-9]+)/i,
   ];
@@ -142,10 +154,12 @@ export function extractWistiaId(url: string): string {
   for (const pattern of patterns) {
     const match = url.match(pattern);
     if (match) {
+      console.log('Extracted Wistia ID:', match[1], 'from URL:', url);
       return match[1];
     }
   }
 
   // If no pattern matches, assume it's already an ID
+  console.log('No pattern matched, returning as-is:', url);
   return url;
 }
