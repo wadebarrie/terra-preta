@@ -53,20 +53,30 @@ export default function Home() {
         <div className={`absolute inset-0 ${getGradientClass()} z-10`} />
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
               {homeContent.heroTitle}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl mb-8 leading-relaxed text-black">
               {homeContent.heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" asChild>
                 <Link href="/contact">Book a Site Assessment</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild
+                className="bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-primary"
+              >
                 <Link href="/contact">Get a Quote</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild
+                className="bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-primary"
+              >
                 <Link href="/evidence/sds-tds">
                   <Download className="mr-2 h-5 w-5" />
                   Download Bid Ready Spec Pack
