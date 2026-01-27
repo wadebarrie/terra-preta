@@ -50,11 +50,12 @@ export function WistiaVideo({
     !controls && 'controlsVisibleOnLoad=false',
     muted && 'muted=true',
     loop && 'endVideoBehavior=loop',
-    'playbar=true',
-    'playButton=true',
-    'settingsControl=true',
-    'volumeControl=true',
-    'fullscreenButton=true',
+    !controls && 'playbar=false',
+    !controls && 'playButton=false',
+    !controls && 'settingsControl=false',
+    !controls && 'volumeControl=false',
+    !controls && 'fullscreenButton=false',
+    'fitStrategy=cover', // This ensures video covers the container like CSS object-fit: cover
   ]
     .filter(Boolean)
     .join('&');
@@ -62,37 +63,32 @@ export function WistiaVideo({
   return (
     <div
       ref={containerRef}
-      className={`wistia_responsive_padding ${className}`}
-      style={{ padding: '56.25% 0 0 0', position: 'relative' }}
+      className={`wistia_responsive_wrapper ${className}`}
+      style={{ height: '100%', width: '100%', position: 'relative' }}
     >
       <div
-        className="wistia_responsive_wrapper"
-        style={{ height: '100%', left: 0, position: 'absolute', top: 0, width: '100%' }}
+        className={`wistia_embed wistia_async_${videoId} ${options ? `${options}` : ''}`}
+        style={{ height: '100%', position: 'relative', width: '100%' }}
       >
         <div
-          className={`wistia_embed wistia_async_${videoId} ${options ? `${options}` : ''}`}
-          style={{ height: '100%', position: 'relative', width: '100%' }}
+          className="wistia_swatch"
+          style={{
+            height: '100%',
+            left: 0,
+            opacity: 0,
+            overflow: 'hidden',
+            position: 'absolute',
+            top: 0,
+            transition: 'opacity 200ms',
+            width: '100%',
+          }}
         >
-          <div
-            className="wistia_swatch"
-            style={{
-              height: '100%',
-              left: 0,
-              opacity: 0,
-              overflow: 'hidden',
-              position: 'absolute',
-              top: 0,
-              transition: 'opacity 200ms',
-              width: '100%',
-            }}
-          >
-            <img
-              src={`https://fast.wistia.com/embed/medias/${videoId}/swatch`}
-              style={{ filter: 'blur(5px)', height: '100%', objectFit: 'contain', width: '100%' }}
-              alt=""
-              aria-hidden="true"
-            />
-          </div>
+          <img
+            src={`https://fast.wistia.com/embed/medias/${videoId}/swatch`}
+            style={{ filter: 'blur(5px)', height: '100%', objectFit: 'cover', width: '100%' }}
+            alt=""
+            aria-hidden="true"
+          />
         </div>
       </div>
     </div>

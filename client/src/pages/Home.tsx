@@ -25,14 +25,14 @@ export default function Home() {
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* Background Video */}
         {wistiaId && homeContent.heroVideo ? (
-          <div className="absolute inset-0 w-full h-full opacity-20">
+          <div className="absolute inset-0 w-full h-full opacity-20 z-0">
             <WistiaVideo
               videoId={wistiaId}
               autoplay={homeContent.heroVideo.autoplay ?? true}
               loop={homeContent.heroVideo.loop ?? true}
               controls={homeContent.heroVideo.controls ?? false}
               muted={homeContent.heroVideo.muted ?? true}
-              className="absolute inset-0"
+              className="w-full h-full"
             />
           </div>
         ) : null}
