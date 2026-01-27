@@ -2,7 +2,7 @@
   "heroTitle": "Restore soil function. Close your site faster.",
   "heroSubtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics.",
   "heroVideo": {
-    "wistiaUrl": "https://growdoug.wistia.com/medias/23bd5r9gld",
+    "wistiaUrl": "<script src=\"https://fast.wistia.com/player.js\" async></script><script src=\"https://fast.wistia.com/embed/23bd5r9gld.js\" async type=\"module\"></script><style>wistia-player[media-id='23bd5r9gld']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/23bd5r9gld/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id=\"23bd5r9gld\" aspect=\"1.7777777777777777\"></wistia-player>",
     "autoplay": true,
     "loop": true,
     "controls": false,
