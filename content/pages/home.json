@@ -8,8 +8,8 @@
     "controls": false,
     "muted": true,
     "gradient": {
-      "topOpacity": 60,
-      "bottomOpacity": 90,
+      "topOpacity": 30,
+      "bottomOpacity": 60,
       "direction": "to-b"
     }
   },
