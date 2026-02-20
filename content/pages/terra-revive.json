@@ -8,13 +8,12 @@
     {
       "type": "Bulk Totes",
       "size": "1,500 lb",
-      "price": "$1.50/lb"
+      "price": "$1.00/lbs"
     },
     {
       "type": "Bags",
       "size": "50 lb",
-      "price": "$1.75/lb"
+      "price": "$1.50/lbs"
     }
   ]
 }
-
