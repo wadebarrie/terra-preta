@@ -41,21 +41,6 @@
         "name": "Broadcast",
         "rate": "2,000 to 6,000 lb/acre",
         "notes": "Light incorporation recommended if equipment available"
-      },
-      {
-        "name": "Drill Incorporation",
-        "rate": "2,000 to 6,000 lb/acre",
-        "notes": "Place in seed row with standard drill equipment"
-      },
-      {
-        "name": "Hydroseeding",
-        "rate": "2,000 to 6,000 lb/acre",
-        "notes": "Mix into slurry after seed and mulch, agitate 2-3 minutes"
-      },
-      {
-        "name": "Drone Application",
-        "rate": "2,000 to 6,000 lb/acre",
-        "notes": "Flows through standard spreader attachments"
       }
     ]
   },
