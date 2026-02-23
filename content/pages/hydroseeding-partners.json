@@ -1,0 +1,111 @@
+{
+  "heroTitle": "Hydroseeding Partners",
+  "heroSubtitle": "Add Terra Revive to your hydroseed mix and deliver superior establishment rates. Rebuild soil biology while you seed, reducing callbacks and improving customer outcomes.",
+  "problemSection": {
+    "title": "Why hydroseeding projects fail",
+    "paragraphs": [
+      "Soil function is an integrated set of biological, physical, and chemical processes that enable self-sustaining vegetation. When soil is compacted, stockpiled, or stripped of topsoil, these processes break down.",
+      "Hydroseed slurry delivers seed and mulch, but it does not rebuild soil biology or structure. Germination is poor. Vegetation struggles. Contractors face callbacks and unhappy clients."
+    ]
+  },
+  "solutionSection": {
+    "title": "How Terra Revive improves hydroseeding outcomes",
+    "subtitle": "Terra Revive pellets suspend in hydroseed slurry and apply evenly across the site. At 2,000+ lbs per acre, the pellets deliver organic matter and minerals that rebuild soil biology and improve germination.",
+    "benefits": [
+      {
+        "title": "Mix easily",
+        "description": "Pellets suspend in slurry without clogging hoses or nozzles."
+      },
+      {
+        "title": "Apply uniformly",
+        "description": "Even distribution across slopes and uneven terrain."
+      },
+      {
+        "title": "Rebuild biology",
+        "description": "Organic matter feeds soil microbes that cycle nutrients and improve structure."
+      },
+      {
+        "title": "Improve germination",
+        "description": "Restored soil function supports seed establishment and reduces callbacks."
+      }
+    ]
+  },
+  "methodSection": {
+    "title": "Application method and rates",
+    "cardTitle": "Hydroseeding with Terra Revive",
+    "details": [
+      {
+        "label": "Rate",
+        "value": "2,000+ lbs per acre based on soil degradation"
+      },
+      {
+        "label": "Mixing",
+        "value": "Add pellets to the hydroseed tank after seed and mulch. Agitate for 2 to 3 minutes to ensure even suspension."
+      },
+      {
+        "label": "Application",
+        "value": "Apply slurry at standard pressure and flow rates. Pellets distribute evenly with seed and mulch."
+      },
+      {
+        "label": "Compatibility",
+        "value": "Works with all standard hydroseed equipment. No special nozzles or modifications required."
+      },
+      {
+        "label": "Best for",
+        "value": "Slopes, uneven terrain, large acreages, and sites where broadcast equipment cannot access."
+      }
+    ]
+  },
+  "expectationsSection": {
+    "title": "What to expect",
+    "thisSeason": {
+      "title": "This season",
+      "items": [
+        "Higher germination rates",
+        "Faster seedling establishment",
+        "More uniform coverage",
+        "Fewer callbacks for re-seeding"
+      ]
+    },
+    "nextSeason": {
+      "title": "Next season",
+      "items": [
+        "Improved soil structure",
+        "Denser vegetative cover",
+        "Self-sustaining vegetation",
+        "Satisfied customers"
+      ]
+    }
+  },
+  "evidenceSection": {
+    "title": "Evidence from the field",
+    "showCaseStudies": false,
+    "comingSoonMessage": "Case Studies Coming Soon",
+    "caseStudies": [
+      {
+        "title": "Pipeline Right-of-Way",
+        "location": "Central Alberta | Hydroseeding",
+        "result": "85% germination rate. Uniform establishment across 50 acres.",
+        "image": "/field-worker-equipment.jpg"
+      },
+      {
+        "title": "Slope Stabilization",
+        "location": "Southern Alberta | Hydroseeding",
+        "result": "Native grass cover in 6 weeks. Zero erosion observed.",
+        "image": "/field-worker-equipment.jpg"
+      },
+      {
+        "title": "Utility Corridor",
+        "location": "Northern Alberta | Hydroseeding",
+        "result": "Dense vegetative cover. Customer satisfaction rating: 5/5.",
+        "image": "/field-worker-equipment.jpg"
+      }
+    ]
+  },
+  "ctaSection": {
+    "title": "Ready to improve your hydroseeding outcomes?",
+    "subtitle": "Get a quote or start a pilot project. Partner application services available.",
+    "primaryButton": "Get a Quote",
+    "secondaryButton": "Start a Pilot"
+  }
+}

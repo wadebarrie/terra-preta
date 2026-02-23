@@ -1,0 +1,69 @@
+{
+  "heroTitle": "Cost and Payback",
+  "heroSubtitle": "Estimate Terra Revive product costs and potential savings from reduced re-mobilizations and faster site closure.",
+  "form": {
+    "fields": {
+      "acres": {
+        "label": "Acres *",
+        "placeholder": "Enter acres",
+        "required": true
+      },
+      "rate": {
+        "label": "Application Rate (lb/acre) *",
+        "placeholder": "Select rate",
+        "required": true,
+        "options": [
+          { "value": "2000", "label": "2,000 lb/acre" },
+          { "value": "3000", "label": "3,000 lb/acre" },
+          { "value": "4000", "label": "4,000 lb/acre" },
+          { "value": "5000", "label": "5,000 lb/acre" },
+          { "value": "6000", "label": "6,000 lb/acre" }
+        ]
+      },
+      "reVisits": {
+        "label": "Estimated Re-visits Avoided Per Year",
+        "placeholder": "e.g., 1 or 2",
+        "helpText": "Each re-mobilization typically costs $3,000 to $7,000 in equipment, labor, and materials."
+      }
+    },
+    "submitButton": "Calculate Cost and Payback"
+  },
+  "results": {
+    "costEstimate": {
+      "title": "Cost Estimate",
+      "totalPoundsLabel": "Total Pounds",
+      "totesLabel": "Totes Needed",
+      "productCostLabel": "Product Cost",
+      "productCostNote": "Based on 1,500-2,000 lb totes at $1.00/lb"
+    },
+    "potentialSavings": {
+      "title": "Potential Savings",
+      "reVisitsLabel": "Re-mobilizations Avoided",
+      "reVisitsUnit": "per year",
+      "estimatedSavingsLabel": "Estimated Savings",
+      "savingsNote": "Based on $5,000 per re-mobilization (equipment, labor, materials)",
+      "netCostLabel": "Net Cost",
+      "paybackMessage": "Terra Revive pays for itself in avoided re-mobilizations"
+    },
+    "scheduleRisk": {
+      "title": "Schedule and Re-mobilization Risk",
+      "paragraphs": [
+        "Sites that fail to establish vegetation require re-mobilization for additional seeding, fertilization, or soil amendments. Each re-mobilization delays site closure and adds costs for equipment, labor, and materials.",
+        "Terra Revive rebuilds soil function so native species establish in the first growing season, reducing the risk of failed inspections and costly return visits. Sites close faster and operators avoid carrying long-term liability."
+      ]
+    }
+  },
+  "infoSection": {
+    "title": "About this calculator",
+    "paragraphs": [
+      "The Cost and Payback calculator estimates Terra Revive product costs based on your site size and application rate. It also calculates potential savings from avoided re-mobilizations.",
+      "Re-mobilization costs vary by site location, access, and scope of work. This calculator uses a conservative estimate of $5,000 per re-mobilization. Actual costs may be higher for remote sites or large acreages.",
+      "For site-specific cost estimates and project planning, contact us to discuss your reclamation needs."
+    ]
+  },
+  "calculationSettings": {
+    "toteWeight": 1750,
+    "totePrice": 1750,
+    "remobilizationCost": 5000
+  }
+}

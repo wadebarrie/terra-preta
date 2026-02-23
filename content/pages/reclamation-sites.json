@@ -1,0 +1,110 @@
+{
+  "heroTitle": "Oil and Gas Reclamation",
+  "heroSubtitle": "Restore soil function on wellsites, access roads, and lease areas. Terra Revive rebuilds biology and structure so native species establish faster, reducing re-mobilizations and closing sites on schedule.",
+  "problemSection": {
+    "title": "Why reclamation sites fail in Alberta",
+    "paragraphs": [
+      "Soil function is an integrated set of biological, physical, and chemical processes that enable self-sustaining vegetation. When heavy equipment compacts soil or topsoil sits stockpiled for years, these processes break down.",
+      "Seed germinates poorly. Native species struggle to establish. Operators face costly re-visits and delayed site closure. Synthetic fertilizers provide a temporary boost but do not rebuild the underlying soil structure or biology."
+    ]
+  },
+  "solutionSection": {
+    "title": "How Terra Revive restores soil function",
+    "subtitle": "Terra Revive pellets deliver organic matter, minerals, and microbial food sources that rebuild soil biology and structure. Applied at 2,000+ lbs per acre, the pellets integrate into the soil profile and feed beneficial microbes.",
+    "benefits": [
+      {
+        "title": "Rebuild biology",
+        "description": "Organic matter feeds soil microbes that cycle nutrients and improve structure."
+      },
+      {
+        "title": "Improve structure",
+        "description": "Aggregates form as microbes bind soil particles, improving water infiltration and root penetration."
+      },
+      {
+        "title": "Enable nutrient cycling",
+        "description": "Minerals and organic matter release nutrients gradually, supporting vegetation without synthetics."
+      },
+      {
+        "title": "Support native species",
+        "description": "Restored soil function allows native grasses and forbs to establish and persist."
+      }
+    ]
+  },
+  "methodsSection": {
+    "title": "Methods and application",
+    "methods": [
+      {
+        "title": "Broadcast",
+        "description": "Apply 2,000+ lbs per acre with a spreader truck or ATV spreader. Incorporate with light harrowing or raking if equipment is available.",
+        "bestFor": "Best for large wellsites and access roads where equipment can maneuver easily."
+      },
+      {
+        "title": "Drill incorporation",
+        "description": "Apply 2,000+ lbs per acre with a seed drill. Pellets are placed in the seed row and covered with soil.",
+        "bestFor": "Ideal for sites with existing drill equipment and when seed and amendment can be applied in one pass."
+      },
+      {
+        "title": "Hydroseeding",
+        "description": "Mix 2,000+ lbs per acre into the hydroseed slurry. Pellets suspend well and apply evenly across the site.",
+        "bestFor": "Perfect for slopes, uneven terrain, and sites where broadcast equipment cannot access."
+      },
+      {
+        "title": "Drone",
+        "description": "Apply 2,000+ lbs per acre with agricultural drones. Pellets flow through standard spreader attachments.",
+        "bestFor": "Emerging method for remote sites and areas with limited ground access."
+      }
+    ]
+  },
+  "expectationsSection": {
+    "title": "What to expect",
+    "thisSeason": {
+      "title": "This season",
+      "items": [
+        "Pellets integrate into the soil profile",
+        "Microbial activity increases",
+        "Seed germination improves",
+        "Native species begin to establish if moisture is adequate"
+      ]
+    },
+    "nextSeason": {
+      "title": "Next season",
+      "items": [
+        "Soil structure continues to improve",
+        "Vegetative cover increases",
+        "Native species diversity expands",
+        "Sites meet reclamation criteria"
+      ]
+    }
+  },
+  "evidenceSection": {
+    "title": "Evidence from the field",
+    "showCaseStudies": false,
+    "comingSoonMessage": "Case Studies Coming Soon",
+    "caseStudies": [
+      {
+        "title": "Wellsite Reclamation",
+        "location": "Central Alberta | Broadcast application",
+        "result": "70% vegetative cover in first season. Site closed 6 months ahead of schedule.",
+        "image": "/field-worker-equipment.jpg"
+      },
+      {
+        "title": "Access Road",
+        "location": "Southern Alberta | Drill incorporation",
+        "result": "Native grass establishment in 8 weeks. Zero re-mobilizations required.",
+        "image": "/field-worker-equipment.jpg"
+      },
+      {
+        "title": "Lease Area",
+        "location": "Northern Alberta | Hydroseeding",
+        "result": "Uniform coverage on slopes. Passed audit on first inspection.",
+        "image": "/field-worker-equipment.jpg"
+      }
+    ]
+  },
+  "ctaSection": {
+    "title": "Ready to close your site faster?",
+    "subtitle": "Get a quote or start a pilot project. On-site support available.",
+    "primaryButton": "Get a Quote",
+    "secondaryButton": "Start a Pilot"
+  }
+}

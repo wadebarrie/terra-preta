@@ -1,0 +1,110 @@
+{
+  "heroTitle": "Mining and Industrial",
+  "heroSubtitle": "Deliver reliable reclamation outcomes on large-scale mining and industrial sites. Terra Revive rebuilds soil function so vegetation establishes without synthetics, meeting regulatory requirements and reducing long-term liability.",
+  "problemSection": {
+    "title": "Why mining and industrial sites struggle",
+    "paragraphs": [
+      "Soil function is an integrated set of biological, physical, and chemical processes that enable self-sustaining vegetation. Mining and industrial operations strip topsoil, compact subsoil, and disrupt these processes at scale.",
+      "Reclamation plans call for native vegetation, but degraded soil cannot support it. Contractors apply synthetic fertilizers that provide a temporary boost but do not rebuild biology or structure. Sites fail inspections. Liability persists. Costs escalate."
+    ]
+  },
+  "solutionSection": {
+    "title": "How Terra Revive restores soil function at scale",
+    "subtitle": "Terra Revive pellets deliver organic matter, minerals, and microbial food sources that rebuild soil biology and structure. Applied at 2,000+ lbs per acre, the pellets integrate into the soil profile and support long-term vegetation establishment.",
+    "benefits": [
+      {
+        "title": "Rebuild biology",
+        "description": "Organic matter feeds soil microbes that cycle nutrients and improve structure."
+      },
+      {
+        "title": "Improve structure",
+        "description": "Aggregates form as microbes bind soil particles, improving water infiltration and root penetration."
+      },
+      {
+        "title": "Enable nutrient cycling",
+        "description": "Minerals and organic matter release nutrients gradually, supporting vegetation without synthetics."
+      },
+      {
+        "title": "Meet regulatory requirements",
+        "description": "Restored soil function allows native species to establish and persist, satisfying reclamation criteria."
+      }
+    ]
+  },
+  "methodsSection": {
+    "title": "Methods and application",
+    "methods": [
+      {
+        "title": "Broadcast",
+        "description": "Apply 2,000+ lbs per acre with spreader trucks or large-scale broadcast equipment. Incorporate with harrowing or discing.",
+        "bestFor": "Best for large open areas where heavy equipment can maneuver."
+      },
+      {
+        "title": "Drill incorporation",
+        "description": "Apply 2,000+ lbs per acre with large seed drills. Pellets are placed in the seed row and covered with soil.",
+        "bestFor": "Ideal for sites with existing drill equipment and when seed and amendment can be applied in one pass."
+      },
+      {
+        "title": "Hydroseeding",
+        "description": "Mix 2,000+ lbs per acre into the hydroseed slurry. Pellets suspend well and apply evenly across the site.",
+        "bestFor": "Perfect for slopes, tailings ponds, and areas where broadcast equipment cannot access."
+      },
+      {
+        "title": "Drone",
+        "description": "Apply 2,000+ lbs per acre with agricultural drones. Pellets flow through standard spreader attachments.",
+        "bestFor": "Emerging method for remote sites, steep slopes, and areas with limited ground access."
+      }
+    ]
+  },
+  "expectationsSection": {
+    "title": "What to expect",
+    "thisSeason": {
+      "title": "This season",
+      "items": [
+        "Pellets integrate into the soil profile",
+        "Microbial activity increases",
+        "Seed germination improves",
+        "Native species begin to establish if moisture is adequate"
+      ]
+    },
+    "nextSeason": {
+      "title": "Next season",
+      "items": [
+        "Soil structure continues to improve",
+        "Vegetative cover increases",
+        "Native species diversity expands",
+        "Sites meet reclamation criteria"
+      ]
+    }
+  },
+  "evidenceSection": {
+    "title": "Evidence from the field",
+    "showCaseStudies": false,
+    "comingSoonMessage": "Case Studies Coming Soon",
+    "caseStudies": [
+      {
+        "title": "Mine Tailings Area",
+        "location": "Northern Alberta | Broadcast application",
+        "result": "Native grass establishment across 200 acres. Site met reclamation criteria in 18 months.",
+        "image": "/field-worker-equipment.jpg"
+      },
+      {
+        "title": "Industrial Stockpile",
+        "location": "Central Alberta | Drill incorporation",
+        "result": "Germination improved from 35% to 80%. Reduced re-seeding costs by $45,000.",
+        "image": "/field-worker-equipment.jpg"
+      },
+      {
+        "title": "Haul Road",
+        "location": "Southern Alberta | Hydroseeding",
+        "result": "Uniform establishment on compacted subsoil. Passed regulatory inspection on first attempt.",
+        "image": "/field-worker-equipment.jpg"
+      }
+    ]
+  },
+  "ctaSection": {
+    "title": "Ready to meet your reclamation requirements?",
+    "subtitle": "Get a quote or start a pilot project. On-site support and spec-grade documentation available.",
+    "primaryButton": "Get a Quote",
+    "secondaryButton": "Start a Pilot"
+  }
+}

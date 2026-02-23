@@ -1,19 +1,138 @@
 {
-  "productName": "Terra Revive",
-  "description": "A pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics.",
-  "applicationRate": "1,500 to 2,000 lb per acre based on soil degradation",
-  "leadTime": "36 to 48 hours",
-  "deliveryArea": "Canada Wide",
-  "packagingOptions": [
-    {
-      "type": "Bulk Totes",
-      "size": "1,500 lb",
-      "price": "$1.00/lbs"
-    },
-    {
-      "type": "Bags",
-      "size": "50 lb",
-      "price": "$1.50/lbs"
-    }
-  ]
+  "heroTitle": "Terra Revive",
+  "heroSubtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling on degraded reclamation sites. Applied at 2,000+ lbs per acre, the pellets deliver organic matter and minerals that support native species establishment without synthetics. Compatible with broadcast, drill, hydroseeding, and drone application methods.",
+  "specifications": {
+    "title": "Product specifications",
+    "rows": [
+      {
+        "label": "Ingredients Family",
+        "value": "Organic matter, minerals, microbial food sources"
+      },
+      {
+        "label": "Functional Claims",
+        "value": "Rebuilds soil biology, improves structure, enables nutrient cycling, supports native species establishment"
+      },
+      {
+        "label": "Particle Size",
+        "value": "Pelleted, 3-5mm diameter"
+      },
+      {
+        "label": "Moisture Content",
+        "value": "Less than 15%"
+      },
+      {
+        "label": "Storage",
+        "value": "Store in a dry location. Protect from moisture."
+      },
+      {
+        "label": "Shelf Life",
+        "value": "24 months when stored properly"
+      },
+      {
+        "label": "Seeding Method Compatibility",
+        "value": "Broadcast, drill incorporation, hydroseeding, drone application"
+      }
+    ]
+  },
+  "applicationRates": {
+    "title": "Application rates by method",
+    "methods": [
+      {
+        "name": "Broadcast",
+        "rate": "2,000 to 6,000 lb/acre",
+        "notes": "Light incorporation recommended if equipment available"
+      },
+      {
+        "name": "Drill Incorporation",
+        "rate": "2,000 to 6,000 lb/acre",
+        "notes": "Place in seed row with standard drill equipment"
+      },
+      {
+        "name": "Hydroseeding",
+        "rate": "2,000 to 6,000 lb/acre",
+        "notes": "Mix into slurry after seed and mulch, agitate 2-3 minutes"
+      },
+      {
+        "name": "Drone Application",
+        "rate": "2,000 to 6,000 lb/acre",
+        "notes": "Flows through standard spreader attachments"
+      }
+    ]
+  },
+  "packaging": {
+    "title": "Packaging, pricing, and delivery",
+    "options": [
+      {
+        "name": "1,500-2,000 lb Tote",
+        "price": "$1.00/lb",
+        "total": "$1,500 - $2,000 per tote",
+        "bestFor": "Large sites, bulk orders"
+      },
+      {
+        "name": "50 lb Bag",
+        "price": "$1.75/lb",
+        "total": "$87.50 per bag",
+        "bestFor": "Small sites, pilots, trials"
+      }
+    ],
+    "delivery": [
+      {
+        "label": "Delivery Territory",
+        "value": "Canada Wide"
+      },
+      {
+        "label": "Minimum Order",
+        "value": "No minimum"
+      }
+    ]
+  },
+  "downloads": {
+    "title": "Downloads",
+    "documents": [
+      {
+        "title": "Safety Data Sheet (SDS)",
+        "description": "Complete safety information and handling instructions",
+        "link": "/evidence/sds-tds"
+      },
+      {
+        "title": "Technical Data Sheet (TDS)",
+        "description": "Detailed product specifications and application guidance",
+        "link": "/evidence/sds-tds"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "questions": [
+      {
+        "question": "What equipment is compatible with Terra Revive?",
+        "answer": "Terra Revive works with standard broadcast spreaders, seed drills, hydroseed equipment, and agricultural drones. No special modifications or attachments required. The pellets flow freely and distribute evenly with existing equipment."
+      },
+      {
+        "question": "Can Terra Revive be used on uneven terrain?",
+        "answer": "Yes. Hydroseeding and drone application methods work well on slopes, uneven terrain, and areas where ground equipment cannot access. Broadcast and drill methods are best for relatively level sites where equipment can maneuver."
+      },
+      {
+        "question": "Can I use Terra Revive with conventional fertilizer?",
+        "answer": "Terra Revive is designed to rebuild soil function so native species establish without synthetics. If your reclamation plan requires conventional fertilizer, Terra Revive can be applied alongside it. However, most sites do not need additional fertilizer when soil biology and structure are restored."
+      },
+      {
+        "question": "Do regulators accept Terra Revive in reclamation plans?",
+        "answer": "Yes. Terra Revive is a soil amendment that supports native species establishment, which aligns with Alberta reclamation criteria. We provide spec sheets, method statements, and QA documentation that can be included in reclamation plans and submitted to regulators."
+      },
+      {
+        "question": "How do I run a pilot project?",
+        "answer": "Start with a small test area (1 to 5 acres) and apply Terra Revive at 2,000+ lbs per acre using your preferred method. Monitor germination, vegetative cover, and species establishment over one growing season. Compare results to a control area treated with your standard reclamation protocol. Contact us to discuss pilot design."
+      },
+      {
+        "question": "What is soil function?",
+        "answer": "Soil function is an integrated set of biological, physical, and chemical processes that enable self-sustaining vegetation. Healthy soil supports microbial activity, nutrient cycling, water infiltration, and root penetration. When heavy equipment compacts soil or topsoil sits stockpiled, these processes break down. Terra Revive rebuilds soil function by delivering organic matter and minerals that feed soil biology and improve structure."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to order Terra Revive?",
+    "subtitle": "Get a quote to discuss your reclamation needs.",
+    "button": "Get a Quote"
+  }
 }
