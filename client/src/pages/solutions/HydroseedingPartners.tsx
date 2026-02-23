@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import hydroseedingContent from "@content/pages/hydroseeding-partners.json";
 
 export default function HydroseedingPartners() {
   return (
@@ -11,12 +12,10 @@ export default function HydroseedingPartners() {
         <div className="container">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Hydroseeding Partners
+              {hydroseedingContent.heroTitle}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Add Terra Revive to your hydroseed mix and deliver superior
-              establishment rates. Rebuild soil biology while you seed, reducing
-              callbacks and improving customer outcomes.
+              {hydroseedingContent.heroSubtitle}
             </p>
           </div>
         </div>
@@ -27,19 +26,13 @@ export default function HydroseedingPartners() {
         <div className="container">
           <div className="max-w-4xl">
             <h2 className="text-3xl font-bold mb-6">
-              Why hydroseeding projects fail
+              {hydroseedingContent.problemSection.title}
             </h2>
-            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Soil function is an integrated set of biological, physical, and
-              chemical processes that enable self-sustaining vegetation. When
-              soil is compacted, stockpiled, or stripped of topsoil, these
-              processes break down.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Hydroseed slurry delivers seed and mulch, but it does not rebuild
-              soil biology or structure. Germination is poor. Vegetation
-              struggles. Contractors face callbacks and unhappy clients.
-            </p>
+            {hydroseedingContent.problemSection.paragraphs.map((paragraph, index) => (
+              <p key={index} className={`text-lg text-muted-foreground leading-relaxed ${index < hydroseedingContent.problemSection.paragraphs.length - 1 ? 'mb-4' : ''}`}>
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </section>
@@ -49,53 +42,23 @@ export default function HydroseedingPartners() {
         <div className="container">
           <div className="max-w-4xl">
             <h2 className="text-3xl font-bold mb-6">
-              How Terra Revive improves hydroseeding outcomes
+              {hydroseedingContent.solutionSection.title}
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Terra Revive pellets suspend in hydroseed slurry and apply evenly
-              across the site. At 2,000+ lbs per acre, the pellets
-              deliver organic matter and minerals that rebuild soil biology and
-              improve germination.
+              {hydroseedingContent.solutionSection.subtitle}
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">Mix easily</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Pellets suspend in slurry without clogging hoses or nozzles.
-                  </p>
+              {hydroseedingContent.solutionSection.benefits.map((benefit, index) => (
+                <div key={index} className="flex gap-3">
+                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">{benefit.title}</h3>
+                    <p className="text-muted-foreground text-sm">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">Apply uniformly</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Even distribution across slopes and uneven terrain.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">Rebuild biology</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Organic matter feeds soil microbes that cycle nutrients and
-                    improve structure.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-1">Improve germination</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Restored soil function supports seed establishment and
-                    reduces callbacks.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -106,48 +69,22 @@ export default function HydroseedingPartners() {
         <div className="container">
           <div className="max-w-4xl">
             <h2 className="text-3xl font-bold mb-6">
-              Application method and rates
+              {hydroseedingContent.methodSection.title}
             </h2>
             <Card>
               <CardContent className="pt-6">
                 <h3 className="font-semibold text-lg mb-4">
-                  Hydroseeding with Terra Revive
+                  {hydroseedingContent.methodSection.cardTitle}
                 </h3>
                 <div className="space-y-4">
-                  <div>
-                    <h4 className="font-medium mb-2">Rate</h4>
-                    <p className="text-muted-foreground">
-                      1,500 to 2,000 lb per acre based on soil degradation
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-2">Mixing</h4>
-                    <p className="text-muted-foreground">
-                      Add pellets to the hydroseed tank after seed and mulch.
-                      Agitate for 2 to 3 minutes to ensure even suspension.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-2">Application</h4>
-                    <p className="text-muted-foreground">
-                      Apply slurry at standard pressure and flow rates. Pellets
-                      distribute evenly with seed and mulch.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-2">Compatibility</h4>
-                    <p className="text-muted-foreground">
-                      Works with all standard hydroseed equipment. No special
-                      nozzles or modifications required.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-2">Best for</h4>
-                    <p className="text-muted-foreground">
-                      Slopes, uneven terrain, large acreages, and sites where
-                      broadcast equipment cannot access.
-                    </p>
-                  </div>
+                  {hydroseedingContent.methodSection.details.map((detail, index) => (
+                    <div key={index}>
+                      <h4 className="font-medium mb-2">{detail.label}</h4>
+                      <p className="text-muted-foreground">
+                        {detail.value}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -159,48 +96,28 @@ export default function HydroseedingPartners() {
       <section className="py-16 bg-muted">
         <div className="container">
           <div className="max-w-4xl">
-            <h2 className="text-3xl font-bold mb-6">What to expect</h2>
+            <h2 className="text-3xl font-bold mb-6">{hydroseedingContent.expectationsSection.title}</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-lg mb-3">This season</h3>
+                <h3 className="font-semibold text-lg mb-3">{hydroseedingContent.expectationsSection.thisSeason.title}</h3>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Higher germination rates</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Faster seedling establishment</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>More uniform coverage</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Fewer callbacks for re-seeding</span>
-                  </li>
+                  {hydroseedingContent.expectationsSection.thisSeason.items.map((item, index) => (
+                    <li key={index} className="flex gap-2">
+                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-3">Next season</h3>
+                <h3 className="font-semibold text-lg mb-3">{hydroseedingContent.expectationsSection.nextSeason.title}</h3>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Improved soil structure</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Denser vegetative cover</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Self-sustaining vegetation</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Satisfied customers</span>
-                  </li>
+                  {hydroseedingContent.expectationsSection.nextSeason.items.map((item, index) => (
+                    <li key={index} className="flex gap-2">
+                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -211,57 +128,35 @@ export default function HydroseedingPartners() {
       {/* Evidence */}
       <section className="py-16">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-8">Evidence from the field</h2>
+          <h2 className="text-3xl font-bold mb-8">{hydroseedingContent.evidenceSection.title}</h2>
           <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
-                  <img src="/field-worker-equipment.jpg" alt="Field operations" className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-semibold mb-2">Pipeline Right-of-Way</h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  Central Alberta | Hydroseeding
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  85% germination rate. Uniform establishment across 50 acres.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
-                  <img src="/field-worker-equipment.jpg" alt="Field operations" className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-semibold mb-2">Slope Stabilization</h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  Southern Alberta | Hydroseeding
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Native grass cover in 6 weeks. Zero erosion observed.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
-                  <img src="/field-worker-equipment.jpg" alt="Field operations" className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-semibold mb-2">Utility Corridor</h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  Northern Alberta | Hydroseeding
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Dense vegetative cover. Customer satisfaction rating: 5/5.
-                </p>
-              </CardContent>
-            </Card>
+            {hydroseedingContent.evidenceSection.caseStudies.map((study, index) => (
+              <Card key={index}>
+                <CardContent className="pt-6">
+                  <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">
+                    <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
+                  </div>
+                  <h3 className="font-semibold mb-2">{study.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {study.location}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {study.result}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
           <div className="text-center">
-            <Button variant="outline" asChild className="opacity-50 pointer-events-none">
-              <span>Case Studies Coming Soon</span>
-            </Button>
+            {hydroseedingContent.evidenceSection.showCaseStudies ? (
+              <Button variant="outline" asChild>
+                <Link href="/evidence/case-studies">View All Case Studies</Link>
+              </Button>
+            ) : (
+              <Button variant="outline" className="opacity-50 pointer-events-none">
+                <span>{hydroseedingContent.evidenceSection.comingSoonMessage}</span>
+              </Button>
+            )}
           </div>
         </div>
       </section>
@@ -271,18 +166,17 @@ export default function HydroseedingPartners() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to improve your hydroseeding outcomes?
+              {hydroseedingContent.ctaSection.title}
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Get a quote or start a pilot project. Partner
-              application services available.
+              {hydroseedingContent.ctaSection.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/contact">Get a Quote</Link>
+                <Link href="/contact">{hydroseedingContent.ctaSection.primaryButton}</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/contact">Start a Pilot</Link>
+                <Link href="/contact">{hydroseedingContent.ctaSection.secondaryButton}</Link>
               </Button>
             </div>
           </div>
