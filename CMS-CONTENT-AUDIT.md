@@ -57,14 +57,18 @@ These pages/sections are 100% editable in the CMS with working delete functional
 - ✅ Form Configuration
 - ✅ Formspree Endpoint
 
+### Terra Revive Product Page
+- ✅ Hero Section
+- ✅ Specifications - ADD/REMOVE specs
+- ✅ **Application Methods** - ADD/REMOVE methods (NEWLY FIXED)
+- ✅ **Packaging Options** - ADD/REMOVE packages (NEWLY FIXED)
+- ✅ **Downloads** - ADD/REMOVE documents (NEWLY FIXED)
+- ✅ **FAQ** - ADD/REMOVE questions (NEWLY FIXED)
+- ✅ CTA Section
+
 ## ⚠️ PARTIALLY CMS-MANAGED
 
 These have JSON files created but components haven't been updated to use them:
-
-### Terra Revive Product Page
-- 📄 JSON exists: `content/pages/terra-revive.json`
-- ❌ Component still has some hardcoded content
-- **To Fix:** Update `client/src/pages/product/TerraRevive.tsx` to import and use JSON
 
 ### Pellet Selector Calculator
 - 📄 JSON exists: `content/pages/pellet-selector.json`
@@ -94,7 +98,7 @@ These pages have hardcoded content arrays that won't respond to CMS X button:
 
 ## Summary By Status
 
-### 🟢 100% Working (8 pages)
+### 🟢 100% Working (9 pages)
 1. Home
 2. About
 3. Reclamation Sites
@@ -103,11 +107,11 @@ These pages have hardcoded content arrays that won't respond to CMS X button:
 6. Evidence Library
 7. SDS & TDS
 8. Contact
+9. **Terra Revive Product** (NEWLY FIXED)
 
-### 🟡 Needs Component Update (3 pages)
-1. Terra Revive Product (JSON ready, component needs update)
-2. Pellet Selector (JSON ready, component needs update)
-3. Cost & Payback (JSON ready, component needs update)
+### 🟡 Needs Component Update (2 pages)
+1. Pellet Selector (JSON ready, component needs update)
+2. Cost & Payback (JSON ready, component needs update)
 
 ### 🔴 Needs Full Integration (2 pages)
 1. Case Studies (currently disabled)
@@ -128,6 +132,7 @@ These pages have hardcoded content arrays that won't respond to CMS X button:
 - Evidence Library: Resource cards
 - SDS & TDS: Documents, Info paragraphs
 - Contact: Contact cards
+- **Terra Revive: Application methods, Packaging options, Downloads, FAQ questions** (NEWLY FIXED)
 
 ### ❌ Doesn't Work On (Hardcoded):
 - Case Studies page: case studies array
@@ -154,10 +159,9 @@ These pages have "Show Section" toggles:
 
 If you want 100% CMS coverage:
 
-### Priority 1: Fix Partially Managed Pages
-1. Update Terra Revive Product component to use JSON
-2. Update Pellet Selector component to use JSON  
-3. Update Cost & Payback component to use JSON
+### Priority 1: Fix Remaining Partially Managed Pages
+1. Update Pellet Selector component to use JSON  
+2. Update Cost & Payback component to use JSON
 
 ### Priority 2: Handle Disabled Pages
 1. Decide if Case Studies page should be integrated or deleted
@@ -168,14 +172,16 @@ If you want 100% CMS coverage:
 2. Add section visibility to Calculator pages
 3. Create CMS integration for TrustStrip component (if needed)
 
-## Current Coverage: 73%
+## Current Coverage: 82%
 
-- **Fully Working:** 8 pages / 11 active pages = 73%
+- **Fully Working:** 9 pages / 11 active pages = 82%
 - **With Pending Updates:** 11 pages / 13 total pages = 85%
 - **Target:** 100% CMS-managed content
 
 ---
 
 **Audit Date:** February 23, 2026  
-**Major Fix Applied:** Home page hardcoded content removed  
+**Major Fixes Applied:** 
+- Home page hardcoded content removed
+- **Terra Revive Product page now fully CMS-managed** (NEW)
 **X Button Status:** Now working on all major content pages!
