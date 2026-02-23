@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import TrustStrip from "@/components/TrustStrip";
 import { ArrowRight, CheckCircle, Download, Layers, Leaf, Sprout } from "lucide-react";
 import { Link } from "wouter";
-import homeContent from "../../../content/pages/home.json";
+import homeContent from "@content/pages/home.json";
 import { WistiaVideo, extractWistiaId } from "@/components/WistiaVideo";
 
 // Map icon names to components

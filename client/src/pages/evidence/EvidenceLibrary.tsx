@@ -10,7 +10,7 @@ import {
 import { Download, FileText } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
-import evidenceLibraryContent from "../../../content/pages/evidence-library.json";
+import evidenceLibraryContent from "@content/pages/evidence-library.json";
 
 export default function EvidenceLibrary() {
   const [sector, setSector] = useState("all");

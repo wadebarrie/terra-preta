@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, FileText } from "lucide-react";
-import sdsTdsContent from "../../../content/pages/sds-tds.json";
+import sdsTdsContent from "@content/pages/sds-tds.json";
 
 export default function SdsTds() {
   return (
