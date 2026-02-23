@@ -1,57 +1,16 @@
 backend:
   name: git-gateway
-  branch: main # Change to your main branch name if different
+  branch: main
 
-media_folder: "client/public/uploads" # Where uploaded images will be stored
-public_folder: "/uploads" # The public path to media files
+media_folder: "client/public/uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "case-studies"
-    label: "Case Studies"
-    folder: "content/case-studies"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "image", widget: "image" }
-      - { label: "Application Type", name: "applicationType", widget: "string" }
-      - { label: "Site Type", name: "siteType", widget: "string" }
-      - { label: "Results Summary", name: "resultsSummary", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Location", name: "location", widget: "string", required: false }
-      - { label: "Vegetation Coverage", name: "vegetationCoverage", widget: "string", required: false }
-      - { label: "Timeline", name: "timeline", widget: "string", required: false }
-
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "image", widget: "image", required: false }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
-
-  - name: "team"
-    label: "Team Members"
-    folder: "content/team"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Role", name: "role", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Photo", name: "photo", widget: "image", required: false }
-      - { label: "Order", name: "order", widget: "number", default: 0 }
-
+  # PAGES COLLECTION
   - name: "pages"
     label: "Pages"
     files:
+      # HOME PAGE
       - label: "Home Page"
         name: "home"
         file: "content/pages/home.json"
@@ -62,28 +21,29 @@ collections:
             name: "heroVideo"
             widget: "object"
             required: false
+            collapsed: true
             fields:
-              - { label: "Wistia Video URL or ID", name: "wistiaUrl", widget: "string", required: false, hint: "Enter Wistia video URL (e.g., https://home.wistia.com/medias/abc123) or just the video ID" }
-              - { label: "Autoplay", name: "autoplay", widget: "boolean", default: true, hint: "Automatically play video when page loads" }
-              - { label: "Loop", name: "loop", widget: "boolean", default: true, hint: "Loop video continuously" }
-              - { label: "Show Controls", name: "controls", widget: "boolean", default: false, hint: "Show video player controls" }
-              - { label: "Muted", name: "muted", widget: "boolean", default: true, hint: "Mute video (recommended for autoplay)" }
+              - { label: "Wistia Video URL or ID", name: "wistiaUrl", widget: "string", required: false }
+              - { label: "Autoplay", name: "autoplay", widget: "boolean", default: true }
+              - { label: "Loop", name: "loop", widget: "boolean", default: true }
+              - { label: "Show Controls", name: "controls", widget: "boolean", default: false }
+              - { label: "Muted", name: "muted", widget: "boolean", default: true }
               - label: "Gradient Overlay"
                 name: "gradient"
                 widget: "object"
                 required: false
                 collapsed: true
                 fields:
-                  - { label: "Top Opacity (%)", name: "topOpacity", widget: "number", default: 60, min: 0, max: 100, hint: "Opacity at the top of the gradient (0-100)" }
-                  - { label: "Bottom Opacity (%)", name: "bottomOpacity", widget: "number", default: 90, min: 0, max: 100, hint: "Opacity at the bottom of the gradient (0-100)" }
-                  - { label: "Direction", name: "direction", widget: "select", default: "to-b", options: ["to-b", "to-t", "to-br", "to-bl", "to-tr", "to-tl"], hint: "Gradient direction: to-b (top to bottom), to-t (bottom to top), etc." }
-          - label: "Features"
+                  - { label: "Top Opacity (%)", name: "topOpacity", widget: "number", default: 60, min: 0, max: 100 }
+                  - { label: "Bottom Opacity (%)", name: "bottomOpacity", widget: "number", default: 90, min: 0, max: 100 }
+                  - { label: "Direction", name: "direction", widget: "select", default: "to-b", options: ["to-b", "to-t", "to-br", "to-bl", "to-tr", "to-tl"] }
+          - label: "Features (Who It's For)"
             name: "features"
             widget: "list"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Icon", name: "icon", widget: "string", hint: "lucide-react icon name" }
+              - { label: "Icon", name: "icon", widget: "select", options: ["Sprout", "Leaf", "Layers"] }
               - { label: "Link", name: "link", widget: "string" }
           - label: "Outcomes"
             name: "outcomes"
@@ -92,44 +52,553 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
+      # ABOUT PAGE
       - label: "About Page"
         name: "about"
         file: "content/pages/about.json"
         fields:
-          - { label: "Page Title", name: "pageTitle", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "text" }
-          - { label: "Story Title", name: "storyTitle", widget: "string" }
-          - { label: "Story Content", name: "storyContent", widget: "markdown" }
-          - label: "Facility"
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Our Story"
+            name: "story"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Facility & Quality Assurance"
             name: "facility"
             widget: "object"
             fields:
+              - { label: "Section Title", name: "sectionTitle", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Icon", name: "icon", widget: "select", options: ["Building", "Award", "Shield"] }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Team"
+            name: "team"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Team Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Role", name: "role", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Photo", name: "photo", widget: "image", required: false }
+          - label: "Safety & Insurance"
+            name: "safetyInsurance"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Icon", name: "icon", widget: "select", options: ["Shield"] }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Points"
+                    name: "points"
+                    widget: "list"
+                    field: { label: "Point", name: "point", widget: "string" }
+
+      # CONTACT PAGE
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/pages/contact.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Contact Cards"
+            name: "contactCards"
+            widget: "list"
+            fields:
+              - { label: "Icon", name: "icon", widget: "select", options: ["MapPin", "Mail", "Phone"] }
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-          - label: "Quality Assurance"
-            name: "qualityAssurance"
+              - label: "Lines"
+                name: "lines"
+                widget: "list"
+                required: false
+                field: { label: "Line", name: "line", widget: "string" }
+              - { label: "Email", name: "email", widget: "string", required: false }
+          - label: "Form Configuration"
+            name: "form"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Step 1 Title", name: "step1Title", widget: "string" }
+              - { label: "Step 2 Title", name: "step2Title", widget: "string" }
+              - { label: "Step 3 Title", name: "step3Title", widget: "string" }
+              - { label: "Success Message", name: "successMessage", widget: "text" }
+              - { label: "Error Message", name: "errorMessage", widget: "text" }
+              - { label: "Footer Note", name: "footerNote", widget: "text" }
+          - { label: "Formspree Endpoint", name: "formspreeEndpoint", widget: "string" }
+
+      # RECLAMATION SITES
+      - label: "Reclamation Sites"
+        name: "reclamation-sites"
+        file: "content/pages/reclamation-sites.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Problem Section"
+            name: "problemSection"
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Solution Section"
+            name: "solutionSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - label: "Benefits"
+                name: "benefits"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Methods Section"
+            name: "methodsSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Methods"
+                name: "methods"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Best For", name: "bestFor", widget: "text" }
+          - label: "Expectations Section"
+            name: "expectationsSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "This Season"
+                name: "thisSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+              - label: "Next Season"
+                name: "nextSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+          - label: "Evidence Section"
+            name: "evidenceSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Show Case Studies", name: "showCaseStudies", widget: "boolean", default: false }
+              - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
+              - label: "Case Studies"
+                name: "caseStudies"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Result", name: "result", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+          - label: "CTA Section"
+            name: "ctaSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Primary Button", name: "primaryButton", widget: "string" }
+              - { label: "Secondary Button", name: "secondaryButton", widget: "string" }
 
-      - label: "Product - Terra Revive"
+      # MINING & INDUSTRIAL
+      - label: "Mining & Industrial"
+        name: "mining-industrial"
+        file: "content/pages/mining-industrial.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Problem Section"
+            name: "problemSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Solution Section"
+            name: "solutionSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - label: "Benefits"
+                name: "benefits"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Methods Section"
+            name: "methodsSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Methods"
+                name: "methods"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Best For", name: "bestFor", widget: "text" }
+          - label: "Expectations Section"
+            name: "expectationsSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "This Season"
+                name: "thisSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+              - label: "Next Season"
+                name: "nextSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+          - label: "Evidence Section"
+            name: "evidenceSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Show Case Studies", name: "showCaseStudies", widget: "boolean", default: false }
+              - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
+              - label: "Case Studies"
+                name: "caseStudies"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Result", name: "result", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+          - label: "CTA Section"
+            name: "ctaSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Primary Button", name: "primaryButton", widget: "string" }
+              - { label: "Secondary Button", name: "secondaryButton", widget: "string" }
+
+      # HYDROSEEDING PARTNERS
+      - label: "Hydroseeding Partners"
+        name: "hydroseeding-partners"
+        file: "content/pages/hydroseeding-partners.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Problem Section"
+            name: "problemSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Solution Section"
+            name: "solutionSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - label: "Benefits"
+                name: "benefits"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Method Section"
+            name: "methodSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Card Title", name: "cardTitle", widget: "string" }
+              - label: "Details"
+                name: "details"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "text" }
+          - label: "Expectations Section"
+            name: "expectationsSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "This Season"
+                name: "thisSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+              - label: "Next Season"
+                name: "nextSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+          - label: "Evidence Section"
+            name: "evidenceSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Show Case Studies", name: "showCaseStudies", widget: "boolean", default: false }
+              - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
+              - label: "Case Studies"
+                name: "caseStudies"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Result", name: "result", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+          - label: "CTA Section"
+            name: "ctaSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Primary Button", name: "primaryButton", widget: "string" }
+              - { label: "Secondary Button", name: "secondaryButton", widget: "string" }
+
+      # EVIDENCE LIBRARY
+      - label: "Evidence Library"
+        name: "evidence-library"
+        file: "content/pages/evidence-library.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Sections"
+            name: "sections"
+            widget: "object"
+            fields:
+              - label: "Case Studies"
+                name: "caseStudies"
+                widget: "object"
+                fields:
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: false }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
+              - label: "SDS/TDS"
+                name: "sdsTds"
+                widget: "object"
+                fields:
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Additional Resources"
+            name: "additionalResources"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Icon", name: "icon", widget: "select", options: ["Download", "FileText"] }
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+
+      # SDS & TDS
+      - label: "SDS & TDS Downloads"
+        name: "sds-tds"
+        file: "content/pages/sds-tds.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Documents"
+            name: "documents"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "PDF URL", name: "pdfUrl", widget: "string" }
+              - { label: "Download Filename", name: "downloadFilename", widget: "string" }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
+          - label: "Additional Info"
+            name: "additionalInfo"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+
+      # TERRA REVIVE PRODUCT
+      - label: "Terra Revive Product"
         name: "terra-revive"
         file: "content/pages/terra-revive.json"
         fields:
-          - { label: "Product Name", name: "productName", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
-          - { label: "Application Rate", name: "applicationRate", widget: "string" }
-          - { label: "Lead Time", name: "leadTime", widget: "string" }
-          - { label: "Delivery Area", name: "deliveryArea", widget: "string" }
-          - label: "Packaging Options"
-            name: "packagingOptions"
-            widget: "list"
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Specifications"
+            name: "specifications"
+            widget: "object"
             fields:
-              - { label: "Type", name: "type", widget: "string" }
-              - { label: "Size", name: "size", widget: "string" }
-              - { label: "Price", name: "price", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "text" }
+          - label: "Application Rates"
+            name: "applicationRates"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Methods"
+                name: "methods"
+                widget: "list"
+                fields:
+                  - { label: "Method Name", name: "name", widget: "string" }
+                  - { label: "Rate", name: "rate", widget: "string" }
+                  - { label: "Notes", name: "notes", widget: "text" }
+          - label: "Packaging"
+            name: "packaging"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Options"
+                name: "options"
+                widget: "list"
+                fields:
+                  - { label: "Package Name", name: "name", widget: "string" }
+                  - { label: "Price", name: "price", widget: "string" }
+                  - { label: "Total", name: "total", widget: "string" }
+                  - { label: "Best For", name: "bestFor", widget: "text" }
+              - label: "Delivery"
+                name: "delivery"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+          - label: "Downloads"
+            name: "downloads"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Documents"
+                name: "documents"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Link", name: "link", widget: "string" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "object"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Questions"
+                name: "questions"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Button Text", name: "button", widget: "string" }
 
+      # PELLET SELECTOR
+      - label: "Pellet Selector Calculator"
+        name: "pellet-selector"
+        file: "content/pages/pellet-selector.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Calculation Settings"
+            name: "calculationSettings"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Base Rate (lbs/acre)", name: "baseRate", widget: "number", default: 2000 }
+              - { label: "Max Rate (lbs/acre)", name: "maxRate", widget: "number", default: 6000 }
+              - { label: "Tote Weight (lbs)", name: "toteWeight", widget: "number", default: 1750 }
+              - { label: "Bag Weight (lbs)", name: "bagWeight", widget: "number", default: 50 }
+              - { label: "Tote Price ($/lb)", name: "totePrice", widget: "number", default: 1.00, value_type: "float" }
+              - { label: "Bag Price ($/lb)", name: "bagPrice", widget: "number", default: 1.75, value_type: "float" }
+          - label: "Info Section"
+            name: "infoSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+
+      # COST & PAYBACK
+      - label: "Cost & Payback Calculator"
+        name: "cost-payback"
+        file: "content/pages/cost-payback.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Calculation Settings"
+            name: "calculationSettings"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Tote Weight (lbs)", name: "toteWeight", widget: "number", default: 1750 }
+              - { label: "Tote Price ($)", name: "totePrice", widget: "number", default: 1750 }
+              - { label: "Remobilization Cost ($)", name: "remobilizationCost", widget: "number", default: 5000 }
+          - label: "Info Section"
+            name: "infoSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+
+  # SETTINGS
   - name: "settings"
     label: "Site Settings"
     files:
@@ -140,7 +609,7 @@ collections:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
           - { label: "Site Description", name: "siteDescription", widget: "text" }
           - { label: "Contact Email", name: "contactEmail", widget: "string" }
-          - { label: "Contact Phone", name: "contactPhone", widget: "string" }
+          - { label: "Contact Phone", name: "contactPhone", widget: "string", required: false }
           - { label: "Address", name: "address", widget: "text" }
           - label: "Social Media"
             name: "socialMedia"
@@ -149,4 +618,3 @@ collections:
               - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
               - { label: "Twitter", name: "twitter", widget: "string", required: false }
               - { label: "Facebook", name: "facebook", widget: "string", required: false }
-
