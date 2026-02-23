@@ -22,7 +22,7 @@
     },
     {
       "title": "Mining and Industrial ",
-      "description": "Rebuild stockpiled topsoil and establish vegetation on disturbed sites with minimal re-mobilizations.",
+      "description": "Rebuild stockpiled topsoil and establish vegetation on disturbed mine sites with minimal re-mobilizations.",
       "icon": "Leaf",
       "link": "/solutions/mining"
     }
@@ -33,7 +33,7 @@
       "description": "Native species establish in the first growing season on properly prepared sites."
     },
     {
-      "title": "Higher germination on stockpiled topsoil",
+      "title": "Healthier plant growth on stockpiled topsoil",
       "description": "Rebuild biology in degraded topsoil and improve seed establishment rates."
     },
     {
@@ -42,7 +42,7 @@
     },
     {
       "title": "Compatible with standard methods",
-      "description": "Works with broadcast, drill incorporation, hydroseeding, and drone application."
+      "description": "Works with broadcast, drill incorporation, hydroseeding, and drone applications."
     }
   ]
 }
