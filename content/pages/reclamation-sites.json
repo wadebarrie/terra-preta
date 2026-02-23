@@ -2,6 +2,7 @@
   "heroTitle": "Oil and Gas Reclamation",
   "heroSubtitle": "Restore soil function on wellsites, access roads, and lease areas. Terra Revive rebuilds biology and structure so native species establish faster, reducing re-mobilizations and closing sites on schedule.",
   "problemSection": {
+    "enabled": true,
     "title": "Why reclamation sites fail in Alberta",
     "paragraphs": [
       "Soil function is an integrated set of biological, physical, and chemical processes that enable self-sustaining vegetation. When heavy equipment compacts soil or topsoil sits stockpiled for years, these processes break down.",
@@ -9,6 +10,7 @@
     ]
   },
   "solutionSection": {
+    "enabled": true,
     "title": "How Terra Revive restores soil function",
     "subtitle": "Terra Revive pellets deliver organic matter, minerals, and microbial food sources that rebuild soil biology and structure. Applied at 2,000+ lbs per acre, the pellets integrate into the soil profile and feed beneficial microbes.",
     "benefits": [
@@ -31,6 +33,7 @@
     ]
   },
   "methodsSection": {
+    "enabled": true,
     "title": "Methods and application",
     "methods": [
       {
@@ -56,6 +59,7 @@
     ]
   },
   "expectationsSection": {
+    "enabled": true,
     "title": "What to expect",
     "thisSeason": {
       "title": "This season",
@@ -77,6 +81,7 @@
     }
   },
   "evidenceSection": {
+    "enabled": true,
     "title": "Evidence from the field",
     "showCaseStudies": false,
     "comingSoonMessage": "Case Studies Coming Soon",
@@ -102,6 +107,7 @@
     ]
   },
   "ctaSection": {
+    "enabled": true,
     "title": "Ready to close your site faster?",
     "subtitle": "Get a quote or start a pilot project. On-site support available.",
     "primaryButton": "Get a Quote",

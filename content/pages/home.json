@@ -1,6 +1,9 @@
 {
-  "heroTitle": "Restore soil function. Close your site faster.",
-  "heroSubtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics.",
+  "heroSection": {
+    "enabled": true,
+    "title": "Restore soil function. Close your site faster.",
+    "subtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics."
+  },
   "heroVideo": {
     "wistiaUrl": "https://growdoug.wistia.com/medias/23bd5r9gld",
     "autoplay": true,
@@ -13,36 +16,129 @@
       "direction": "to-b"
     }
   },
-  "features": [
-    {
-      "title": "Oil and Gas Reclamation",
-      "description": "Restore soil function on wellsites and access roads. Faster vegetative cover and smoother audits.",
-      "icon": "Sprout",
-      "link": "/solutions/reclamation"
-    },
-    {
-      "title": "Mining and Industrial ",
-      "description": "Rebuild stockpiled topsoil and establish vegetation on disturbed mine sites with minimal re-mobilizations.",
-      "icon": "Leaf",
-      "link": "/solutions/mining"
-    }
-  ],
-  "outcomes": [
-    {
-      "title": "Faster vegetative cover",
-      "description": "Native species establish in the first growing season on properly prepared sites."
-    },
-    {
-      "title": "Healthier plant growth on stockpiled topsoil",
-      "description": "Rebuild biology in degraded topsoil and improve seed establishment rates."
-    },
-    {
-      "title": "Fewer re-mobilizations and smoother audits",
-      "description": "Reduce risk of failed inspections and costly return visits."
-    },
-    {
-      "title": "Compatible with standard methods",
-      "description": "Works with broadcast, drill incorporation, hydroseeding, and drone applications."
-    }
-  ]
+  "featuresSection": {
+    "enabled": true,
+    "title": "Who it's for",
+    "features": [
+      {
+        "title": "Oil and Gas Reclamation",
+        "description": "Restore soil function on wellsites and access roads. Faster vegetative cover and smoother audits.",
+        "icon": "Sprout",
+        "link": "/solutions/reclamation"
+      },
+      {
+        "title": "Mining and Industrial",
+        "description": "Rebuild stockpiled topsoil and establish vegetation on disturbed mine sites with minimal re-mobilizations.",
+        "icon": "Leaf",
+        "link": "/solutions/mining"
+      },
+      {
+        "title": "Contractors and EPCs",
+        "description": "Deliver reliable reclamation outcomes with spec-grade products and on-site support.",
+        "icon": "Layers",
+        "link": "/solutions/mining"
+      }
+    ]
+  },
+  "howItWorksSection": {
+    "enabled": true,
+    "title": "How it works",
+    "steps": [
+      {
+        "number": 1,
+        "title": "Apply while yellow iron is on site",
+        "description": "Broadcast, drill, or hydroseed Terra Revive pellets using standard equipment. No special handling required."
+      },
+      {
+        "number": 2,
+        "title": "Pellets integrate and feed biology",
+        "description": "Organic matter and minerals break down gradually, feeding soil microbes and rebuilding structure."
+      },
+      {
+        "number": 3,
+        "title": "Soil function returns and vegetation establishes",
+        "description": "Native species germinate and establish without synthetics. Sites close faster with fewer re-visits."
+      }
+    ]
+  },
+  "outcomesSection": {
+    "enabled": true,
+    "title": "Outcomes that matter",
+    "outcomes": [
+      {
+        "title": "Faster vegetative cover",
+        "description": "Native species establish in the first growing season on properly prepared sites."
+      },
+      {
+        "title": "Healthier plant growth on stockpiled topsoil",
+        "description": "Rebuild biology in degraded topsoil and improve seed establishment rates."
+      },
+      {
+        "title": "Fewer re-mobilizations and smoother audits",
+        "description": "Reduce risk of failed inspections and costly return visits."
+      },
+      {
+        "title": "Compatible with standard methods",
+        "description": "Works with broadcast, drill incorporation, hydroseeding, and drone applications."
+      }
+    ]
+  },
+  "productSnapshotSection": {
+    "enabled": true,
+    "title": "Product snapshot: Terra Revive",
+    "image": "/pellets-in-hand.jpg",
+    "imageAlt": "Terra Revive pelleted soil amendment close-up",
+    "details": [
+      {
+        "label": "Application Rate",
+        "value": "2,000+ lbs per acre based on soil degradation"
+      },
+      {
+        "label": "Packaging",
+        "value": "1,500-2,000 lbs Totes @ $1.00 per lb | 50 lbs Bags @ $1.75 per lb"
+      },
+      {
+        "label": "Delivery",
+        "value": "Canada Wide"
+      }
+    ],
+    "buttonText": "See Rates and Methods",
+    "buttonLink": "/product/terra-revive"
+  },
+  "evidenceSection": {
+    "enabled": true,
+    "title": "Evidence from the field",
+    "showCaseStudiesButton": false,
+    "caseStudies": [
+      {
+        "title": "Oil and Gas Wellsite",
+        "location": "Broadcast application | Native prairie mix",
+        "result": "70% vegetative cover in first season. Site closed 6 months ahead of schedule.",
+        "image": "/field-dozer.jpg"
+      },
+      {
+        "title": "Stockpiled Topsoil",
+        "location": "Drill incorporation | Mixed grass species",
+        "result": "Germination improved from 40% to 85%. Reduced re-seeding costs by $12,000.",
+        "image": "/field-tractor-wide.jpg"
+      },
+      {
+        "title": "Pipeline Right-of-Way",
+        "location": "Hydroseeding | Native forbs and grasses",
+        "result": "Uniform establishment across 50 acres. Zero re-mobilizations required.",
+        "image": "/field-site-overview.jpg"
+      }
+    ],
+    "comingSoonMessage": "Case Studies Coming Soon"
+  },
+  "bidReadySection": {
+    "enabled": true,
+    "title": "Ready to spec Terra Revive into your bid?",
+    "description": "Download our complete technical spec pack and get started on your next reclamation project."
+  },
+  "contactSection": {
+    "enabled": true,
+    "title": "Contact & Support",
+    "description": "Have questions about incorporating Terra Revive into your project? Get in touch with our team."
+  }
 }

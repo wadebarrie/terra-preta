@@ -5,6 +5,9 @@ backend:
 media_folder: "client/public/uploads"
 public_folder: "/uploads"
 
+# Enable the ability to delete items
+publish_mode: editorial_workflow
+
 collections:
   # PAGES COLLECTION
   - name: "pages"
@@ -15,8 +18,13 @@ collections:
         name: "home"
         file: "content/pages/home.json"
         fields:
-          - { label: "Hero Title", name: "heroTitle", widget: "string" }
-          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Hero Section"
+            name: "heroSection"
+            widget: "object"
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Hero Title", name: "title", widget: "string" }
+              - { label: "Hero Subtitle", name: "subtitle", widget: "text" }
           - label: "Hero Video"
             name: "heroVideo"
             widget: "object"
@@ -37,19 +45,90 @@ collections:
                   - { label: "Top Opacity (%)", name: "topOpacity", widget: "number", default: 60, min: 0, max: 100 }
                   - { label: "Bottom Opacity (%)", name: "bottomOpacity", widget: "number", default: 90, min: 0, max: 100 }
                   - { label: "Direction", name: "direction", widget: "select", default: "to-b", options: ["to-b", "to-t", "to-br", "to-bl", "to-tr", "to-tl"] }
-          - label: "Features (Who It's For)"
-            name: "features"
-            widget: "list"
+          - label: "Features Section (Who It's For)"
+            name: "featuresSection"
+            widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string", default: "Who it's for" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Icon", name: "icon", widget: "select", options: ["Sprout", "Leaf", "Layers"] }
+                  - { label: "Link", name: "link", widget: "string" }
+          - label: "How It Works Section"
+            name: "howItWorksSection"
+            widget: "object"
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string", default: "How it works" }
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "number", widget: "number", min: 1, max: 10 }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Outcomes Section"
+            name: "outcomesSection"
+            widget: "object"
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string", default: "Outcomes that matter" }
+              - label: "Outcomes"
+                name: "outcomes"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Product Snapshot Section"
+            name: "productSnapshotSection"
+            widget: "object"
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string", default: "Product snapshot: Terra Revive" }
+              - { label: "Product Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
+              - label: "Product Details"
+                name: "details"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "text" }
+              - { label: "Button Text", name: "buttonText", widget: "string" }
+              - { label: "Button Link", name: "buttonLink", widget: "string" }
+          - label: "Evidence Section"
+            name: "evidenceSection"
+            widget: "object"
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string", default: "Evidence from the field" }
+              - { label: "Show Case Studies Button", name: "showCaseStudiesButton", widget: "boolean", default: false }
+              - label: "Case Studies"
+                name: "caseStudies"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Location/Method", name: "location", widget: "string" }
+                  - { label: "Result", name: "result", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+              - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string", default: "Case Studies Coming Soon" }
+          - label: "Bid Ready Download Section"
+            name: "bidReadySection"
+            widget: "object"
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Icon", name: "icon", widget: "select", options: ["Sprout", "Leaf", "Layers"] }
-              - { label: "Link", name: "link", widget: "string" }
-          - label: "Outcomes"
-            name: "outcomes"
-            widget: "list"
+          - label: "Contact & Support Section"
+            name: "contactSection"
+            widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
       # ABOUT PAGE
@@ -63,6 +142,7 @@ collections:
             name: "story"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Section Title", name: "title", widget: "string" }
               - label: "Paragraphs"
                 name: "paragraphs"
@@ -72,6 +152,7 @@ collections:
             name: "facility"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Section Title", name: "sectionTitle", widget: "string" }
               - label: "Items"
                 name: "items"
@@ -84,6 +165,7 @@ collections:
             name: "team"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Section Title", name: "title", widget: "string" }
               - label: "Team Members"
                 name: "members"
@@ -97,6 +179,7 @@ collections:
             name: "safetyInsurance"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Section Title", name: "title", widget: "string" }
               - label: "Items"
                 name: "items"
@@ -152,6 +235,7 @@ collections:
             name: "problemSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "Paragraphs"
                 name: "paragraphs"
@@ -161,6 +245,7 @@ collections:
             name: "solutionSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "text" }
               - label: "Benefits"
@@ -173,6 +258,7 @@ collections:
             name: "methodsSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "Methods"
                 name: "methods"
@@ -185,6 +271,7 @@ collections:
             name: "expectationsSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "This Season"
                 name: "thisSeason"
@@ -208,6 +295,7 @@ collections:
             name: "evidenceSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Show Case Studies", name: "showCaseStudies", widget: "boolean", default: false }
               - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
@@ -223,6 +311,7 @@ collections:
             name: "ctaSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "text" }
               - { label: "Primary Button", name: "primaryButton", widget: "string" }
@@ -239,6 +328,7 @@ collections:
             name: "problemSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "Paragraphs"
                 name: "paragraphs"
@@ -248,6 +338,7 @@ collections:
             name: "solutionSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "text" }
               - label: "Benefits"
@@ -260,6 +351,7 @@ collections:
             name: "methodsSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "Methods"
                 name: "methods"
@@ -272,6 +364,7 @@ collections:
             name: "expectationsSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "This Season"
                 name: "thisSeason"
@@ -295,6 +388,7 @@ collections:
             name: "evidenceSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Show Case Studies", name: "showCaseStudies", widget: "boolean", default: false }
               - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
@@ -310,6 +404,7 @@ collections:
             name: "ctaSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "text" }
               - { label: "Primary Button", name: "primaryButton", widget: "string" }
@@ -326,6 +421,7 @@ collections:
             name: "problemSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "Paragraphs"
                 name: "paragraphs"
@@ -335,6 +431,7 @@ collections:
             name: "solutionSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "text" }
               - label: "Benefits"
@@ -347,6 +444,7 @@ collections:
             name: "methodSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Card Title", name: "cardTitle", widget: "string" }
               - label: "Details"
@@ -359,6 +457,7 @@ collections:
             name: "expectationsSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - label: "This Season"
                 name: "thisSeason"
@@ -382,6 +481,7 @@ collections:
             name: "evidenceSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Show Case Studies", name: "showCaseStudies", widget: "boolean", default: false }
               - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
@@ -397,6 +497,7 @@ collections:
             name: "ctaSection"
             widget: "object"
             fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "text" }
               - { label: "Primary Button", name: "primaryButton", widget: "string" }
@@ -618,3 +719,85 @@ collections:
               - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
               - { label: "Twitter", name: "twitter", widget: "string", required: false }
               - { label: "Facebook", name: "facebook", widget: "string", required: false }
+
+      - label: "Page Visibility"
+        name: "page-visibility"
+        file: "content/settings/page-visibility.json"
+        fields:
+          - label: "Pages"
+            name: "pages"
+            widget: "object"
+            collapsed: false
+            fields:
+              - label: "Home"
+                name: "home"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "About"
+                name: "about"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "Contact"
+                name: "contact"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "Reclamation Sites"
+                name: "reclamationSites"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "Mining & Industrial"
+                name: "miningIndustrial"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "Hydroseeding Partners"
+                name: "hydroseedingPartners"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: false }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: false }
+              - label: "Evidence Library"
+                name: "evidenceLibrary"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "SDS & TDS"
+                name: "sdsTds"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "Case Studies"
+                name: "caseStudies"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: false }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: false }
+              - label: "Terra Revive Product"
+                name: "terraRevive"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "Pellet Selector"
+                name: "pelletSelector"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }
+              - label: "Cost & Payback"
+                name: "costPayback"
+                widget: "object"
+                fields:
+                  - { label: "Enable Page", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: true }

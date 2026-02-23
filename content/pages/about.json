@@ -2,6 +2,7 @@
   "heroTitle": "About Us",
   "heroSubtitle": "Terra Preta Organics develops soil amendments that restore soil function on degraded reclamation sites across Canada.",
   "story": {
+    "enabled": true,
     "title": "Our story",
     "paragraphs": [
       "Soil function is an integrated set of biological, physical, and chemical processes that enable self-sustaining vegetation. When heavy equipment compacts soil or topsoil sits stockpiled for years, these processes break down. Native species struggle to establish. Sites fail inspections. Operators face costly re-mobilizations and delayed closure.",
@@ -10,6 +11,7 @@
     ]
   },
   "facility": {
+    "enabled": true,
     "sectionTitle": "Facility and quality assurance",
     "items": [
       {
@@ -25,6 +27,7 @@
     ]
   },
   "team": {
+    "enabled": true,
     "title": "Our team",
     "members": [
       {
@@ -54,6 +57,7 @@
     ]
   },
   "safetyInsurance": {
+    "enabled": true,
     "title": "Safety program and insurance",
     "items": [
       {

@@ -1,0 +1,52 @@
+{
+  "pages": {
+    "home": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "about": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "contact": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "reclamationSites": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "miningIndustrial": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "hydroseedingPartners": {
+      "enabled": false,
+      "showInNav": false
+    },
+    "evidenceLibrary": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "sdsTds": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "caseStudies": {
+      "enabled": false,
+      "showInNav": false
+    },
+    "terraRevive": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "pelletSelector": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "costPayback": {
+      "enabled": true,
+      "showInNav": true
+    }
+  }
+}
