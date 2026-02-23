@@ -25,26 +25,26 @@ export default function PelletSelector() {
   const calculateRecommendation = () => {
     if (!acres || !method) return null;
 
-    // Base rate calculation
-    let rate = 1500;
+    // Base rate calculation - minimum 2000 lbs per acre
+    let rate = 2000;
 
     // Adjust based on soil conditions
-    if (compaction === "severe") rate += 300;
-    else if (compaction === "moderate") rate += 150;
+    if (compaction === "severe") rate += 1500;
+    else if (compaction === "moderate") rate += 1000;
 
-    if (organicMatter && parseFloat(organicMatter) < 2) rate += 200;
+    if (organicMatter && parseFloat(organicMatter) < 2) rate += 1000;
 
     if (ph) {
       const phValue = parseFloat(ph);
-      if (phValue < 5.5 || phValue > 8.5) rate += 150;
+      if (phValue < 5.5 || phValue > 8.5) rate += 500;
     }
 
-    // Cap at 2000
-    rate = Math.min(rate, 2000);
+    // Cap at 6000
+    rate = Math.min(rate, 6000);
 
     const acresNum = parseFloat(acres);
     const totalPounds = rate * acresNum;
-    const totes = Math.ceil(totalPounds / 1500);
+    const totes = Math.ceil(totalPounds / 1750); // Using average of 1500-2000
     const bags = Math.ceil(totalPounds / 50);
 
     return {
@@ -218,14 +218,14 @@ export default function PelletSelector() {
 
                       <div>
                         <h3 className="font-semibold mb-2">
-                          1,500 lb Totes Needed
+                          1,500-2,000 lb Totes Needed
                         </h3>
                         <p className="text-2xl font-bold">
                           {results.totes} totes
                         </p>
                         <p className="text-sm text-muted-foreground">
                           Estimated cost: $
-                          {(results.totes * 2250).toLocaleString()}
+                          {(results.totes * 1750).toLocaleString()} (@ $1.00/lb avg)
                         </p>
                       </div>
 
@@ -295,14 +295,14 @@ export default function PelletSelector() {
             <p className="text-muted-foreground mb-4 leading-relaxed">
               The Pellet Selector calculates a recommended Terra Revive
               application rate based on your site conditions. The base rate is
-              1,500 lb per acre for sites with moderate degradation. The
-              calculator adjusts the rate upward (to a maximum of 2,000 lb per
+              2,000 lbs per acre for sites with moderate degradation. The
+              calculator adjusts the rate upward (to a maximum of 6,000 lbs per
               acre) based on compaction level, low organic matter, and extreme pH
               values.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              This is a planning tool. For site-specific recommendations, book a
-              site assessment or contact us to discuss your reclamation needs.
+              This is a planning tool. For site-specific recommendations, 
+              contact us to discuss your reclamation needs.
             </p>
           </div>
         </div>

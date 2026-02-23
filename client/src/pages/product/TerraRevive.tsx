@@ -20,9 +20,6 @@ export default function TerraRevive() {
         <Button asChild>
           <Link href="/contact">Get a Quote</Link>
         </Button>
-        <Button variant="outline" asChild>
-          <Link href="/contact">Book Assessment</Link>
-        </Button>
       </div>
 
       {/* Hero Section */}
@@ -33,7 +30,7 @@ export default function TerraRevive() {
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
               Terra Revive is a pelleted soil amendment that rebuilds biology,
               structure, and nutrient cycling on degraded reclamation sites.
-              Applied at 1,500 to 2,000 lb per acre, the pellets deliver organic
+              Applied at 2,000+ lbs per acre, the pellets deliver organic
               matter and minerals that support native species establishment
               without synthetics. Compatible with broadcast, drill, hydroseeding,
               and drone application methods.
@@ -41,9 +38,6 @@ export default function TerraRevive() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
                 <Link href="/contact">Get a Quote</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/contact">Book a Site Assessment</Link>
               </Button>
             </div>
           </div>
@@ -127,7 +121,7 @@ export default function TerraRevive() {
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Rate:</span>
-                      <span className="font-medium">1,500 to 2,000 lb/acre</span>
+                      <span className="font-medium">2,000 to 6,000 lb/acre</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Notes:</span>
@@ -145,7 +139,7 @@ export default function TerraRevive() {
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Rate:</span>
-                      <span className="font-medium">1,500 to 2,000 lb/acre</span>
+                      <span className="font-medium">2,000 to 6,000 lb/acre</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Notes:</span>
@@ -163,7 +157,7 @@ export default function TerraRevive() {
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Rate:</span>
-                      <span className="font-medium">1,500 to 2,000 lb/acre</span>
+                      <span className="font-medium">2,000 to 6,000 lb/acre</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Notes:</span>
@@ -181,7 +175,7 @@ export default function TerraRevive() {
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Rate:</span>
-                      <span className="font-medium">1,500 to 2,000 lb/acre</span>
+                      <span className="font-medium">2,000 to 6,000 lb/acre</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Notes:</span>
@@ -207,15 +201,15 @@ export default function TerraRevive() {
             <div className="grid md:grid-cols-2 gap-6">
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="font-semibold text-lg mb-4">1,500 lb Tote</h3>
+                  <h3 className="font-semibold text-lg mb-4">1,500-2,000 lb Tote</h3>
                   <div className="space-y-2">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Price:</span>
-                      <span className="font-medium">$1.50/lb</span>
+                      <span className="font-medium">$1.00/lb</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Total:</span>
-                      <span className="font-medium">$2,250 per tote</span>
+                      <span className="font-medium">$1,500 - $2,000 per tote</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Best for:</span>
@@ -250,19 +244,12 @@ export default function TerraRevive() {
               </Card>
             </div>
 
-            <div className="mt-8 grid md:grid-cols-3 gap-6">
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <h3 className="font-semibold mb-2">Lead Time</h3>
-                  <p className="text-muted-foreground">36 to 48 hours</p>
-                </CardContent>
-              </Card>
-
+            <div className="mt-8 grid md:grid-cols-2 gap-6">
               <Card>
                 <CardContent className="pt-6 text-center">
                   <h3 className="font-semibold mb-2">Delivery Territory</h3>
                   <p className="text-muted-foreground">
-                    Alberta and across the Prairies
+                    Canada Wide
                   </p>
                 </CardContent>
               </Card>
@@ -386,11 +373,11 @@ export default function TerraRevive() {
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
                   Start with a small test area (1 to 5 acres) and apply Terra
-                  Revive at 1,500 to 2,000 lb per acre using your preferred
+                  Revive at 2,000+ lbs per acre using your preferred
                   method. Monitor germination, vegetative cover, and species
                   establishment over one growing season. Compare results to a
                   control area treated with your standard reclamation protocol.
-                  Contact us to book a site assessment and discuss pilot design.
+                  Contact us to discuss pilot design.
                 </AccordionContent>
               </AccordionItem>
 
@@ -422,15 +409,11 @@ export default function TerraRevive() {
               Ready to order Terra Revive?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Get a quote or book a site assessment to discuss your reclamation
-              needs.
+              Get a quote to discuss your reclamation needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/contact">Get a Quote</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link href="/contact">Book a Site Assessment</Link>
               </Button>
             </div>
           </div>

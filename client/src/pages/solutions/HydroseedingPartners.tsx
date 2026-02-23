@@ -53,7 +53,7 @@ export default function HydroseedingPartners() {
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               Terra Revive pellets suspend in hydroseed slurry and apply evenly
-              across the site. At 1,500 to 2,000 lb per acre, the pellets
+              across the site. At 2,000+ lbs per acre, the pellets
               deliver organic matter and minerals that rebuild soil biology and
               improve germination.
             </p>
@@ -259,8 +259,8 @@ export default function HydroseedingPartners() {
             </Card>
           </div>
           <div className="text-center">
-            <Button variant="outline" asChild>
-              <Link href="/evidence/case-studies">View All Case Studies</Link>
+            <Button variant="outline" asChild className="opacity-50 pointer-events-none">
+              <span>Case Studies Coming Soon</span>
             </Button>
           </div>
         </div>
@@ -274,12 +274,12 @@ export default function HydroseedingPartners() {
               Ready to improve your hydroseeding outcomes?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Book a site assessment or start a pilot project. Partner
+              Get a quote or start a pilot project. Partner
               application services available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/contact">Book a Site Assessment</Link>
+                <Link href="/contact">Get a Quote</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/contact">Start a Pilot</Link>

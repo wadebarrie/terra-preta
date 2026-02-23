@@ -189,11 +189,11 @@ export default function CaseStudies() {
               Ready to see similar results on your site?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Book a site assessment or start a pilot project.
+              Get a quote or start a pilot project.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/contact">Book a Site Assessment</Link>
+                <Link href="/contact">Get a Quote</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/contact">Start a Pilot</Link>

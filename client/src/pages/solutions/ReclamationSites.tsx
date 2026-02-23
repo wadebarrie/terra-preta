@@ -56,7 +56,7 @@ export default function ReclamationSites() {
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               Terra Revive pellets deliver organic matter, minerals, and
               microbial food sources that rebuild soil biology and structure.
-              Applied at 1,500 to 2,000 lb per acre, the pellets integrate into
+              Applied at 2,000+ lbs per acre, the pellets integrate into
               the soil profile and feed beneficial microbes.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
@@ -115,7 +115,7 @@ export default function ReclamationSites() {
                 <CardContent className="pt-6">
                   <h3 className="font-semibold text-lg mb-2">Broadcast</h3>
                   <p className="text-muted-foreground mb-2">
-                    Apply 1,500 to 2,000 lb per acre with a spreader truck or ATV
+                    Apply 2,000+ lbs per acre with a spreader truck or ATV
                     spreader. Incorporate with light harrowing or raking if
                     equipment is available.
                   </p>
@@ -132,7 +132,7 @@ export default function ReclamationSites() {
                     Drill incorporation
                   </h3>
                   <p className="text-muted-foreground mb-2">
-                    Apply 1,500 to 2,000 lb per acre with a seed drill. Pellets
+                    Apply 2,000+ lbs per acre with a seed drill. Pellets
                     are placed in the seed row and covered with soil.
                   </p>
                   <p className="text-sm text-muted-foreground">
@@ -146,7 +146,7 @@ export default function ReclamationSites() {
                 <CardContent className="pt-6">
                   <h3 className="font-semibold text-lg mb-2">Hydroseeding</h3>
                   <p className="text-muted-foreground mb-2">
-                    Mix 1,500 to 2,000 lb per acre into the hydroseed slurry.
+                    Mix 2,000+ lbs per acre into the hydroseed slurry.
                     Pellets suspend well and apply evenly across the site.
                   </p>
                   <p className="text-sm text-muted-foreground">
@@ -160,7 +160,7 @@ export default function ReclamationSites() {
                 <CardContent className="pt-6">
                   <h3 className="font-semibold text-lg mb-2">Drone</h3>
                   <p className="text-muted-foreground mb-2">
-                    Apply 1,500 to 2,000 lb per acre with agricultural drones.
+                    Apply 2,000+ lbs per acre with agricultural drones.
                     Pellets flow through standard spreader attachments.
                   </p>
                   <p className="text-sm text-muted-foreground">
@@ -282,8 +282,8 @@ export default function ReclamationSites() {
             </Card>
           </div>
           <div className="text-center">
-            <Button variant="outline" asChild>
-              <Link href="/evidence/case-studies">View All Case Studies</Link>
+            <Button variant="outline" asChild className="opacity-50 pointer-events-none">
+              <span>Case Studies Coming Soon</span>
             </Button>
           </div>
         </div>
@@ -297,12 +297,12 @@ export default function ReclamationSites() {
               Ready to close your site faster?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Book a site assessment or start a pilot project. On-site support
+              Get a quote or start a pilot project. On-site support
               available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/contact">Book a Site Assessment</Link>
+                <Link href="/contact">Get a Quote</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/contact">Start a Pilot</Link>

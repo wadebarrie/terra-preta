@@ -61,14 +61,6 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="lg" asChild>
-                <Link href="/contact">Book a Site Assessment</Link>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                asChild
-                className="bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-primary"
-              >
                 <Link href="/contact">Get a Quote</Link>
               </Button>
               <Button 
@@ -209,23 +201,19 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold mb-2">Application Rate</h3>
                 <p className="text-muted-foreground">
-                  1,500 to 2,000 lb per acre based on soil degradation
+                  2,000+ lbs per acre based on soil degradation
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Packaging</h3>
                 <p className="text-muted-foreground">
-                  1,500 lb totes at $1.50/lb | 50 lb bags at $1.75/lb
+                  1,500-2,000 lbs Totes @ $1.00 per lb | 50 lbs Bags @ $1.75 per lb
                 </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Lead Time</h3>
-                <p className="text-muted-foreground">36 to 48 hours</p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Delivery</h3>
                 <p className="text-muted-foreground">
-                  Alberta and across the Prairies
+                  Canada Wide
                 </p>
               </div>
             </div>
@@ -292,8 +280,8 @@ export default function Home() {
             </Card>
           </div>
           <div className="text-center">
-            <Button variant="outline" asChild>
-              <Link href="/evidence/case-studies">View All Case Studies</Link>
+            <Button variant="outline" asChild className="opacity-50 pointer-events-none">
+              <span>Case Studies Coming Soon</span>
             </Button>
           </div>
         </div>
@@ -328,12 +316,12 @@ export default function Home() {
               Ready to restore your site?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Book a site assessment or start a pilot project. On-site support and
+              Get a quote or start a pilot project. On-site support and
               partner application services available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <Link href="/contact">Book a Site Assessment</Link>
+                <Link href="/contact">Get a Quote</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/contact">Start a Pilot</Link>

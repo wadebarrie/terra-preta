@@ -10,7 +10,6 @@ const navigation = [
     href: "/solutions",
     children: [
       { name: "Reclamation Sites", href: "/solutions/reclamation" },
-      { name: "Hydroseeding Partners", href: "/solutions/hydroseeding" },
       { name: "Mining and Industrial", href: "/solutions/mining" },
     ],
   },
@@ -31,8 +30,6 @@ const navigation = [
     name: "Evidence Library",
     href: "/evidence",
     children: [
-      { name: "Case Studies", href: "/evidence/case-studies" },
-      { name: "Method Statements", href: "/evidence/method-statements" },
       { name: "SDS and TDS", href: "/evidence/sds-tds" },
     ],
   },
@@ -89,7 +86,7 @@ export default function Header() {
 
         <div className="hidden lg:block">
           <Button asChild>
-            <Link href="/contact">Book a Site Assessment</Link>
+            <Link href="/contact">Get a Quote</Link>
           </Button>
         </div>
 
@@ -141,7 +138,7 @@ export default function Header() {
             ))}
             <Button asChild className="w-full">
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Book a Site Assessment
+                Get a Quote
               </Link>
             </Button>
           </div>

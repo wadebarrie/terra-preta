@@ -1,0 +1,26 @@
+{
+  "heroTitle": "Evidence Library",
+  "heroSubtitle": "Technical documentation and resources for Terra Revive projects.",
+  "sections": {
+    "caseStudies": {
+      "enabled": false,
+      "title": "Case Studies",
+      "description": "Real-world results from Terra Revive projects.",
+      "comingSoonMessage": "Case Studies Coming Soon"
+    },
+    "sdsTds": {
+      "enabled": true,
+      "title": "SDS and TDS Downloads",
+      "description": "Safety Data Sheets (SDS) and Technical Data Sheets (TDS) for Terra Revive."
+    }
+  },
+  "additionalResources": [
+    {
+      "title": "SDS and TDS",
+      "description": "Safety and technical data sheets",
+      "icon": "Download",
+      "link": "/evidence/sds-tds",
+      "enabled": true
+    }
+  ]
+}

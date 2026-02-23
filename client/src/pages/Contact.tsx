@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -102,7 +102,7 @@ export default function Contact() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Book a site assessment, request a quote, or start a pilot project.
+              Request a quote or start a pilot project.
               On-site support and partner application services available.
             </p>
           </div>
@@ -112,7 +112,7 @@ export default function Contact() {
       {/* Contact Info */}
       <section className="py-16">
         <div className="container">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             <Card>
               <CardContent className="pt-6 text-center">
                 <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -120,22 +120,7 @@ export default function Contact() {
                 <p className="text-muted-foreground">
                   Sundre, Alberta
                   <br />
-                  Serving Alberta and the Prairies
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Phone</h3>
-                <p className="text-muted-foreground">
-                  <a
-                    href="tel:+14035551234"
-                    className="hover:text-foreground transition-colors"
-                  >
-                    (403) 555-1234
-                  </a>
+                  Service Area: Canada Wide
                 </p>
               </CardContent>
             </Card>
