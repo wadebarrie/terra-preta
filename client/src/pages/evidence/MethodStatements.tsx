@@ -1,47 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download } from "lucide-react";
+import methodStatementsContent from "@content/pages/method-statements.json";
 
 export default function MethodStatements() {
-  const methods = [
-    {
-      id: 1,
-      title: "Broadcast Application Method Statement",
-      description:
-        "Detailed procedure for applying Terra Revive pellets using broadcast spreaders. Includes equipment requirements, application rates, incorporation techniques, and safety protocols.",
-      equipment: "Spreader truck, ATV spreader, or tractor-mounted spreader",
-      rate: "1,500 to 2,000 lb/acre",
-      bestFor: "Large wellsites, access roads, open areas",
-    },
-    {
-      id: 2,
-      title: "Drill Incorporation Method Statement",
-      description:
-        "Step-by-step guide for applying Terra Revive pellets with seed drills. Covers drill calibration, seed row placement, and integration with seeding operations.",
-      equipment: "Standard seed drill or air seeder",
-      rate: "1,500 to 2,000 lb/acre",
-      bestFor: "Sites with existing drill equipment, one-pass applications",
-    },
-    {
-      id: 3,
-      title: "Hydroseeding Method Statement",
-      description:
-        "Complete hydroseeding protocol including mixing procedures, slurry preparation, application techniques, and equipment maintenance. Ensures even pellet distribution in hydroseed mix.",
-      equipment: "Standard hydroseed equipment, no modifications required",
-      rate: "1,500 to 2,000 lb/acre",
-      bestFor: "Slopes, uneven terrain, large acreages",
-    },
-    {
-      id: 4,
-      title: "Drone Application Method Statement",
-      description:
-        "Emerging method for applying Terra Revive pellets using agricultural drones. Includes flight planning, spreader attachment setup, and application patterns for remote sites.",
-      equipment: "Agricultural drone with spreader attachment",
-      rate: "1,500 to 2,000 lb/acre",
-      bestFor: "Remote sites, steep slopes, limited ground access",
-    },
-  ];
-
   return (
     <div>
       {/* Hero Section */}
@@ -49,12 +11,10 @@ export default function MethodStatements() {
         <div className="container">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Method Statements
+              {methodStatementsContent.heroTitle}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Detailed application procedures for each Terra Revive application
-              method. These method statements provide step-by-step guidance for
-              contractors, operators, and reclamation specialists.
+              {methodStatementsContent.heroSubtitle}
             </p>
           </div>
         </div>
@@ -64,8 +24,8 @@ export default function MethodStatements() {
       <section className="py-16">
         <div className="container">
           <div className="space-y-8">
-            {methods.map((method) => (
-              <Card key={method.id}>
+            {methodStatementsContent.methods.map((method, index) => (
+              <Card key={index}>
                 <CardContent className="pt-6">
                   <h2 className="text-2xl font-bold mb-4">{method.title}</h2>
 
@@ -110,19 +70,13 @@ export default function MethodStatements() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-6">
-              Using method statements in tenders and reclamation plans
+              {methodStatementsContent.additionalInfo.title}
             </h2>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              Method statements provide detailed application procedures that can
-              be included in tender documents, reclamation plans, and regulatory
-              submissions. Each method statement includes equipment
-              requirements, safety protocols, application rates, and quality
-              assurance procedures.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              For site-specific method statements or custom application
-              procedures, contact us to discuss your project requirements.
-            </p>
+            {methodStatementsContent.additionalInfo.paragraphs.map((para, index) => (
+              <p key={index} className={`text-muted-foreground leading-relaxed ${index < methodStatementsContent.additionalInfo.paragraphs.length - 1 ? 'mb-4' : ''}`}>
+                {para}
+              </p>
+            ))}
           </div>
         </div>
       </section>

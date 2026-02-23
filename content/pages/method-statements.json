@@ -1,0 +1,41 @@
+{
+  "heroTitle": "Method Statements",
+  "heroSubtitle": "Detailed application procedures for each Terra Revive application method. These method statements provide step-by-step guidance for contractors, operators, and reclamation specialists.",
+  "methods": [
+    {
+      "title": "Broadcast Application Method Statement",
+      "description": "Detailed procedure for applying Terra Revive pellets using broadcast spreaders. Includes equipment requirements, application rates, incorporation techniques, and safety protocols.",
+      "equipment": "Spreader truck, ATV spreader, or tractor-mounted spreader",
+      "rate": "1,500 to 2,000 lb/acre",
+      "bestFor": "Large wellsites, access roads, open areas"
+    },
+    {
+      "title": "Drill Incorporation Method Statement",
+      "description": "Step-by-step guide for applying Terra Revive pellets with seed drills. Covers drill calibration, seed row placement, and integration with seeding operations.",
+      "equipment": "Standard seed drill or air seeder",
+      "rate": "1,500 to 2,000 lb/acre",
+      "bestFor": "Sites with existing drill equipment, one-pass applications"
+    },
+    {
+      "title": "Hydroseeding Method Statement",
+      "description": "Complete hydroseeding protocol including mixing procedures, slurry preparation, application techniques, and equipment maintenance. Ensures even pellet distribution in hydroseed mix.",
+      "equipment": "Standard hydroseed equipment, no modifications required",
+      "rate": "1,500 to 2,000 lb/acre",
+      "bestFor": "Slopes, uneven terrain, large acreages"
+    },
+    {
+      "title": "Drone Application Method Statement",
+      "description": "Emerging method for applying Terra Revive pellets using agricultural drones. Includes flight planning, spreader attachment setup, and application patterns for remote sites.",
+      "equipment": "Agricultural drone with spreader attachment",
+      "rate": "1,500 to 2,000 lb/acre",
+      "bestFor": "Remote sites, steep slopes, limited ground access"
+    }
+  ],
+  "additionalInfo": {
+    "title": "Using method statements in tenders and reclamation plans",
+    "paragraphs": [
+      "Method statements provide detailed application procedures that can be included in tender documents, reclamation plans, and regulatory submissions. Each method statement includes equipment requirements, safety protocols, application rates, and quality assurance procedures.",
+      "For site-specific method statements or custom application procedures, contact us to discuss your project requirements."
+    ]
+  }
+}

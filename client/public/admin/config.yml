@@ -566,6 +566,64 @@ collections:
                 widget: "list"
                 field: { label: "Paragraph", name: "paragraph", widget: "text" }
 
+      # CASE STUDIES
+      - label: "Case Studies"
+        name: "case-studies"
+        file: "content/pages/case-studies.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Case Studies"
+            name: "caseStudies"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Sector", name: "sector", widget: "string" }
+              - { label: "Acres", name: "acres", widget: "number" }
+              - { label: "Method", name: "method", widget: "string" }
+              - { label: "Rate", name: "rate", widget: "string" }
+              - { label: "Species", name: "species", widget: "string" }
+              - { label: "Timeline", name: "timeline", widget: "string" }
+              - label: "Results"
+                name: "results"
+                widget: "list"
+                field: { label: "Result", name: "result", widget: "string" }
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Primary Button Text", name: "buttonPrimary", widget: "string" }
+              - { label: "Secondary Button Text", name: "buttonSecondary", widget: "string" }
+
+      # METHOD STATEMENTS
+      - label: "Method Statements"
+        name: "method-statements"
+        file: "content/pages/method-statements.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Methods"
+            name: "methods"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Equipment", name: "equipment", widget: "string" }
+              - { label: "Rate", name: "rate", widget: "string" }
+              - { label: "Best For", name: "bestFor", widget: "string" }
+          - label: "Additional Info"
+            name: "additionalInfo"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+
       # TERRA REVIVE PRODUCT
       - label: "Terra Revive Product"
         name: "terra-revive"

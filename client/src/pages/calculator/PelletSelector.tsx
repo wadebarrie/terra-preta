@@ -12,6 +12,7 @@ import {
 import { Download, FileText } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
+import pelletSelectorContent from "@content/pages/pellet-selector.json";
 
 export default function PelletSelector() {
   const [acres, setAcres] = useState("");
@@ -25,27 +26,27 @@ export default function PelletSelector() {
   const calculateRecommendation = () => {
     if (!acres || !method) return null;
 
-    // Base rate calculation - minimum 2000 lbs per acre
-    let rate = 2000;
+    const settings = pelletSelectorContent.calculationSettings;
+    let rate = settings.baseRate;
 
     // Adjust based on soil conditions
-    if (compaction === "severe") rate += 1500;
-    else if (compaction === "moderate") rate += 1000;
+    if (compaction === "severe") rate += settings.adjustments.severeCompaction;
+    else if (compaction === "moderate") rate += settings.adjustments.moderateCompaction;
 
-    if (organicMatter && parseFloat(organicMatter) < 2) rate += 1000;
+    if (organicMatter && parseFloat(organicMatter) < 2) rate += settings.adjustments.lowOrganicMatter;
 
     if (ph) {
       const phValue = parseFloat(ph);
-      if (phValue < 5.5 || phValue > 8.5) rate += 500;
+      if (phValue < 5.5 || phValue > 8.5) rate += settings.adjustments.extremePh;
     }
 
-    // Cap at 6000
-    rate = Math.min(rate, 6000);
+    // Cap at max rate
+    rate = Math.min(rate, settings.maxRate);
 
     const acresNum = parseFloat(acres);
     const totalPounds = rate * acresNum;
-    const totes = Math.ceil(totalPounds / 1750); // Using average of 1500-2000
-    const bags = Math.ceil(totalPounds / 50);
+    const totes = Math.ceil(totalPounds / settings.toteWeight);
+    const bags = Math.ceil(totalPounds / settings.bagWeight);
 
     return {
       rate,
@@ -63,18 +64,11 @@ export default function PelletSelector() {
   const results = showResults ? calculateRecommendation() : null;
 
   const getMethodNotes = (method: string) => {
-    switch (method) {
-      case "broadcast":
-        return "Apply with spreader truck or ATV spreader. Light incorporation recommended if equipment available.";
-      case "drill":
-        return "Place in seed row with standard drill equipment. Pellets integrate with soil during seeding.";
-      case "hydroseeding":
-        return "Mix into slurry after seed and mulch. Agitate for 2-3 minutes to ensure even suspension.";
-      case "drone":
-        return "Flows through standard spreader attachments. Ideal for remote sites and areas with limited ground access.";
-      default:
-        return "";
-    }
+    return pelletSelectorContent.methodNotes[method as keyof typeof pelletSelectorContent.methodNotes] || "";
+  };
+
+  const getIncorporationGuidance = (method: string) => {
+    return pelletSelectorContent.incorporationGuidance[method as keyof typeof pelletSelectorContent.incorporationGuidance] || "";
   };
 
   return (
@@ -84,11 +78,10 @@ export default function PelletSelector() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Pellet Selector
+              {pelletSelectorContent.heroTitle}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Calculate the recommended Terra Revive application rate for your
-              site based on acres, application method, and soil conditions.
+              {pelletSelectorContent.heroSubtitle}
             </p>
           </div>
         </div>
@@ -103,53 +96,51 @@ export default function PelletSelector() {
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="acres">Acres *</Label>
+                      <Label htmlFor="acres">{pelletSelectorContent.form.fields.acres.label}</Label>
                       <Input
                         id="acres"
                         type="number"
-                        placeholder="Enter acres"
+                        placeholder={pelletSelectorContent.form.fields.acres.placeholder}
                         value={acres}
                         onChange={(e) => setAcres(e.target.value)}
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="method">Application Method *</Label>
+                      <Label htmlFor="method">{pelletSelectorContent.form.fields.method.label}</Label>
                       <Select value={method} onValueChange={setMethod}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select method" />
+                          <SelectValue placeholder={pelletSelectorContent.form.fields.method.placeholder} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="broadcast">Broadcast</SelectItem>
-                          <SelectItem value="drill">Drill Incorporation</SelectItem>
-                          <SelectItem value="hydroseeding">Hydroseeding</SelectItem>
-                          <SelectItem value="drone">Drone</SelectItem>
+                          {pelletSelectorContent.form.fields.method.options.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div>
-                      <Label htmlFor="soilTexture">Soil Texture</Label>
+                      <Label htmlFor="soilTexture">{pelletSelectorContent.form.fields.soilTexture.label}</Label>
                       <Select value={soilTexture} onValueChange={setSoilTexture}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select texture" />
+                          <SelectValue placeholder={pelletSelectorContent.form.fields.soilTexture.placeholder} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="sand">Sand</SelectItem>
-                          <SelectItem value="loam">Loam</SelectItem>
-                          <SelectItem value="clay">Clay</SelectItem>
-                          <SelectItem value="silt">Silt</SelectItem>
+                          {pelletSelectorContent.form.fields.soilTexture.options.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div>
-                      <Label htmlFor="ph">Soil pH (optional)</Label>
+                      <Label htmlFor="ph">{pelletSelectorContent.form.fields.ph.label}</Label>
                       <Input
                         id="ph"
                         type="number"
                         step="0.1"
-                        placeholder="e.g., 6.5"
+                        placeholder={pelletSelectorContent.form.fields.ph.placeholder}
                         value={ph}
                         onChange={(e) => setPh(e.target.value)}
                       />
@@ -157,35 +148,35 @@ export default function PelletSelector() {
 
                     <div>
                       <Label htmlFor="organicMatter">
-                        Organic Matter % (optional)
+                        {pelletSelectorContent.form.fields.organicMatter.label}
                       </Label>
                       <Input
                         id="organicMatter"
                         type="number"
                         step="0.1"
-                        placeholder="e.g., 3.5"
+                        placeholder={pelletSelectorContent.form.fields.organicMatter.placeholder}
                         value={organicMatter}
                         onChange={(e) => setOrganicMatter(e.target.value)}
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="compaction">Compaction Level</Label>
+                      <Label htmlFor="compaction">{pelletSelectorContent.form.fields.compaction.label}</Label>
                       <Select value={compaction} onValueChange={setCompaction}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select level" />
+                          <SelectValue placeholder={pelletSelectorContent.form.fields.compaction.placeholder} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="none">None / Light</SelectItem>
-                          <SelectItem value="moderate">Moderate</SelectItem>
-                          <SelectItem value="severe">Severe</SelectItem>
+                          {pelletSelectorContent.form.fields.compaction.options.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
                   <Button onClick={handleCalculate} className="w-full">
-                    Calculate Recommendation
+                    {pelletSelectorContent.form.submitButton}
                   </Button>
                 </div>
               </CardContent>
@@ -197,12 +188,12 @@ export default function PelletSelector() {
                 <Card className="border-primary">
                   <CardContent className="pt-6">
                     <h2 className="text-2xl font-bold mb-6">
-                      Recommended Application
+                      {pelletSelectorContent.results.title}
                     </h2>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h3 className="font-semibold mb-2">
-                          Recommended Rate
+                          {pelletSelectorContent.results.rateLabel}
                         </h3>
                         <p className="text-3xl font-bold text-primary">
                           {results.rate} lb/acre
@@ -210,7 +201,7 @@ export default function PelletSelector() {
                       </div>
 
                       <div>
-                        <h3 className="font-semibold mb-2">Total Pounds</h3>
+                        <h3 className="font-semibold mb-2">{pelletSelectorContent.results.totalPoundsLabel}</h3>
                         <p className="text-3xl font-bold text-primary">
                           {results.totalPounds.toLocaleString()} lb
                         </p>
@@ -218,27 +209,26 @@ export default function PelletSelector() {
 
                       <div>
                         <h3 className="font-semibold mb-2">
-                          1,500-2,000 lb Totes Needed
+                          {pelletSelectorContent.results.totesLabel}
                         </h3>
                         <p className="text-2xl font-bold">
                           {results.totes} totes
                         </p>
                         <p className="text-sm text-muted-foreground">
-                          Estimated cost: $
-                          {(results.totes * 1750).toLocaleString()} (@ $1.00/lb avg)
+                          {pelletSelectorContent.results.totesNote.replace('$', `$${(results.totes * pelletSelectorContent.calculationSettings.totePrice * pelletSelectorContent.calculationSettings.toteWeight).toLocaleString()}`)}
                         </p>
                       </div>
 
                       <div>
                         <h3 className="font-semibold mb-2">
-                          50 lb Bags Needed
+                          {pelletSelectorContent.results.bagsLabel}
                         </h3>
                         <p className="text-2xl font-bold">
                           {results.bags} bags
                         </p>
                         <p className="text-sm text-muted-foreground">
-                          Estimated cost: $
-                          {(results.bags * 87.5).toLocaleString()}
+                          {pelletSelectorContent.results.bagsNote}
+                          {(results.bags * pelletSelectorContent.calculationSettings.bagWeight * pelletSelectorContent.calculationSettings.bagPrice).toLocaleString()}
                         </p>
                       </div>
                     </div>
@@ -248,23 +238,16 @@ export default function PelletSelector() {
                 <Card>
                   <CardContent className="pt-6">
                     <h3 className="font-semibold text-lg mb-3">
-                      Method Notes: {method.charAt(0).toUpperCase() + method.slice(1)}
+                      {pelletSelectorContent.results.methodNotesTitle} {method.charAt(0).toUpperCase() + method.slice(1)}
                     </h3>
                     <p className="text-muted-foreground mb-4">
                       {getMethodNotes(results.method)}
                     </p>
                     <h3 className="font-semibold text-lg mb-3">
-                      Incorporation Guidance
+                      {pelletSelectorContent.results.incorporationGuidanceTitle}
                     </h3>
                     <p className="text-muted-foreground">
-                      {results.method === "broadcast" &&
-                        "Light harrowing or raking after application improves pellet-soil contact. If equipment is not available, pellets will integrate naturally with rainfall and freeze-thaw cycles."}
-                      {results.method === "drill" &&
-                        "Pellets are placed in the seed row and covered with soil during drilling. No additional incorporation needed."}
-                      {results.method === "hydroseeding" &&
-                        "Pellets are suspended in slurry and applied with seed and mulch. No additional incorporation needed."}
-                      {results.method === "drone" &&
-                        "Pellets are broadcast from the air. Light rainfall or irrigation helps integrate pellets into the soil surface."}
+                      {getIncorporationGuidance(results.method)}
                     </p>
                   </CardContent>
                 </Card>
@@ -291,19 +274,12 @@ export default function PelletSelector() {
       <section className="py-16 bg-muted">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-6">About this calculator</h2>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              The Pellet Selector calculates a recommended Terra Revive
-              application rate based on your site conditions. The base rate is
-              2,000 lbs per acre for sites with moderate degradation. The
-              calculator adjusts the rate upward (to a maximum of 6,000 lbs per
-              acre) based on compaction level, low organic matter, and extreme pH
-              values.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              This is a planning tool. For site-specific recommendations, 
-              contact us to discuss your reclamation needs.
-            </p>
+            <h2 className="text-2xl font-bold mb-6">{pelletSelectorContent.infoSection.title}</h2>
+            {pelletSelectorContent.infoSection.paragraphs.map((para, index) => (
+              <p key={index} className={`text-muted-foreground leading-relaxed ${index < pelletSelectorContent.infoSection.paragraphs.length - 1 ? 'mb-4' : ''}`}>
+                {para}
+              </p>
+            ))}
           </div>
         </div>
       </section>

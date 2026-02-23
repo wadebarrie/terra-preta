@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Download } from "lucide-react";
 import { useState } from "react";
+import costPaybackContent from "@content/pages/cost-payback.json";
 
 export default function CostPayback() {
   const [acres, setAcres] = useState("");
@@ -21,17 +22,18 @@ export default function CostPayback() {
   const calculateCost = () => {
     if (!acres || !rate) return null;
 
+    const settings = costPaybackContent.calculationSettings;
     const acresNum = parseFloat(acres);
     const rateNum = parseFloat(rate);
     const totalPounds = acresNum * rateNum;
 
-    // Calculate using tote pricing (more economical for large orders)
-    const totes = Math.ceil(totalPounds / 1500);
-    const productCost = totes * 2250;
+    // Calculate using tote pricing
+    const totes = Math.ceil(totalPounds / settings.toteWeight);
+    const productCost = totes * settings.totePrice;
 
     // Estimate re-mobilization costs
     const reVisits = reVisitsAvoided ? parseInt(reVisitsAvoided) : 0;
-    const estimatedSavings = reVisits * 5000; // Assume $5,000 per re-mobilization
+    const estimatedSavings = reVisits * settings.remobilizationCost;
 
     return {
       totalPounds,
@@ -56,11 +58,10 @@ export default function CostPayback() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Cost and Payback
+              {costPaybackContent.heroTitle}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Estimate Terra Revive product costs and potential savings from
-              reduced re-mobilizations and faster site closure.
+              {costPaybackContent.heroSubtitle}
             </p>
           </div>
         </div>
@@ -75,50 +76,49 @@ export default function CostPayback() {
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="acres">Acres *</Label>
+                      <Label htmlFor="acres">{costPaybackContent.form.fields.acres.label}</Label>
                       <Input
                         id="acres"
                         type="number"
-                        placeholder="Enter acres"
+                        placeholder={costPaybackContent.form.fields.acres.placeholder}
                         value={acres}
                         onChange={(e) => setAcres(e.target.value)}
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="rate">Application Rate (lb/acre) *</Label>
+                      <Label htmlFor="rate">{costPaybackContent.form.fields.rate.label}</Label>
                       <Select value={rate} onValueChange={setRate}>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select rate" />
+                          <SelectValue placeholder={costPaybackContent.form.fields.rate.placeholder} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="1500">1,500 lb/acre</SelectItem>
-                          <SelectItem value="1750">1,750 lb/acre</SelectItem>
-                          <SelectItem value="2000">2,000 lb/acre</SelectItem>
+                          {costPaybackContent.form.fields.rate.options.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div className="md:col-span-2">
                       <Label htmlFor="reVisits">
-                        Estimated Re-visits Avoided Per Year
+                        {costPaybackContent.form.fields.reVisits.label}
                       </Label>
                       <Input
                         id="reVisits"
                         type="number"
-                        placeholder="e.g., 1 or 2"
+                        placeholder={costPaybackContent.form.fields.reVisits.placeholder}
                         value={reVisitsAvoided}
                         onChange={(e) => setReVisitsAvoided(e.target.value)}
                       />
                       <p className="text-sm text-muted-foreground mt-1">
-                        Each re-mobilization typically costs $3,000 to $7,000 in
-                        equipment, labor, and materials.
+                        {costPaybackContent.form.fields.reVisits.helpText}
                       </p>
                     </div>
                   </div>
 
                   <Button onClick={handleCalculate} className="w-full">
-                    Calculate Cost and Payback
+                    {costPaybackContent.form.submitButton}
                   </Button>
                 </div>
               </CardContent>
@@ -129,27 +129,27 @@ export default function CostPayback() {
               <div className="mt-8 space-y-6">
                 <Card className="border-primary">
                   <CardContent className="pt-6">
-                    <h2 className="text-2xl font-bold mb-6">Cost Estimate</h2>
+                    <h2 className="text-2xl font-bold mb-6">{costPaybackContent.results.costEstimate.title}</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h3 className="font-semibold mb-2">Total Pounds</h3>
+                        <h3 className="font-semibold mb-2">{costPaybackContent.results.costEstimate.totalPoundsLabel}</h3>
                         <p className="text-2xl font-bold">
                           {results.totalPounds.toLocaleString()} lb
                         </p>
                       </div>
 
                       <div>
-                        <h3 className="font-semibold mb-2">Totes Needed</h3>
+                        <h3 className="font-semibold mb-2">{costPaybackContent.results.costEstimate.totesLabel}</h3>
                         <p className="text-2xl font-bold">{results.totes}</p>
                       </div>
 
                       <div className="md:col-span-2 bg-muted p-4 rounded">
-                        <h3 className="font-semibold mb-2">Product Cost</h3>
+                        <h3 className="font-semibold mb-2">{costPaybackContent.results.costEstimate.productCostLabel}</h3>
                         <p className="text-3xl font-bold text-primary">
                           ${results.productCost.toLocaleString()}
                         </p>
                         <p className="text-sm text-muted-foreground mt-1">
-                          Based on 1,500 lb totes at $1.50/lb
+                          {costPaybackContent.results.costEstimate.productCostNote}
                         </p>
                       </div>
                     </div>
@@ -160,40 +160,38 @@ export default function CostPayback() {
                   <Card>
                     <CardContent className="pt-6">
                       <h2 className="text-2xl font-bold mb-6">
-                        Potential Savings
+                        {costPaybackContent.results.potentialSavings.title}
                       </h2>
                       <div className="space-y-4">
                         <div>
                           <h3 className="font-semibold mb-2">
-                            Re-mobilizations Avoided
+                            {costPaybackContent.results.potentialSavings.reVisitsLabel}
                           </h3>
                           <p className="text-2xl font-bold">
-                            {results.reVisits} per year
+                            {results.reVisits} {costPaybackContent.results.potentialSavings.reVisitsUnit}
                           </p>
                         </div>
 
                         <div className="bg-muted p-4 rounded">
                           <h3 className="font-semibold mb-2">
-                            Estimated Savings
+                            {costPaybackContent.results.potentialSavings.estimatedSavingsLabel}
                           </h3>
                           <p className="text-3xl font-bold text-primary">
                             ${results.estimatedSavings.toLocaleString()}
                           </p>
                           <p className="text-sm text-muted-foreground mt-1">
-                            Based on $5,000 per re-mobilization (equipment,
-                            labor, materials)
+                            {costPaybackContent.results.potentialSavings.savingsNote}
                           </p>
                         </div>
 
                         <div className="bg-primary text-primary-foreground p-4 rounded">
-                          <h3 className="font-semibold mb-2">Net Cost</h3>
+                          <h3 className="font-semibold mb-2">{costPaybackContent.results.potentialSavings.netCostLabel}</h3>
                           <p className="text-3xl font-bold">
                             ${Math.max(0, results.netCost).toLocaleString()}
                           </p>
                           {results.netCost <= 0 && (
                             <p className="text-sm mt-1 opacity-90">
-                              Terra Revive pays for itself in avoided
-                              re-mobilizations
+                              {costPaybackContent.results.potentialSavings.paybackMessage}
                             </p>
                           )}
                         </div>
@@ -205,20 +203,13 @@ export default function CostPayback() {
                 <Card>
                   <CardContent className="pt-6">
                     <h3 className="font-semibold text-lg mb-3">
-                      Schedule and Re-mobilization Risk
+                      {costPaybackContent.results.scheduleRisk.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      Sites that fail to establish vegetation require
-                      re-mobilization for additional seeding, fertilization, or
-                      soil amendments. Each re-mobilization delays site closure
-                      and adds costs for equipment, labor, and materials.
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Terra Revive rebuilds soil function so native species
-                      establish in the first growing season, reducing the risk of
-                      failed inspections and costly return visits. Sites close
-                      faster and operators avoid carrying long-term liability.
-                    </p>
+                    {costPaybackContent.results.scheduleRisk.paragraphs.map((para, index) => (
+                      <p key={index} className={`text-muted-foreground leading-relaxed ${index < costPaybackContent.results.scheduleRisk.paragraphs.length - 1 ? 'mb-4' : ''}`}>
+                        {para}
+                      </p>
+                    ))}
                   </CardContent>
                 </Card>
 
@@ -236,22 +227,12 @@ export default function CostPayback() {
       <section className="py-16 bg-muted">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-6">About this calculator</h2>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              The Cost and Payback calculator estimates Terra Revive product
-              costs based on your site size and application rate. It also
-              calculates potential savings from avoided re-mobilizations.
-            </p>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              Re-mobilization costs vary by site location, access, and scope of
-              work. This calculator uses a conservative estimate of $5,000 per
-              re-mobilization. Actual costs may be higher for remote sites or
-              large acreages.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              For site-specific cost estimates and project planning, contact us
-              to discuss your reclamation needs.
-            </p>
+            <h2 className="text-2xl font-bold mb-6">{costPaybackContent.infoSection.title}</h2>
+            {costPaybackContent.infoSection.paragraphs.map((para, index) => (
+              <p key={index} className={`text-muted-foreground leading-relaxed ${index < costPaybackContent.infoSection.paragraphs.length - 1 ? 'mb-4' : ''}`}>
+                {para}
+              </p>
+            ))}
           </div>
         </div>
       </section>
