@@ -1,5 +1,5 @@
 {
-  "heroTitle": "Pellet Selector",
+  "heroTitle": "Pellet Calculator",
   "heroSubtitle": "Calculate the recommended Terra Revive application rate for your site based on acres, application method, and soil conditions.",
   "form": {
     "fields": {
@@ -13,20 +13,44 @@
         "placeholder": "Select method",
         "required": true,
         "options": [
-          { "value": "broadcast", "label": "Broadcast" },
-          { "value": "drill", "label": "Drill Incorporation" },
-          { "value": "hydroseeding", "label": "Hydroseeding" },
-          { "value": "drone", "label": "Drone" }
+          {
+            "value": "broadcast",
+            "label": "Broadcast"
+          },
+          {
+            "value": "drill",
+            "label": "Drill Incorporation"
+          },
+          {
+            "value": "hydroseeding",
+            "label": "Hydroseeding"
+          },
+          {
+            "value": "drone",
+            "label": "Drone"
+          }
         ]
       },
       "soilTexture": {
         "label": "Soil Texture",
         "placeholder": "Select texture",
         "options": [
-          { "value": "sand", "label": "Sand" },
-          { "value": "loam", "label": "Loam" },
-          { "value": "clay", "label": "Clay" },
-          { "value": "silt", "label": "Silt" }
+          {
+            "value": "sand",
+            "label": "Sand"
+          },
+          {
+            "value": "loam",
+            "label": "Loam"
+          },
+          {
+            "value": "clay",
+            "label": "Clay"
+          },
+          {
+            "value": "silt",
+            "label": "Silt"
+          }
         ]
       },
       "ph": {
@@ -41,24 +65,33 @@
         "label": "Compaction Level",
         "placeholder": "Select level",
         "options": [
-          { "value": "none", "label": "None / Light" },
-          { "value": "moderate", "label": "Moderate" },
-          { "value": "severe", "label": "Severe" }
+          {
+            "value": "none",
+            "label": "None / Light"
+          },
+          {
+            "value": "moderate",
+            "label": "Moderate"
+          },
+          {
+            "value": "severe",
+            "label": "Severe"
+          }
         ]
       }
     },
     "submitButton": "Calculate Recommendation"
   },
   "results": {
-    "title": "Recommended Application",
-    "rateLabel": "Recommended Rate",
+    "bagsLabel": "50 lb Bags Needed",
     "totalPoundsLabel": "Total Pounds",
     "totesLabel": "1,500-2,000 lb Totes Needed",
-    "totesNote": "Estimated cost: $ (@ $1.00/lb avg)",
-    "bagsLabel": "50 lb Bags Needed",
-    "bagsNote": "Estimated cost: $",
+    "rateLabel": "Recommended Rate",
+    "title": "Recommended Application",
     "methodNotesTitle": "Method Notes:",
-    "incorporationGuidanceTitle": "Incorporation Guidance"
+    "totesNote": "Estimated cost: $ (@ $1.00/lb avg)",
+    "incorporationGuidanceTitle": "Incorporation Guidance",
+    "bagsNote": "Estimated cost: $"
   },
   "methodNotes": {
     "broadcast": "Apply with spreader truck or ATV spreader. Light incorporation recommended if equipment available.",
@@ -75,7 +108,7 @@
   "infoSection": {
     "title": "About this calculator",
     "paragraphs": [
-      "The Pellet Selector calculates a recommended Terra Revive application rate based on your site conditions. The base rate is 2,000 lbs per acre for sites with moderate degradation. The calculator adjusts the rate upward (to a maximum of 6,000 lbs per acre) based on compaction level, low organic matter, and extreme pH values.",
+      "The Pellet Calculator provides a recommended Terra Revive application rate based on your site conditions. The base rate is 2,000 lbs per acre for sites with moderate degradation. The calculator adjusts the rate upward (to a maximum of 6,000 lbs per acre) based on compaction level, low organic matter, and extreme pH values.",
       "This is a planning tool. For site-specific recommendations, contact us to discuss your reclamation needs."
     ]
   },
@@ -88,9 +121,9 @@
       "lowOrganicMatter": 1000,
       "extremePh": 500
     },
-    "toteWeight": 1750,
+    "toteWeight": 1498,
     "bagWeight": 50,
-    "totePrice": 1.00,
+    "totePrice": 1,
     "bagPrice": 1.75
   }
 }
