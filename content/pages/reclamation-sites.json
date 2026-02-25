@@ -47,11 +47,6 @@
         "bestFor": "Ideal for sites with existing drill equipment and when seed and amendment can be applied in one pass."
       },
       {
-        "title": "Hydroseeding",
-        "description": "Mix 2,000+ lbs per acre into the hydroseed slurry. Pellets suspend well and apply evenly across the site.",
-        "bestFor": "Perfect for slopes, uneven terrain, and sites where broadcast equipment cannot access."
-      },
-      {
         "title": "Drone",
         "description": "Apply 2,000+ lbs per acre with agricultural drones. Pellets flow through standard spreader attachments.",
         "bestFor": "Emerging method for remote sites and areas with limited ground access."
@@ -66,7 +61,7 @@
       "items": [
         "Pellets integrate into the soil profile",
         "Microbial activity increases",
-        "Seed germination improves",
+        "Seedling health improves",
         "Native species begin to establish if moisture is adequate"
       ]
     },
@@ -81,7 +76,7 @@
     }
   },
   "evidenceSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "Evidence from the field",
     "showCaseStudies": false,
     "comingSoonMessage": "Case Studies Coming Soon",
@@ -109,8 +104,8 @@
   "ctaSection": {
     "enabled": true,
     "title": "Ready to close your site faster?",
-    "subtitle": "Get a quote or start a pilot project. On-site support available.",
+    "subtitle": "Get a quote",
     "primaryButton": "Get a Quote",
-    "secondaryButton": "Start a Pilot"
+    "secondaryButton": "Contact Us"
   }
 }
