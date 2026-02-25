@@ -44,13 +44,13 @@
     "features": [
       {
         "title": "Oil and Gas Reclamation",
-        "description": "Restore soil function on wellsites and access roads. Faster vegetative cover and smoother audits.",
+        "description": "Restore soil function on reclaimed wellsites and access roads. Higher germination rates, better vegetation coverage, and faster reclamation certificates.",
         "icon": "Sprout",
         "link": "/solutions/reclamation"
       },
       {
         "title": "Mining and Industrial",
-        "description": "Rebuild stockpiled topsoil and establish vegetation on disturbed mine sites with minimal re-mobilizations.",
+        "description": "Improve performance on stockpiled topsoil and disturbed ground. Establish vegetation with fewer re-mobilizations.",
         "icon": "Leaf",
         "link": "/solutions/mining"
       },
@@ -121,18 +121,18 @@
     "steps": [
       {
         "number": 1,
-        "title": "Apply while yellow iron is on site",
-        "description": "Broadcast Terra Revive pellets using standard equipment. No special handling required."
+        "title": "Apply while iron is on site",
+        "description": "Broadcast Terra Revive pellets using standard equipment."
       },
       {
         "number": 2,
-        "title": "Pellets integrate and feed biology",
-        "description": "Organic matter and minerals break down gradually, feeding soil microbes and rebuilding structure."
+        "title": "Soil biology reactivates",
+        "description": "Organic matter and minerals break down gradually, rebuilding structure."
       },
       {
         "number": 3,
-        "title": "Soil function returns and vegetation establishes",
-        "description": "Native species germinate and establish without synthetics. Sites close faster with fewer re-visits."
+        "title": "Vegetation establishes",
+        "description": "Native species germinate and sites stabilize with fewer return visits."
       }
     ]
   },
