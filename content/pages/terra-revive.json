@@ -1,6 +1,6 @@
 {
   "heroTitle": "Terra Revive",
-  "heroSubtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling on degraded reclamation sites. Applied at 2,000+ lbs per acre, the pellets deliver organic matter and minerals that support native species establishment without synthetics. Compatible with broadcast, drill, hydroseeding, and drone application methods.",
+  "heroSubtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling on degraded reclamation sites. Applied at 2,000+ lbs per acre, the pellets deliver organic matter and minerals that support native species establishment without synthetics. Compatible with broadcasting application methods.",
   "specifications": {
     "title": "Product specifications",
     "rows": [
@@ -10,7 +10,7 @@
       },
       {
         "label": "Functional Claims",
-        "value": "Rebuilds soil biology, improves structure, enables nutrient cycling, supports native species establishment"
+        "value": "Rebuilds soil biology, improves soil structure, enables nutrient cycling, supports native species establishment"
       },
       {
         "label": "Particle Size",
@@ -91,11 +91,7 @@
     "questions": [
       {
         "question": "What equipment is compatible with Terra Revive?",
-        "answer": "Terra Revive works with standard broadcast spreaders, seed drills, hydroseed equipment, and agricultural drones. No special modifications or attachments required. The pellets flow freely and distribute evenly with existing equipment."
-      },
-      {
-        "question": "Can Terra Revive be used on uneven terrain?",
-        "answer": "Yes. Hydroseeding and drone application methods work well on slopes, uneven terrain, and areas where ground equipment cannot access. Broadcast and drill methods are best for relatively level sites where equipment can maneuver."
+        "answer": "Terra Revive works with standard broadcast spreaders. We have successfully utilized no-till seed drills, hydroseed equipment, and agricultural drones to apply pellets as well. No special modifications or attachments required. The pellets flow freely, with minimal dust and distribute evenly with existing equipment."
       },
       {
         "question": "Can I use Terra Revive with conventional fertilizer?",
@@ -104,10 +100,6 @@
       {
         "question": "Do regulators accept Terra Revive in reclamation plans?",
         "answer": "Yes. Terra Revive is a soil amendment that supports native species establishment, which aligns with Alberta reclamation criteria. We provide spec sheets, method statements, and QA documentation that can be included in reclamation plans and submitted to regulators."
-      },
-      {
-        "question": "How do I run a pilot project?",
-        "answer": "Start with a small test area (1 to 5 acres) and apply Terra Revive at 2,000+ lbs per acre using your preferred method. Monitor germination, vegetative cover, and species establishment over one growing season. Compare results to a control area treated with your standard reclamation protocol. Contact us to discuss pilot design."
       },
       {
         "question": "What is soil function?",
