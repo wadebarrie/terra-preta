@@ -2,7 +2,7 @@
   "heroTitle": "Hydroseeding Partners",
   "heroSubtitle": "Add Terra Revive to your hydroseed mix and deliver superior establishment rates. Rebuild soil biology while you seed, reducing callbacks and improving customer outcomes.",
   "problemSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "Why hydroseeding projects fail",
     "paragraphs": [
       "Soil function is an integrated set of biological, physical, and chemical processes that enable self-sustaining vegetation. When soil is compacted, stockpiled, or stripped of topsoil, these processes break down.",
@@ -10,7 +10,7 @@
     ]
   },
   "solutionSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "How Terra Revive improves hydroseeding outcomes",
     "subtitle": "Terra Revive pellets suspend in hydroseed slurry and apply evenly across the site. At 2,000+ lbs per acre, the pellets deliver organic matter and minerals that rebuild soil biology and improve germination.",
     "benefits": [
@@ -33,7 +33,7 @@
     ]
   },
   "methodSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "Application method and rates",
     "cardTitle": "Hydroseeding with Terra Revive",
     "details": [
@@ -60,7 +60,7 @@
     ]
   },
   "expectationsSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "What to expect",
     "thisSeason": {
       "title": "This season",
@@ -82,7 +82,7 @@
     }
   },
   "evidenceSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "Evidence from the field",
     "showCaseStudies": false,
     "comingSoonMessage": "Case Studies Coming Soon",
@@ -108,7 +108,7 @@
     ]
   },
   "ctaSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "Ready to improve your hydroseeding outcomes?",
     "subtitle": "Get a quote or start a pilot project. Partner application services available.",
     "primaryButton": "Get a Quote",
