@@ -1,18 +1,26 @@
 {
   "pages": {
-    "home": {
-      "enabled": true,
-      "showInNav": true
-    },
-    "about": {
-      "enabled": true,
-      "showInNav": true
-    },
     "contact": {
       "enabled": true,
       "showInNav": true
     },
-    "reclamationSites": {
+    "sdsTds": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "costPayback": {
+      "enabled": false,
+      "showInNav": false
+    },
+    "pelletSelector": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "evidenceLibrary": {
+      "enabled": true,
+      "showInNav": true
+    },
+    "terraRevive": {
       "enabled": true,
       "showInNav": true
     },
@@ -24,11 +32,7 @@
       "enabled": false,
       "showInNav": false
     },
-    "evidenceLibrary": {
-      "enabled": true,
-      "showInNav": true
-    },
-    "sdsTds": {
+    "about": {
       "enabled": true,
       "showInNav": true
     },
@@ -36,15 +40,11 @@
       "enabled": false,
       "showInNav": false
     },
-    "terraRevive": {
+    "home": {
       "enabled": true,
       "showInNav": true
     },
-    "pelletSelector": {
-      "enabled": true,
-      "showInNav": true
-    },
-    "costPayback": {
+    "reclamationSites": {
       "enabled": true,
       "showInNav": true
     }
