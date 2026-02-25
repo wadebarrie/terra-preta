@@ -31,28 +31,28 @@
     "title": "Our team",
     "members": [
       {
-        "name": "John Anderson",
+        "name": "Le Martineau",
         "role": "Founder & CEO",
         "description": "20+ years in reclamation and soil science",
         "photo": null
       },
       {
-        "name": "Sarah Chen",
+        "name": "Timothy Wiens",
         "role": "Operations Manager",
         "description": "Manufacturing and quality assurance specialist",
-        "photo": null
+        "photo": "/uploads/screenshot-2026-02-25-120338.png"
       },
       {
-        "name": "Mike Thompson",
+        "name": "Perry Dixon",
         "role": "Field Services Lead",
         "description": "On-site support and application training",
-        "photo": null
+        "photo": "/uploads/screenshot-2026-02-25-120500.png"
       },
       {
-        "name": "Lisa Rodriguez",
-        "role": "Technical Sales",
+        "name": "Chris Kay",
+        "role": "Sales Representative",
         "description": "Project planning and customer support",
-        "photo": null
+        "photo": "/uploads/pxl_20221008_204320386.portrait.jpg"
       }
     ]
   },
