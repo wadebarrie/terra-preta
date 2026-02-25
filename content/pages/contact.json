@@ -13,26 +13,20 @@
     {
       "icon": "Mail",
       "title": "Email",
-      "email": "sales@terrapreta.ca"
+      "email": "chris@terrapreta.ca"
     }
   ],
   "form": {
-    "step1Title": "Step 1: Your Information",
-    "step2Title": "Step 2: Site Details",
+    "successMessage": "Thank you for your inquiry! We'll be in touch within 24 hours.",
+    "footerNote": "By submitting this form, you'll receive a bid ready spec pack via email and a member of our team will contact you within 24 hours.",
     "step3Title": "Step 3: Project Requirements",
-    "roles": [
-      "Reclamation Consultant",
-      "EPC / Contractor",
-      "Site Operator",
-      "Environmental Manager",
-      "Other"
-    ],
     "timelines": [
       "Immediate (within 2 weeks)",
       "1-2 months",
       "3-6 months",
       "Planning stage"
     ],
+    "step2Title": "Step 2: Site Details",
     "methods": [
       "Broadcast",
       "Drill Incorporation",
@@ -40,9 +34,15 @@
       "Drone",
       "Not sure yet"
     ],
-    "successMessage": "Thank you for your inquiry! We'll be in touch within 24 hours.",
-    "errorMessage": "Failed to submit form. Please try again or contact us directly at sales@terrapreta.ca",
-    "footerNote": "By submitting this form, you'll receive a bid ready spec pack via email and a member of our team will contact you within 24 hours."
+    "step1Title": "Step 1: Your Information",
+    "roles": [
+      "Reclamation Consultant",
+      "EPC / Contractor",
+      "Site Operator",
+      "Environmental Manager",
+      "Other"
+    ],
+    "errorMessage": "Failed to submit form. Please try again or contact us directly at chris@terrapreta.ca"
   },
   "formspreeEndpoint": "https://formspree.io/f/mnjaqwoe"
 }
