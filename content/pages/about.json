@@ -63,7 +63,7 @@
     ]
   },
   "safetyInsurance": {
-    "enabled": true,
+    "enabled": false,
     "title": "Safety program and insurance",
     "items": [
       {
