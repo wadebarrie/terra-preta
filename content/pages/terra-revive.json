@@ -22,11 +22,11 @@
       },
       {
         "label": "Storage",
-        "value": "Store in a dry location. Protect from moisture."
+        "value": "Store in a dry location. Protected from humidity influxes."
       },
       {
         "label": "Shelf Life",
-        "value": "24 months when stored properly"
+        "value": "Indefinite when stored correctly"
       },
       {
         "label": "Seeding Method Compatibility",
@@ -40,7 +40,7 @@
       {
         "name": "Broadcast",
         "rate": "2,000 to 6,000 lb/acre",
-        "notes": "Light incorporation recommended if equipment available"
+        "notes": "Light incorporation recommended with power harrow"
       }
     ]
   },
