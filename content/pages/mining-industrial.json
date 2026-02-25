@@ -47,11 +47,6 @@
         "bestFor": "Ideal for sites with existing drill equipment and when seed and amendment can be applied in one pass."
       },
       {
-        "title": "Hydroseeding",
-        "description": "Mix 2,000+ lbs per acre into the hydroseed slurry. Pellets suspend well and apply evenly across the site.",
-        "bestFor": "Perfect for slopes, tailings ponds, and areas where broadcast equipment cannot access."
-      },
-      {
         "title": "Drone",
         "description": "Apply 2,000+ lbs per acre with agricultural drones. Pellets flow through standard spreader attachments.",
         "bestFor": "Emerging method for remote sites, steep slopes, and areas with limited ground access."
@@ -81,7 +76,7 @@
     }
   },
   "evidenceSection": {
-    "enabled": true,
+    "enabled": false,
     "title": "Evidence from the field",
     "showCaseStudies": false,
     "comingSoonMessage": "Case Studies Coming Soon",
@@ -109,8 +104,8 @@
   "ctaSection": {
     "enabled": true,
     "title": "Ready to meet your reclamation requirements?",
-    "subtitle": "Get a quote or start a pilot project. On-site support and spec-grade documentation available.",
+    "subtitle": "Get a quote. On-site support and spec-grade documentation available.",
     "primaryButton": "Get a Quote",
-    "secondaryButton": "Start a Pilot"
+    "secondaryButton": "Contact Us"
   }
 }
