@@ -13,23 +13,23 @@
   },
   "outcomesSection": {
     "enabled": true,
-    "title": "Outcomes that matter",
+    "title": "Performance That Pays for Itself",
     "outcomes": [
       {
-        "title": "Faster vegetative cover",
+        "title": "Faster vegetative establishment",
         "description": "Native species establish in the first growing season on properly prepared sites."
       },
       {
-        "title": "Healthier plant growth on stockpiled topsoil",
-        "description": "Rebuild biology in degraded topsoil and improve seed establishment rates."
+        "title": "Fewer Site Visits",
+        "description": "Reduce site inspections and vegetation management costs."
       },
       {
-        "title": "Fewer re-mobilizations and smoother audits",
-        "description": "Reduce risk of failed inspections and costly return visits."
+        "title": "Improved performance on stockpiled topsoil",
+        "description": "Restore biological activity and improve seed establishment rates."
       },
       {
-        "title": "Compatible with standard methods",
-        "description": "Works with broadcast applications."
+        "title": "No specialty equipment required",
+        "description": "Broadcast with standard site equipment."
       }
     ]
   },
