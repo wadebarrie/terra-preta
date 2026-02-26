@@ -44,13 +44,13 @@
     "features": [
       {
         "title": "Oil and Gas Reclamation",
-        "description": "Restore soil function on reclaimed wellsites and access roads. Higher germination rates, better vegetation coverage, and faster reclamation certificates.",
+        "description": "Restore soil function on wellsites and access roads. Faster establishment. Stronger vegetative cover.",
         "icon": "Sprout",
         "link": "/solutions/reclamation"
       },
       {
         "title": "Mining and Industrial",
-        "description": "Improve performance on stockpiled topsoil and disturbed ground. Establish vegetation with fewer re-mobilizations.",
+        "description": "Rebuild soil biology on stockpiles, overburden, and disturbed ground. Improve vegetation establishment on challenging mine sites.",
         "icon": "Leaf",
         "link": "/solutions/mining"
       },
