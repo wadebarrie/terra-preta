@@ -17,13 +17,13 @@
     "items": [
       {
         "icon": "Building",
-        "title": "Manufacturing in Sundre, Alberta",
-        "description": "Our facility in Sundre produces Terra Revive pellets using consistent formulations and quality-controlled processes. We maintain inventory to support Canada-wide delivery."
+        "title": "Production and Scale",
+        "description": "Terra Preta operates from a dedicated production facility in Sundre, Alberta that has been specifically designed for consistent, large-scale manufacturing. Our pelletizing systems were built to support reclamation and agricultural demand across Canada.\n\nWe maintain capacity well beyond our current production volumes, allowing us to respond quickly to project-scale requirements.\n\nBulk ingredient storage, controlled mixing, and integrated packaging ensures Terra Revive is produced with uniform composition and predictable performance."
       },
       {
         "icon": "Award",
-        "title": "Quality assurance",
-        "description": "Every batch is tested for moisture content, particle size, and ingredient consistency. We provide batch-specific QA documentation and maintain traceability for all shipments."
+        "title": "Quality Control and Consistency",
+        "description": "Terra Revive is manufactured using standardized protocols and calibrated equipment to maintain consistent pellet composition from batch to batch. Ingredient inputs are verified prior to production, and finished product is produced under controlled conditions to ensure uniform pellet integrity and field performance.\n\nOur focus is repeatable, reliable performance in the field."
       }
     ]
   },
