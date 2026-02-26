@@ -13,23 +13,23 @@
   },
   "outcomesSection": {
     "enabled": true,
-    "title": "Outcomes that matter",
+    "title": "Performance That Pays for Itself",
     "outcomes": [
       {
-        "title": "Faster vegetative cover",
+        "title": "Faster vegetative establishment",
         "description": "Native species establish in the first growing season on properly prepared sites."
       },
       {
-        "title": "Healthier plant growth on stockpiled topsoil",
-        "description": "Rebuild biology in degraded topsoil and improve seed establishment rates."
+        "title": "Fewer Site Visits",
+        "description": "Reduce site inspections and vegetation management costs."
       },
       {
-        "title": "Fewer re-mobilizations and smoother audits",
-        "description": "Reduce risk of failed inspections and costly return visits."
+        "title": "Improved performance on stockpiled topsoil",
+        "description": "Restore biological activity and improve seed establishment rates."
       },
       {
-        "title": "Compatible with standard methods",
-        "description": "Works with broadcast applications."
+        "title": "No specialty equipment required",
+        "description": "Broadcast with standard site equipment."
       }
     ]
   },
@@ -40,23 +40,23 @@
   },
   "featuresSection": {
     "enabled": true,
-    "title": "Who it's for",
+    "title": "",
     "features": [
       {
         "title": "Oil and Gas Reclamation",
-        "description": "Restore soil function on wellsites and access roads. Faster vegetative cover and smoother audits.",
+        "description": "Restore soil function on wellsites and access roads. Faster establishment. Stronger vegetative cover.",
         "icon": "Sprout",
         "link": "/solutions/reclamation"
       },
       {
         "title": "Mining and Industrial",
-        "description": "Rebuild stockpiled topsoil and establish vegetation on disturbed mine sites with minimal re-mobilizations.",
+        "description": "Rebuild soil biology on stockpiles, overburden, and disturbed ground. Improve vegetation establishment on challenging mine sites.",
         "icon": "Leaf",
         "link": "/solutions/mining"
       },
       {
-        "title": "Contractors and EPCs",
-        "description": "Deliver reliable reclamation outcomes with spec-grade products and on-site support.",
+        "title": "Agriculture",
+        "description": "Improve soil function and biology of pasture and cultivated land",
         "icon": "Layers",
         "link": "/solutions/mining"
       }
@@ -64,7 +64,7 @@
   },
   "heroSection": {
     "enabled": true,
-    "title": "Restore soil function. Close your site faster.",
+    "title": "Restore soil function. Meet reclamation objectives faster.",
     "subtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics."
   },
   "evidenceSection": {
@@ -121,18 +121,18 @@
     "steps": [
       {
         "number": 1,
-        "title": "Apply while yellow iron is on site",
-        "description": "Broadcast Terra Revive pellets using standard equipment. No special handling required."
+        "title": "Apply while iron is on site",
+        "description": "Broadcast Terra Revive pellets using standard equipment."
       },
       {
         "number": 2,
-        "title": "Pellets integrate and feed biology",
-        "description": "Organic matter and minerals break down gradually, feeding soil microbes and rebuilding structure."
+        "title": "Soil biology reactivates",
+        "description": "Organic matter and minerals break down gradually, rebuilding structure."
       },
       {
         "number": 3,
-        "title": "Soil function returns and vegetation establishes",
-        "description": "Native species germinate and establish without synthetics. Sites close faster with fewer re-visits."
+        "title": "Vegetation establishes",
+        "description": "Native species germinate and sites stabilize with fewer return visits."
       }
     ]
   },
