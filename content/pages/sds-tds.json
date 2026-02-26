@@ -15,20 +15,12 @@
       "description": "Detailed product specifications for Terra Revive including ingredients, functional claims, particle size, moisture content, storage requirements, shelf life, application rates by method, packaging options, compatibility with seeding methods, and quality assurance procedures.",
       "pdfUrl": "/terra-revive-tds.pdf",
       "downloadFilename": "Terra-Revive-TDS.pdf"
-    },
-    {
-      "id": "spec-pack",
-      "title": "Bid Ready Spec Pack",
-      "description": "Complete PDF bundle for tender submissions and reclamation plans. Includes SDS, TDS, method statements for all application methods, rate charts, manufacturing QA summary, and insurance and safety summary. Everything you need to include Terra Revive in your bid documents.",
-      "pdfUrl": "/terra-revive-spec-pack.zip",
-      "downloadFilename": "Terra-Revive-Spec-Pack.zip",
-      "featured": true
     }
   ],
   "additionalInfo": {
     "title": "Using these documents in your project",
     "paragraphs": [
-      "The SDS and TDS provide complete product information that can be included in tender documents, reclamation plans, and regulatory submissions. The Bid Ready Spec Pack includes all documentation needed to specify Terra Revive in your project.",
+      "The SDS and TDS provide complete product information that can be included in tender documents, reclamation plans, and regulatory submissions. Please contact us if you need anything else to specify Terra Revive in your project.",
       "All documents are updated regularly to reflect current product specifications and regulatory requirements. For the most recent versions or site-specific documentation, contact us.",
       "Questions about product specifications, safety information, or regulatory compliance? Our team is available to support your project requirements."
     ]
