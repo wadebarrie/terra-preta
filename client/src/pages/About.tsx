@@ -18,6 +18,25 @@ export default function About() {
         </div>
       </section>
 
+      {/* Placeholder Photo Section */}
+      <section className="py-8">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+              <img 
+                src="/placeholder-about-us.jpg" 
+                alt="Terra Preta Organics Facility"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement!.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-muted"><p class="text-muted-foreground">Photo Placeholder: Facility Overview</p></div>';
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Origin Story */}
       {aboutContent.story.enabled && (
         <section className="py-16">
@@ -46,8 +65,18 @@ export default function About() {
                 {aboutContent.facility.items.map((item, index) => (
                   <Card key={index}>
                     <CardContent className="pt-6">
-                      {item.icon === "Building" && <Building className="h-12 w-12 text-primary mb-4" />}
-                      {item.icon === "Award" && <Award className="h-12 w-12 text-primary mb-4" />}
+                      {/* Photo Placeholder instead of icon */}
+                      <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-4">
+                        <img 
+                          src={`/placeholder-facility-${index + 1}.jpg`}
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.parentElement!.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-muted"><p class="text-muted-foreground text-sm">Photo Placeholder: ${item.title}</p></div>`;
+                          }}
+                        />
+                      </div>
                       <h3 className="text-xl font-semibold mb-3">
                         {item.title}
                       </h3>
@@ -78,11 +107,11 @@ export default function About() {
                           <img 
                             src={member.photo} 
                             alt={member.name}
-                            className="rounded-full h-16 w-16 object-cover flex-shrink-0"
+                            className="rounded-full h-32 w-32 object-cover flex-shrink-0"
                           />
                         ) : (
-                          <div className="bg-muted rounded-full h-16 w-16 flex items-center justify-center flex-shrink-0">
-                            <Users className="h-8 w-8 text-primary" />
+                          <div className="bg-muted rounded-full h-32 w-32 flex items-center justify-center flex-shrink-0">
+                            <Users className="h-16 w-16 text-primary" />
                           </div>
                         )}
                         <div>

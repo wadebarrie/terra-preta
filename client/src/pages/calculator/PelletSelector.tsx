@@ -277,7 +277,7 @@ export default function PelletSelector() {
                   <Button asChild className="flex-1">
                     <Link href="/contact">
                       <FileText className="mr-2 h-4 w-4" />
-                      Add to Quote Request
+                      Get a Quote
                     </Link>
                   </Button>
                 </div>
