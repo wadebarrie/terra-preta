@@ -36,7 +36,9 @@
   "contactSection": {
     "enabled": true,
     "title": "Contact & Support",
-    "description": "Have questions about incorporating Terra Revive into your project? Get in touch with our team."
+    "description": "Have questions about incorporating Terra Revive into your project? Get in touch with our team.",
+    "primaryButton": "Get a Quote",
+    "secondaryButton": ""
   },
   "featuresSection": {
     "enabled": true,
@@ -137,8 +139,34 @@
     ]
   },
   "bidReadySection": {
-    "enabled": true,
+    "enabled": false,
     "title": "Ready to spec Terra Revive into your bid?",
     "description": "Download our complete technical spec pack and get started on your next reclamation project."
+  },
+  "faqSection": {
+    "enabled": true,
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "What is Terra Revive?",
+        "answer": "Terra Revive is a pelleted soil amendment that rebuilds soil biology, structure, and nutrient cycling on degraded sites. It's designed specifically for large-scale reclamation projects and delivers organic matter and minerals in a form that's easy to apply with standard equipment."
+      },
+      {
+        "question": "How is Terra Revive applied?",
+        "answer": "Terra Revive can be applied using broadcast spreaders, seed drills, hydroseeding equipment, or agricultural drones. No special modifications or attachments are required - it works with your existing equipment."
+      },
+      {
+        "question": "What application rate should I use?",
+        "answer": "The recommended rate is 2,000+ lbs per acre, adjusted based on soil degradation level. Use our Pellet Calculator to get a site-specific recommendation based on your soil conditions."
+      },
+      {
+        "question": "How long does it take to see results?",
+        "answer": "Native species typically establish within the first growing season on properly prepared sites. Soil function improvements begin immediately as organic matter and minerals activate biological processes."
+      },
+      {
+        "question": "Is Terra Revive compatible with my reclamation plan?",
+        "answer": "Yes. Terra Revive is a soil amendment that supports native species establishment, which aligns with Alberta reclamation criteria. We provide spec sheets, method statements, and QA documentation for regulatory submissions."
+      }
+    ]
   }
 }

@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import TrustStrip from "@/components/TrustStrip";
 import { ArrowRight, CheckCircle, Download, Layers, Leaf, Sprout } from "lucide-react";
 import { Link } from "wouter";
@@ -279,13 +285,42 @@ export default function Home() {
                 {homeContent.contactSection.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
-                  <Link href="/contact">Get a Quote</Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">Start a Pilot</Link>
-                </Button>
+                {homeContent.contactSection.primaryButton && (
+                  <Button size="lg" asChild>
+                    <Link href="/contact">{homeContent.contactSection.primaryButton}</Link>
+                  </Button>
+                )}
+                {homeContent.contactSection.secondaryButton && (
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="/contact">{homeContent.contactSection.secondaryButton}</Link>
+                  </Button>
+                )}
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ Section */}
+      {homeContent.faqSection?.enabled && (
+        <section className="py-16 bg-muted">
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-8 text-center">
+                {homeContent.faqSection.title}
+              </h2>
+              <Accordion type="single" collapsible className="space-y-4">
+                {homeContent.faqSection.questions.map((item, index) => (
+                  <AccordionItem key={index} value={`faq-${index}`}>
+                    <AccordionTrigger className="text-left">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </section>

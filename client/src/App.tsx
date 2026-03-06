@@ -16,6 +16,7 @@ import TerraRevive from "./pages/product/TerraRevive";
 import ReclamationSites from "./pages/solutions/ReclamationSites";
 import HydroseedingPartners from "./pages/solutions/HydroseedingPartners";
 import MiningIndustrial from "./pages/solutions/MiningIndustrial";
+import Agriculture from "./pages/solutions/Agriculture";
 import PelletSelector from "./pages/calculator/PelletSelector";
 import CostPayback from "./pages/calculator/CostPayback";
 import EvidenceLibrary from "./pages/evidence/EvidenceLibrary";
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/solutions/reclamation" component={ReclamationSites} />
       <Route path="/solutions/hydroseeding" component={HydroseedingPartners} />
       <Route path="/solutions/mining" component={MiningIndustrial} />
+      <Route path="/solutions/agriculture" component={Agriculture} />
       
       {/* Product */}
       <Route path="/product/terra-revive" component={TerraRevive} />

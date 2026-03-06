@@ -9,8 +9,9 @@ const navigation = [
     name: "Solutions",
     href: "/solutions",
     children: [
-      { name: "Reclamation Sites", href: "/solutions/reclamation" },
+      { name: "Oil & Gas Reclamation", href: "/solutions/reclamation" },
       { name: "Mining and Industrial", href: "/solutions/mining" },
+      { name: "Agriculture", href: "/solutions/agriculture" },
     ],
   },
   {
@@ -19,12 +20,8 @@ const navigation = [
     children: [{ name: "Terra Revive", href: "/product/terra-revive" }],
   },
   {
-    name: "Calculator Hub",
-    href: "/calculator",
-    children: [
-      { name: "Pellet Selector", href: "/calculator/pellet-selector" },
-      { name: "Cost and Payback", href: "/calculator/cost-payback" },
-    ],
+    name: "Pellet Calculator",
+    href: "/calculator/pellet-selector",
   },
   {
     name: "Evidence Library",

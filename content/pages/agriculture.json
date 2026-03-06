@@ -1,0 +1,92 @@
+{
+  "heroTitle": "Agriculture",
+  "heroSubtitle": "Improve soil function and biology on pasture and cultivated land. Terra Revive rebuilds soil structure, activates nutrient cycling, and supports healthier, more resilient agricultural systems.",
+  "problemSection": {
+    "enabled": true,
+    "title": "Why agricultural soils lose function",
+    "paragraphs": [
+      "Intensive cultivation, heavy equipment traffic, and reduced organic matter inputs gradually degrade soil biology and structure. Compaction limits root growth, water infiltration declines, and biological activity slows.",
+      "Conventional approaches focus on synthetic inputs, but these do not rebuild soil structure or restore biological function. Without active soil biology, nutrient cycling weakens and long-term productivity suffers."
+    ]
+  },
+  "solutionSection": {
+    "enabled": true,
+    "title": "How Terra Revive restores agricultural soil function",
+    "subtitle": "Terra Revive delivers concentrated organic matter, minerals, and microbial food sources that rebuild soil biology and structure. Applied at recommended rates, the pellets integrate into the soil profile and support long-term land resilience.",
+    "benefits": [
+      {
+        "title": "Rebuild soil biology",
+        "description": "Organic matter feeds beneficial microbes that cycle nutrients and build soil structure."
+      },
+      {
+        "title": "Improve soil structure",
+        "description": "Microbial activity creates aggregates that improve water infiltration and root penetration."
+      },
+      {
+        "title": "Activate nutrient cycling",
+        "description": "Biological processes release and retain nutrients, reducing reliance on synthetic inputs."
+      },
+      {
+        "title": "Support long-term productivity",
+        "description": "Functional soil supports healthier crops, better pasture, and more resilient agricultural systems."
+      }
+    ]
+  },
+  "methodSection": {
+    "enabled": true,
+    "title": "Application methods",
+    "methods": [
+      {
+        "title": "Broadcast",
+        "description": "Apply with standard broadcast equipment. Light incorporation recommended if equipment is available.",
+        "bestFor": "Best for pasture, hay fields, and areas where equipment can maneuver."
+      },
+      {
+        "title": "Drill incorporation",
+        "description": "Apply with seed drills during seeding operations. Pellets are placed with the seed and covered.",
+        "bestFor": "Ideal for cultivated fields and when seed and amendment can be applied in one pass."
+      },
+      {
+        "title": "Custom application",
+        "description": "Work with our team to develop application plans specific to your operation and equipment.",
+        "bestFor": "For unique operational requirements or specialized equipment."
+      }
+    ]
+  },
+  "expectationsSection": {
+    "enabled": true,
+    "title": "What to expect",
+    "thisSeason": {
+      "title": "First season",
+      "items": [
+        "Pellets integrate into the soil profile",
+        "Microbial activity begins to increase",
+        "Soil structure starts to improve",
+        "Root development improves in treated areas"
+      ]
+    },
+    "nextSeason": {
+      "title": "Following seasons",
+      "items": [
+        "Soil structure continues to develop",
+        "Water infiltration and retention improve",
+        "Nutrient cycling strengthens",
+        "Long-term productivity increases"
+      ]
+    }
+  },
+  "evidenceSection": {
+    "enabled": false,
+    "title": "Evidence from the field",
+    "showCaseStudies": false,
+    "comingSoonMessage": "Agricultural Case Studies Coming Soon",
+    "caseStudies": []
+  },
+  "ctaSection": {
+    "enabled": true,
+    "title": "Ready to improve your soil?",
+    "subtitle": "Get a quote and discuss application options for your operation.",
+    "primaryButton": "Get a Quote",
+    "secondaryButton": "Contact Us"
+  }
+}
