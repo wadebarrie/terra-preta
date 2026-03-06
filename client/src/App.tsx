@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { StructuredData, organizationSchema, localBusinessSchema } from "./components/StructuredData";
+import { initializeTracking } from "./lib/analytics";
+import { useEffect } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -55,6 +57,11 @@ function Router() {
 }
 
 function App() {
+  // Initialize Google Analytics tracking for email and phone links
+  useEffect(() => {
+    initializeTracking();
+  }, []);
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">

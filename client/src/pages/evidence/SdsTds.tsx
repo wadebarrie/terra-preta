@@ -2,8 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, FileText } from "lucide-react";
 import sdsTdsContent from "@content/pages/sds-tds.json";
+import { trackDocumentDownload } from "@/lib/analytics";
 
 export default function SdsTds() {
+  const handleDownload = (docName: string, docType: string) => {
+    trackDocumentDownload(docName, docType);
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -42,20 +47,35 @@ export default function SdsTds() {
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4">
                         {doc.featured ? (
-                          <Button size="lg">
+                          <Button 
+                            size="lg"
+                            onClick={() => handleDownload('Complete Spec Pack', 'spec_pack')}
+                          >
                             <Download className="mr-2 h-5 w-5" />
                             Download Complete Spec Pack (ZIP)
                           </Button>
                         ) : (
                           <>
                             <Button asChild>
-                              <a href={doc.pdfUrl} download={doc.downloadFilename}>
+                              <a 
+                                href={doc.pdfUrl} 
+                                download={doc.downloadFilename}
+                                onClick={() => handleDownload(doc.title, doc.id)}
+                              >
                                 <Download className="mr-2 h-4 w-4" />
                                 Download {doc.id.toUpperCase()} (PDF)
                               </a>
                             </Button>
-                            <Button variant="outline" asChild>
-                              <a href={doc.pdfUrl} target="_blank" rel="noopener noreferrer">
+                            <Button 
+                              variant="outline" 
+                              asChild
+                            >
+                              <a 
+                                href={doc.pdfUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                onClick={() => handleDownload(doc.title, `${doc.id}_view`)}
+                              >
                                 View Online
                               </a>
                             </Button>

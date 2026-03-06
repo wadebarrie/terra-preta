@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { trackFormSubmission } from "@/lib/analytics";
 
 export default function Contact() {
   const [step, setStep] = useState(1);
@@ -57,6 +58,14 @@ export default function Contact() {
       });
 
       if (response.ok) {
+        // Track qualified lead in Google Analytics
+        trackFormSubmission({
+          role: formData.role,
+          company: formData.company,
+          siteSize: formData.siteSize,
+          timeline: formData.timeline,
+        });
+
         toast.success(
           "Thank you for your inquiry! We'll be in touch within 24 hours."
         );

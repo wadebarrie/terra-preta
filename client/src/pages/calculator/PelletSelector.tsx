@@ -13,6 +13,7 @@ import { Download, FileText } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import pelletSelectorContent from "@content/pages/pellet-selector.json";
+import { trackCalculatorUsage } from "@/lib/analytics";
 
 export default function PelletSelector() {
   const [acres, setAcres] = useState("");
@@ -59,6 +60,22 @@ export default function PelletSelector() {
 
   const handleCalculate = () => {
     setShowResults(true);
+    
+    // Track calculator usage in Google Analytics
+    const results = calculateRecommendation();
+    if (results) {
+      trackCalculatorUsage('pellet_selector', {
+        acres: parseFloat(acres),
+        method: method,
+        recommended_rate: results.rate,
+        total_pounds: results.totalPounds,
+        totes_needed: results.totes,
+        soil_texture: soilTexture || 'not_specified',
+        ph_value: ph || 'not_specified',
+        organic_matter: organicMatter || 'not_specified',
+        compaction: compaction || 'not_specified',
+      });
+    }
   };
 
   const results = showResults ? calculateRecommendation() : null;

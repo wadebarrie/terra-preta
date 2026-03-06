@@ -12,6 +12,7 @@ import {
 import { Download } from "lucide-react";
 import { useState } from "react";
 import costPaybackContent from "@content/pages/cost-payback.json";
+import { trackCalculatorUsage } from "@/lib/analytics";
 
 export default function CostPayback() {
   const [acres, setAcres] = useState("");
@@ -47,6 +48,21 @@ export default function CostPayback() {
 
   const handleCalculate = () => {
     setShowResults(true);
+    
+    // Track calculator usage in Google Analytics
+    const results = calculateCost();
+    if (results) {
+      trackCalculatorUsage('cost_payback', {
+        acres: parseFloat(acres),
+        application_rate: parseFloat(rate),
+        total_pounds: results.totalPounds,
+        product_cost: results.productCost,
+        re_visits_avoided: results.reVisits,
+        estimated_savings: results.estimatedSavings,
+        net_cost: results.netCost,
+        roi_positive: results.netCost <= 0,
+      });
+    }
   };
 
   const results = showResults ? calculateCost() : null;
