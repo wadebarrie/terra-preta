@@ -25,6 +25,21 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        // Stable URLs for spec PDFs (imports in SuperN / OrganiPhos pages)
+        assetFileNames: (assetInfo) => {
+          const name = assetInfo.names?.[0] ?? "";
+          if (name === "TerraPretaAg-SuperNCertified.pdf") {
+            return "spec-sheets/TerraPretaAg-SuperNCertified.pdf";
+          }
+          if (name === "TerraPretaAg-OrganiPhos.pdf") {
+            return "spec-sheets/TerraPretaAg-OrganiPhos.pdf";
+          }
+          return "assets/[name]-[hash][extname]";
+        },
+      },
+    },
   },
   server: {
     host: true,
