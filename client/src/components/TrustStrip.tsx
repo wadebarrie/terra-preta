@@ -15,7 +15,7 @@ export default function TrustStrip() {
   ];
 
   return (
-    <div className="bg-muted py-8">
+    <div className="bg-secondary py-8 border-y border-border/70">
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
           <span className="text-sm text-muted-foreground font-medium">
