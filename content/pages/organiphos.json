@@ -22,7 +22,7 @@
   ],
   "npk": "1-14-0.6 + 18% Ca",
   "keySpecs": [
-    { "label": "Guaranteed analysis", "value": "1-14-0.6 + 18% Ca — confirm current label; includes 14% P₂O₅ and sulfate sulfur as listed." },
+    { "label": "Guaranteed analysis", "value": "1-14-0.6 + 18% Ca — confirm current label; use the PDF download on this page. Includes 14% P₂O₅ and sulfate sulfur as listed." },
     { "label": "Phosphorus strategy", "value": "Multiple P sources for a staged release profile from germination through grain fill; BSFL frass supports phosphorus-solubilizing biology." },
     { "label": "Prairie soils", "value": "Formulated with alkaline prairie phosphorus fixation in mind." },
     { "label": "Application modes", "value": "Typical programs: seed-placed (~35 lb/ac), side-band (~70 lb/ac), fall broadcast up to ~200 lb/ac — final rates from soil test and agronomy." },
@@ -30,6 +30,6 @@
     { "label": "Crops", "value": "Canola, wheat, lentils, chickpeas, peas, and other organic rotations." },
     { "label": "Origin & service area", "value": "Made in Sundre, Alberta. Programs for Alberta, Saskatchewan, and beyond." }
   ],
-  "specSheetUrl": "/spec-sheets/organiphos-spec-sheet.pdf",
+  "specSheetUrl": "/spec-sheets/TerraPretaAg-OrganiPhos.pdf",
   "specSheetLabel": "Download specification sheet (PDF)"
 }

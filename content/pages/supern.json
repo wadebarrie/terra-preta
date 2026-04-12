@@ -22,7 +22,7 @@
   ],
   "npk": "10-3-0.3",
   "keySpecs": [
-    { "label": "Guaranteed analysis (N-P-K)", "value": "10-3-0.3 — confirm current label; we provide the spec sheet on request." },
+    { "label": "Guaranteed analysis (N-P-K)", "value": "10-3-0.3 — confirm current label; use the PDF download on this page or the product label." },
     { "label": "Nitrogen coverage", "value": "Designed for an extended nitrogen window from a single seed-placed application (often discussed as up to ~16 weeks — program-dependent)." },
     { "label": "Application", "value": "Seed-placed organic nitrogen pellet; one pass at seeding. No manure equipment required." },
     { "label": "OMRI", "value": "OMRI Listed® for certified organic production (see label for listing scope)." },
@@ -30,6 +30,6 @@
     { "label": "Origin & service area", "value": "Made in Sundre, Alberta. Programs for Alberta, Saskatchewan, and beyond." },
     { "label": "Crops", "value": "Wheat, barley, canola, oats, rye, and other organic rotations — custom programs." }
   ],
-  "specSheetUrl": "/spec-sheets/supern-spec-sheet.pdf",
+  "specSheetUrl": "/spec-sheets/TerraPretaAg-SuperNCertified.pdf",
   "specSheetLabel": "Download specification sheet (PDF)"
 }
