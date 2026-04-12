@@ -5,8 +5,13 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import { StructuredData, organizationSchema, localBusinessSchema } from "./components/StructuredData";
+import {
+  StructuredData,
+  organizationSchema,
+  localBusinessSchema,
+} from "./components/StructuredData";
 import { initializeTracking } from "./lib/analytics";
 import { useEffect } from "react";
 import Home from "./pages/Home";
@@ -28,37 +33,46 @@ import OrganiPhos from "./pages/OrganiPhos";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/supern" component={SuperN} />
-      <Route path="/organiphos" component={OrganiPhos} />
-      
-      {/* Solutions */}
-      <Route path="/solutions/reclamation" component={ReclamationSites} />
-      <Route path="/solutions/hydroseeding" component={HydroseedingPartners} />
-      <Route path="/solutions/mining" component={MiningIndustrial} />
-      <Route path="/solutions/agriculture" component={Agriculture} />
-      
-      {/* Product */}
-      <Route path="/product/terra-revive" component={TerraRevive} />
-      
-      {/* Calculator Hub */}
-      <Route path="/calculator/pellet-selector" component={PelletSelector} />
-      <Route path="/calculator/cost-payback" component={CostPayback} />
-      
-      {/* Evidence Library */}
-      <Route path="/evidence" component={EvidenceLibrary} />
-      <Route path="/evidence/case-studies" component={CaseStudies} />
-      <Route path="/evidence/method-statements" component={MethodStatements} />
-      <Route path="/evidence/sds-tds" component={SdsTds} />
-      
-      {/* About & Contact */}
-      <Route path="/about" component={About} />
-      <Route path="/contact" component={Contact} />
-      
-      <Route path="/404" component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/supern" component={SuperN} />
+        <Route path="/organiphos" component={OrganiPhos} />
+
+        {/* Solutions */}
+        <Route path="/solutions/reclamation" component={ReclamationSites} />
+        <Route
+          path="/solutions/hydroseeding"
+          component={HydroseedingPartners}
+        />
+        <Route path="/solutions/mining" component={MiningIndustrial} />
+        <Route path="/solutions/agriculture" component={Agriculture} />
+
+        {/* Product */}
+        <Route path="/product/terra-revive" component={TerraRevive} />
+
+        {/* Calculator Hub */}
+        <Route path="/calculator/pellet-selector" component={PelletSelector} />
+        <Route path="/calculator/cost-payback" component={CostPayback} />
+
+        {/* Evidence Library */}
+        <Route path="/evidence" component={EvidenceLibrary} />
+        <Route path="/evidence/case-studies" component={CaseStudies} />
+        <Route
+          path="/evidence/method-statements"
+          component={MethodStatements}
+        />
+        <Route path="/evidence/sds-tds" component={SdsTds} />
+
+        {/* About & Contact */}
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
@@ -76,7 +90,7 @@ function App() {
           {/* Global Structured Data */}
           <StructuredData data={organizationSchema} />
           <StructuredData data={localBusinessSchema} />
-          
+
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">
