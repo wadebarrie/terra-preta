@@ -23,11 +23,15 @@ import EvidenceLibrary from "./pages/evidence/EvidenceLibrary";
 import CaseStudies from "./pages/evidence/CaseStudies";
 import MethodStatements from "./pages/evidence/MethodStatements";
 import SdsTds from "./pages/evidence/SdsTds";
+import SuperN from "./pages/SuperN";
+import OrganiPhos from "./pages/OrganiPhos";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/supern" component={SuperN} />
+      <Route path="/organiphos" component={OrganiPhos} />
       
       {/* Solutions */}
       <Route path="/solutions/reclamation" component={ReclamationSites} />

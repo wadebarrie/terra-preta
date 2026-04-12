@@ -10,15 +10,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { trackFormSubmission } from "@/lib/analytics";
+import { FORMSPREE_ENDPOINT, FORM_SUCCESS_MESSAGE } from "@/lib/formspree";
 
 export default function Contact() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formData, setFormData] = useState({
+    inquiryType: "",
     role: "",
     company: "",
     email: "",
@@ -36,13 +39,13 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Formspree submission
-      const response = await fetch("https://formspree.io/f/mnjaqwoe", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          inquiryType: formData.inquiryType,
           role: formData.role,
           company: formData.company,
           email: formData.email,
@@ -53,25 +56,24 @@ export default function Contact() {
           method: formData.method,
           deliveryNeeds: formData.deliveryNeeds,
           notes: formData.notes,
-          _subject: `New Contact Form: ${formData.company}`,
+          _subject: `[${formData.inquiryType}] Contact — ${formData.company}`,
         }),
       });
 
       if (response.ok) {
-        // Track qualified lead in Google Analytics
         trackFormSubmission({
           role: formData.role,
           company: formData.company,
           siteSize: formData.siteSize,
           timeline: formData.timeline,
+          inquiry_type: formData.inquiryType,
         });
 
-        toast.success(
-          "Thank you for your inquiry! We'll be in touch within 24 hours."
-        );
-        
-        // Reset form
+        toast.success(FORM_SUCCESS_MESSAGE);
+        setSubmitSuccess(true);
+
         setFormData({
+          inquiryType: "",
           role: "",
           company: "",
           email: "",
@@ -121,7 +123,7 @@ export default function Contact() {
       {/* Contact Info */}
       <section className="py-16">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             <Card>
               <CardContent className="pt-6 text-center">
                 <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -130,6 +132,21 @@ export default function Contact() {
                   Sundre, Alberta
                   <br />
                   Service Area: Canada Wide
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Phone</h3>
+                <p className="text-muted-foreground">
+                  <a
+                    href="tel:+14039216291"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    (403) 921-6291
+                  </a>
                 </p>
               </CardContent>
             </Card>
@@ -152,6 +169,21 @@ export default function Contact() {
 
           {/* Multi-step Form */}
           <div className="max-w-4xl mx-auto">
+            {submitSuccess ? (
+              <Card className="border-primary/30 bg-muted/40">
+                <CardContent className="pt-6 text-center">
+                  <p className="text-lg font-medium">{FORM_SUCCESS_MESSAGE}</p>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="mt-6"
+                    onClick={() => setSubmitSuccess(false)}
+                  >
+                    Submit another inquiry
+                  </Button>
+                </CardContent>
+              </Card>
+            ) : (
             <Card>
               <CardContent className="pt-6">
                 <div className="mb-8">
@@ -191,6 +223,29 @@ export default function Contact() {
                   {/* Step 1: Your Information */}
                   {step === 1 && (
                     <div className="space-y-6">
+                      <div>
+                        <Label htmlFor="inquiryType">Inquiry type *</Label>
+                        <Select
+                          required
+                          value={formData.inquiryType}
+                          onValueChange={(value) =>
+                            setFormData({ ...formData, inquiryType: value })
+                          }
+                        >
+                          <SelectTrigger id="inquiryType">
+                            <SelectValue placeholder="What can we help with?" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Order">Order</SelectItem>
+                            <SelectItem value="Sample">Sample</SelectItem>
+                            <SelectItem value="General">General</SelectItem>
+                            <SelectItem value="Reclamation / Terra Revive">
+                              Reclamation / Terra Revive
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
                       <div>
                         <Label htmlFor="role">Role *</Label>
                         <Select
@@ -420,11 +475,14 @@ export default function Contact() {
                 </form>
               </CardContent>
             </Card>
+            )}
 
+            {!submitSuccess ? (
             <p className="text-sm text-muted-foreground text-center mt-6">
-              By submitting this form, you'll receive a bid ready spec pack via
-              email and a member of our team will contact you within 24 hours.
+              We typically respond within one business day. For reclamation
+              projects, we can also provide bid-ready documentation by email.
             </p>
+            ) : null}
           </div>
         </div>
       </section>

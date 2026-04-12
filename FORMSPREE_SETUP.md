@@ -67,10 +67,12 @@ That's it! Your form is ready. 🎉
 ### Set Notification Email
 1. In Formspree dashboard, click on your form
 2. Go to **Settings** → **Email**
-3. Enter: `sales@terrapreta.ca` (or your preferred email)
+3. Enter the address(es) Formspree should notify
 4. Save
 
-Now you'll receive an email for every submission! 📨
+**Current setup:** Submissions go to **two** recipients only—**lee@terrapreta.ca** and the primary owner. Formspree’s free tier limits how many people you can notify; **adding more recipients typically means upgrading** (on the order of **~USD $20/month**), which isn’t necessary for now.
+
+Now each configured address gets an email for every submission. 📨
 
 ### Custom Subject Line
 Already configured in the code:

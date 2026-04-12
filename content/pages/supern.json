@@ -1,0 +1,21 @@
+{
+  "slug": "supern",
+  "productName": "SuperN",
+  "heroTitle": "SuperN",
+  "heroSubtitle": "Organic nitrogen fertility for crops and forage. Designed for growers who want dependable performance with materials suitable for organic systems.",
+  "omriListed": true,
+  "omriLabel": "OMRI Listed®",
+  "descriptionParagraphs": [
+    "SuperN supplies plant-available nitrogen from approved organic sources to support strong growth and yield where synthetic nitrogen is not desired or permitted.",
+    "Use rates depend on crop, rotation, and soil test results. Our team can help align application with your fertility plan and certification requirements."
+  ],
+  "npk": "",
+  "keySpecs": [
+    { "label": "Form", "value": "See specification sheet" },
+    { "label": "Primary use", "value": "Nitrogen fertility — organic production" },
+    { "label": "Packaging", "value": "Contact for tote, bulk, and bag options" },
+    { "label": "Availability", "value": "Canada — ask about delivery" }
+  ],
+  "specSheetUrl": "",
+  "specSheetLabel": "Download specification sheet (PDF)"
+}

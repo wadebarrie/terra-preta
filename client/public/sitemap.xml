@@ -26,6 +26,20 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Agriculture product landing pages -->
+  <url>
+    <loc>https://terrapretaag.com/supern</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://terrapretaag.com/organiphos</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Product Pages -->
   <url>
     <loc>https://terrapretaorganics.ca/product/terra-revive</loc>

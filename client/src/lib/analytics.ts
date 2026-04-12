@@ -76,6 +76,7 @@ export function trackFormSubmission(formData?: {
   company?: string;
   siteSize?: string;
   timeline?: string;
+  inquiry_type?: string;
 }) {
   trackQualifiedLead('form', {
     form_name: 'contact_form',

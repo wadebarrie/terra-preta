@@ -90,6 +90,37 @@ export default function Home() {
       {/* Trust Strip */}
       <TrustStrip />
 
+      {/* Agriculture retail products */}
+      {homeContent.agProductsSection?.enabled && (
+        <section className="py-20 bg-muted">
+          <div className="container">
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                {homeContent.agProductsSection.title}
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                {homeContent.agProductsSection.intro}
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {homeContent.agProductsSection.products.map((product) => (
+                <Card key={product.href} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6">
+                    <h3 className="text-xl font-semibold mb-3">{product.name}</h3>
+                    <p className="text-muted-foreground mb-6">{product.description}</p>
+                    <Button asChild>
+                      <Link href={product.href}>
+                        View product <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Who It's For Section */}
       {homeContent.featuresSection.enabled && (
         <section className="py-20">

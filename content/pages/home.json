@@ -60,7 +60,24 @@
         "title": "Agriculture",
         "description": "Improve soil function and biology of pasture and cultivated land",
         "icon": "Layers",
-        "link": "/solutions/mining"
+        "link": "/solutions/agriculture"
+      }
+    ]
+  },
+  "agProductsSection": {
+    "enabled": true,
+    "title": "Agriculture products",
+    "intro": "Each product has its own page with analysis, specifications, and a quote form—ready for dedicated ad landing URLs.",
+    "products": [
+      {
+        "name": "SuperN",
+        "description": "Organic nitrogen fertility for crops and forage.",
+        "href": "/supern"
+      },
+      {
+        "name": "OrganiPhos",
+        "description": "Organic phosphorus fertility for organic production systems.",
+        "href": "/organiphos"
       }
     ]
   },

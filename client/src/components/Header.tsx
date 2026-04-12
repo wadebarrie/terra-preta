@@ -17,7 +17,11 @@ const navigation = [
   {
     name: "Product",
     href: "/product",
-    children: [{ name: "Terra Revive", href: "/product/terra-revive" }],
+    children: [
+      { name: "SuperN", href: "/supern" },
+      { name: "OrganiPhos", href: "/organiphos" },
+      { name: "Terra Revive", href: "/product/terra-revive" },
+    ],
   },
   {
     name: "Pellet Calculator",

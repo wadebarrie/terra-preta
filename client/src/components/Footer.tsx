@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { APP_LOGO, APP_TITLE } from "@/const";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -15,6 +15,15 @@ export default function Footer() {
             </div>
             <p className="text-sm text-white/80 mb-2">
               Sundre, Alberta
+            </p>
+            <p className="text-sm text-white/80 mb-2">
+              <a
+                href="tel:+14039216291"
+                className="inline-flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Phone className="h-4 w-4 shrink-0" />
+                (403) 921-6291
+              </a>
             </p>
             <p className="text-sm text-white/80 mb-4">
               <a href="mailto:sales@terrapreta.ca" className="hover:text-white transition-colors">
@@ -72,8 +81,18 @@ export default function Footer() {
             <h3 className="font-semibold text-sm mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
+                <Link href="/supern" className="text-sm text-white/80 hover:text-white transition-colors">
+                  SuperN
+                </Link>
+              </li>
+              <li>
+                <Link href="/organiphos" className="text-sm text-white/80 hover:text-white transition-colors">
+                  OrganiPhos
+                </Link>
+              </li>
+              <li>
                 <Link href="/product/terra-revive" className="text-sm text-white/80 hover:text-white transition-colors">
-                  Terra Revive Product
+                  Terra Revive
                 </Link>
               </li>
               <li>
