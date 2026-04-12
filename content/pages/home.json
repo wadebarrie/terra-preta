@@ -67,17 +67,19 @@
   "agProductsSection": {
     "enabled": true,
     "title": "Agriculture products",
-    "intro": "Each product has its own page with analysis, specifications, and a quote form—ready for dedicated ad landing URLs.",
+    "intro": "Learn how each product works, see what's in the bag, and request a quote or sample—all in one place.",
     "products": [
       {
         "name": "SuperN",
         "description": "Organic nitrogen fertility for crops and forage.",
-        "href": "/supern"
+        "href": "/supern",
+        "omriListed": true
       },
       {
         "name": "OrganiPhos",
         "description": "Organic phosphorus fertility for organic production systems.",
-        "href": "/organiphos"
+        "href": "/organiphos",
+        "omriListed": true
       }
     ]
   },

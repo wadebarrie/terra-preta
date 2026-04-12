@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -106,7 +107,14 @@ export default function Home() {
               {homeContent.agProductsSection.products.map((product) => (
                 <Card key={product.href} className="hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
-                    <h3 className="text-xl font-semibold mb-3">{product.name}</h3>
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <h3 className="text-xl font-semibold">{product.name}</h3>
+                      {product.omriListed ? (
+                        <Badge variant="secondary" className="font-medium">
+                          OMRI Listed®
+                        </Badge>
+                      ) : null}
+                    </div>
                     <p className="text-muted-foreground mb-6">{product.description}</p>
                     <Button asChild>
                       <Link href={product.href}>

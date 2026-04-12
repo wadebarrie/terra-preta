@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { APP_TITLE } from "@/const";
-import { Download } from "lucide-react";
+import { Download, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 
 export type RetailAgProductContent = {
@@ -14,6 +14,8 @@ export type RetailAgProductContent = {
   heroSubtitle: string;
   omriListed?: boolean;
   omriLabel?: string;
+  /** Shown in a prominent callout when omriListed (no spec sheet required). */
+  omriCallout?: string;
   descriptionParagraphs: string[];
   npk?: string;
   keySpecs: { label: string; value: string }[];
@@ -48,6 +50,10 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
   const specUrl = content.specSheetUrl?.trim();
   const hasSpecSheet = Boolean(specUrl);
 
+  const omriCalloutText =
+    content.omriCallout?.trim() ||
+    "This product is OMRI Listed® for use in certified organic production. Listing details appear on the product label, and we can provide the OMRI reference for your certifier on request.";
+
   return (
     <div>
       <StructuredData data={productLd} />
@@ -63,9 +69,29 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
               ) : null}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{content.heroTitle}</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-xl text-muted-foreground leading-relaxed mb-6">
               {content.heroSubtitle}
             </p>
+
+            {content.omriListed ? (
+              <Card className="mb-8 border-primary/25 bg-primary/5 shadow-none">
+                <CardContent className="pt-6 pb-6 flex gap-4">
+                  <ShieldCheck
+                    className="h-10 w-10 shrink-0 text-primary"
+                    aria-hidden
+                  />
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">
+                      {content.omriLabel || "OMRI Listed®"}
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {omriCalloutText}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ) : null}
+
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Button type="button" size="lg" onClick={() => setInquiryAndScroll("Order")}>
                 Order inquiry

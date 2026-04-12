@@ -5,12 +5,14 @@
   "heroSubtitle": "Organic phosphorus fertility for establishment, rooting, and yield response where phosphate from approved organic sources is required.",
   "omriListed": true,
   "omriLabel": "OMRI Listed®",
+  "omriCallout": "OrganiPhos is OMRI Listed® for organic crop production, so certifiers and growers can confirm organic eligibility without opening a spec sheet. Permitted uses and any crop or rate limits are on the product label; we can provide the OMRI listing reference for your certifier on request.",
   "descriptionParagraphs": [
     "OrganiPhos delivers phosphorus in forms compatible with organic cropping systems, supporting early growth, rooting, and reproductive development.",
-    "Pair with soil testing and your agronomist’s recommendations. We support row crops, forage, horticulture, and specialty markets."
+    "Pair with soil testing and your agronomist's recommendations. We support row crops, forage, horticulture, and specialty markets."
   ],
   "npk": "",
   "keySpecs": [
+    { "label": "Organic certification", "value": "OMRI Listed® for use in certified organic production (see product label for listing scope and permitted uses)." },
     { "label": "Form", "value": "See specification sheet" },
     { "label": "Primary use", "value": "Phosphorus fertility — organic production" },
     { "label": "Packaging", "value": "Contact for tote, bulk, and bag options" },
