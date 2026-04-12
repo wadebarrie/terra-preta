@@ -2,6 +2,10 @@ export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
 export const APP_TITLE = import.meta.env.VITE_APP_TITLE || "Terra Preta Organics";
 
+/** Canonical origin for JSON-LD, absolute OG images, and marketing URLs (override in env if needed). */
+export const SITE_ORIGIN =
+  (import.meta.env.VITE_SITE_ORIGIN as string | undefined) || "https://terrapreta.ca";
+
 export const APP_LOGO = "/logo.png";
 
 // Generate login URL at runtime so redirect URI reflects the current origin.

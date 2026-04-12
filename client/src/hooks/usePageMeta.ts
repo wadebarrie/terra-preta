@@ -12,8 +12,9 @@ function getOrCreateMeta(attr: "name" | "property", key: string) {
 
 /**
  * Sets document title, meta description, and Open Graph tags for SPA routes (Google Ads, SEO).
+ * @param ogUrl Full canonical URL for og:url (e.g. https://terrapreta.ca/supern)
  */
-export function usePageMeta(title: string, description?: string) {
+export function usePageMeta(title: string, description?: string, ogUrl?: string) {
   useEffect(() => {
     const prevTitle = document.title;
     document.title = title;
@@ -34,11 +35,16 @@ export function usePageMeta(title: string, description?: string) {
       ogDesc.setAttribute("content", description);
     }
 
+    if (ogUrl) {
+      const ogUrlEl = getOrCreateMeta("property", "og:url");
+      ogUrlEl.setAttribute("content", ogUrl);
+    }
+
     return () => {
       document.title = prevTitle;
       if (descEl && prevDesc !== null) {
         descEl.setAttribute("content", prevDesc);
       }
     };
-  }, [title, description]);
+  }, [title, description, ogUrl]);
 }

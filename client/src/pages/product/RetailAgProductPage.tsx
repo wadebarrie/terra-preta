@@ -3,7 +3,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { APP_TITLE } from "@/const";
+import { APP_TITLE, SITE_ORIGIN } from "@/const";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { Download, ShieldCheck } from "lucide-react";
 
@@ -35,7 +35,8 @@ function defaultAdsProduct(slug: string): AdsProductChoice {
 export function RetailAgProductPage({ content }: { content: RetailAgProductContent }) {
   usePageMeta(
     content.metaTitle || `${content.productName} | ${APP_TITLE}`,
-    content.metaDescription
+    content.metaDescription,
+    `${SITE_ORIGIN}/${content.slug}`
   );
 
   const specUrl = content.specSheetUrl?.trim();
@@ -55,6 +56,7 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
     "@type": "Product",
     name: content.productName,
     description: tagline,
+    url: `${SITE_ORIGIN}/${content.slug}`,
     brand: {
       "@type": "Brand",
       name: APP_TITLE,

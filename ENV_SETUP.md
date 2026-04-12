@@ -32,6 +32,7 @@ These are commented out by default:
 - `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` - For S3 uploads
 - `OPENAI_API_KEY` - For AI features
 - `VITE_ANALYTICS_ENDPOINT`, `VITE_ANALYTICS_WEBSITE_ID` - For analytics
+- `VITE_SITE_ORIGIN` - Canonical site URL for JSON-LD (default `https://terrapreta.ca`)
 
 ## 🚀 Netlify Deployment
 

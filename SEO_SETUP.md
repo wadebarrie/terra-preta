@@ -116,7 +116,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Sitemap: https://terrapretaorganics.ca/sitemap.xml
+Sitemap: https://terrapreta.ca/sitemap.xml
 ```
 
 **Purpose:**
@@ -164,13 +164,13 @@ Reusable component for injecting JSON-LD:
 1. **Verify Site Ownership**
    - Go to [Google Search Console](https://search.google.com/search-console)
    - Click "Add Property"
-   - Enter: `https://terrapretaorganics.ca`
+   - Enter: `https://terrapreta.ca`
    - Choose "HTML tag" method (easiest)
    - Copy meta tag, add to `<head>` in `index.html`
 
 2. **Submit Sitemap**
    - In Search Console → Sitemaps
-   - Enter: `https://terrapretaorganics.ca/sitemap.xml`
+   - Enter: `https://terrapreta.ca/sitemap.xml`
    - Click "Submit"
 
 3. **Check Indexing**
@@ -244,13 +244,13 @@ Target: 90+ score
 
 ### 5. **Check robots.txt**
 ```
-https://terrapretaorganics.ca/robots.txt
+https://terrapreta.ca/robots.txt
 ```
 Should show the rules we created
 
 ### 6. **Check sitemap**
 ```
-https://terrapretaorganics.ca/sitemap.xml
+https://terrapreta.ca/sitemap.xml
 ```
 Should show all pages in XML format
 

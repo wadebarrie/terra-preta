@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SITE_ORIGIN } from '@/const';
 
 interface StructuredDataProps {
   data: Record<string, any>;
@@ -29,8 +30,8 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Terra Preta Organics',
-  url: 'https://terrapretaorganics.ca',
-  logo: 'https://terrapretaorganics.ca/logo.png',
+  url: SITE_ORIGIN,
+  logo: `${SITE_ORIGIN}/logo.png`,
   description: 'Terra Preta Organics develops pelleted soil amendments that restore soil function on degraded reclamation sites across Alberta and the Prairies.',
   address: {
     '@type': 'PostalAddress',
@@ -51,7 +52,7 @@ export const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
-    email: 'info@terrapretaorganics.ca',
+    email: 'sales@terrapreta.ca',
     availableLanguage: 'English',
   },
   sameAs: [],
@@ -69,7 +70,7 @@ export const productSchema = {
     '@type': 'Brand',
     name: 'Terra Preta Organics',
   },
-  image: 'https://terrapretaorganics.ca/pellets-in-hand.jpg',
+  image: `${SITE_ORIGIN}/pellets-in-hand.jpg`,
   category: 'Soil Amendment',
   offers: {
     '@type': 'AggregateOffer',
@@ -131,12 +132,12 @@ export const productSchema = {
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://terrapretaorganics.ca',
+  '@id': SITE_ORIGIN,
   name: 'Terra Preta Organics',
   description: 'Soil amendments for reclamation sites across Alberta and the Prairies',
-  url: 'https://terrapretaorganics.ca',
-  telephone: '(403) 555-0123',
-  email: 'info@terrapretaorganics.ca',
+  url: SITE_ORIGIN,
+  telephone: '+1-403-921-6291',
+  email: 'sales@terrapreta.ca',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Sundre',
@@ -223,7 +224,7 @@ export function createCaseStudySchema(caseStudy: {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: caseStudy.title,
-    image: `https://terrapretaorganics.ca${caseStudy.image}`,
+    image: `${SITE_ORIGIN}${caseStudy.image}`,
     datePublished: caseStudy.date,
     author: {
       '@type': 'Organization',
@@ -234,13 +235,13 @@ export function createCaseStudySchema(caseStudy: {
       name: 'Terra Preta Organics',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://terrapretaorganics.ca/logo.png',
+        url: `${SITE_ORIGIN}/logo.png`,
       },
     },
     description: caseStudy.resultsSummary,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://terrapretaorganics.ca/evidence/case-studies/${caseStudy.slug}`,
+      '@id': `${SITE_ORIGIN}/evidence/case-studies/${caseStudy.slug}`,
     },
   };
 }
@@ -260,7 +261,7 @@ export function createBlogPostSchema(post: {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
-    image: post.image ? `https://terrapretaorganics.ca${post.image}` : undefined,
+    image: post.image ? `${SITE_ORIGIN}${post.image}` : undefined,
     datePublished: post.date,
     author: {
       '@type': 'Person',
@@ -271,13 +272,13 @@ export function createBlogPostSchema(post: {
       name: 'Terra Preta Organics',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://terrapretaorganics.ca/logo.png',
+        url: `${SITE_ORIGIN}/logo.png`,
       },
     },
     description: post.excerpt,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://terrapretaorganics.ca/blog/${post.slug}`,
+      '@id': `${SITE_ORIGIN}/blog/${post.slug}`,
     },
   };
 }
@@ -293,7 +294,7 @@ export function createBreadcrumbSchema(items: Array<{ name: string; url: string 
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://terrapretaorganics.ca${item.url}`,
+      item: `${SITE_ORIGIN}${item.url}`,
     })),
   };
 }

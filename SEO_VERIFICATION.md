@@ -86,7 +86,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Sitemap: https://terrapretaorganics.ca/sitemap.xml
+Sitemap: https://terrapreta.ca/sitemap.xml
 ```
 
 ### Test 2: sitemap.xml

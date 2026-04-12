@@ -9,5 +9,5 @@ Disallow: /admin/
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://terrapretaorganics.ca/sitemap.xml
+Sitemap: https://terrapreta.ca/sitemap.xml
 
