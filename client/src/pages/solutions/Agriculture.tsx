@@ -1,8 +1,16 @@
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import agricultureContent from "@content/pages/agriculture.json";
+
+type AgCaseStudy = {
+  title: string;
+  image: string;
+  location: string;
+  result: string;
+};
 
 export default function Agriculture() {
   return (
@@ -20,6 +28,44 @@ export default function Agriculture() {
           </div>
         </div>
       </section>
+
+      {/* Product lineup: SuperN, OrganiPhos, Terra Revive */}
+      {agricultureContent.productLineupSection?.enabled && (
+        <section className="py-16 border-b border-border">
+          <div className="container">
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                {agricultureContent.productLineupSection.title}
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                {agricultureContent.productLineupSection.intro}
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {agricultureContent.productLineupSection.products.map((product) => (
+                <Card key={product.href} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6 flex flex-col h-full">
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <h3 className="text-xl font-semibold">{product.name}</h3>
+                      {product.omriListed ? (
+                        <Badge variant="secondary" className="font-medium">
+                          OMRI Listed®
+                        </Badge>
+                      ) : null}
+                    </div>
+                    <p className="text-muted-foreground mb-6 flex-1">{product.description}</p>
+                    <Button asChild className="w-full sm:w-auto">
+                      <Link href={product.href}>
+                        View product <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Problem Summary */}
       {agricultureContent.problemSection.enabled && (
@@ -135,7 +181,8 @@ export default function Agriculture() {
           <div className="container">
             <h2 className="text-3xl font-bold mb-8">{agricultureContent.evidenceSection.title}</h2>
             <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {agricultureContent.evidenceSection.caseStudies.map((study, index) => (
+              {(agricultureContent.evidenceSection.caseStudies as AgCaseStudy[]).map(
+                (study, index) => (
                 <Card key={index}>
                   <CardContent className="pt-6">
                     <div className="aspect-video bg-muted rounded mb-4 overflow-hidden">

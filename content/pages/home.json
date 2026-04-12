@@ -13,30 +13,30 @@
   },
   "outcomesSection": {
     "enabled": true,
-    "title": "Performance That Pays for Itself",
+    "title": "Outcomes that matter",
     "outcomes": [
       {
-        "title": "Faster vegetative establishment",
-        "description": "Native species establish in the first growing season on properly prepared sites."
+        "title": "Stronger establishment on disturbed sites",
+        "description": "Terra Revive supports native and seeded cover on reclamation and degraded soils."
       },
       {
-        "title": "Fewer Site Visits",
-        "description": "Reduce site inspections and vegetation management costs."
+        "title": "Organic fertility you can spec with confidence",
+        "description": "SuperN and OrganiPhos are OMRI listed—see analysis and listing context on each product page."
       },
       {
-        "title": "Improved performance on stockpiled topsoil",
-        "description": "Restore biological activity and improve seed establishment rates."
+        "title": "Fewer return visits on reclamation projects",
+        "description": "Better early performance can reduce inspections and vegetation management cycles."
       },
       {
-        "title": "No specialty equipment required",
-        "description": "Broadcast with standard site equipment."
+        "title": "Standard equipment",
+        "description": "Pellets and fertilizers work with broadcast, drill, and common farm application methods."
       }
     ]
   },
   "contactSection": {
     "enabled": true,
     "title": "Contact & Support",
-    "description": "Have questions about incorporating Terra Revive into your project? Get in touch with our team.",
+    "description": "Questions about Terra Revive, SuperN, OrganiPhos, or which product fits your operation? Our team is here to help.",
     "primaryButton": "Get a Quote",
     "secondaryButton": ""
   },
@@ -58,7 +58,7 @@
       },
       {
         "title": "Agriculture",
-        "description": "Improve soil function and biology of pasture and cultivated land",
+        "description": "Soil amendment, organic nitrogen, and phosphorus—pasture, forage, and row crops.",
         "icon": "Layers",
         "link": "/solutions/agriculture"
       }
@@ -66,27 +66,33 @@
   },
   "agProductsSection": {
     "enabled": true,
-    "title": "Agriculture products",
-    "intro": "Learn how each product works, see what's in the bag, and request a quote or sample—all in one place.",
+    "title": "Our products",
+    "intro": "Organic fertility and soil amendment—specs, analysis, and quote forms for each line.",
     "products": [
       {
         "name": "SuperN",
-        "description": "Organic nitrogen fertility for crops and forage.",
+        "description": "OMRI-listed organic nitrogen for crops and forage.",
         "href": "/supern",
         "omriListed": true
       },
       {
         "name": "OrganiPhos",
-        "description": "Organic phosphorus fertility for organic production systems.",
+        "description": "OMRI-listed organic phosphorus for certified organic systems.",
         "href": "/organiphos",
         "omriListed": true
+      },
+      {
+        "name": "Terra Revive",
+        "description": "Pelleted soil amendment for reclamation, pasture, and disturbed soils—biology, structure, and nutrient cycling.",
+        "href": "/product/terra-revive",
+        "omriListed": false
       }
     ]
   },
   "heroSection": {
     "enabled": true,
-    "title": "Restore soil function. Meet reclamation objectives faster.",
-    "subtitle": "Terra Revive is a pelleted soil amendment that rebuilds biology, structure, and nutrient cycling so native species establish without synthetics."
+    "title": "Soil health and organic fertility—built for the field.",
+    "subtitle": "Terra Revive rebuilds biology and structure on disturbed land and agricultural soils. SuperN and OrganiPhos deliver OMRI-listed organic nitrogen and phosphorus when your crop plan needs them."
   },
   "evidenceSection": {
     "enabled": false,
@@ -116,7 +122,8 @@
   },
   "productSnapshotSection": {
     "enabled": true,
-    "title": "Product snapshot: Terra Revive",
+    "title": "Terra Revive — soil amendment spotlight",
+    "intro": "For large-scale reclamation and soil biology, Terra Revive is our pelleted amendment. For organic N and P, start with SuperN and OrganiPhos above.",
     "image": "/pellets-in-hand.jpg",
     "imageAlt": "Terra Revive pelleted soil amendment close-up",
     "details": [
@@ -142,18 +149,18 @@
     "steps": [
       {
         "number": 1,
-        "title": "Apply while iron is on site",
-        "description": "Broadcast Terra Revive pellets using standard equipment."
+        "title": "Pick the right product",
+        "description": "Reclamation and soil rebuilding → Terra Revive. Organic crop nitrogen or phosphorus → SuperN or OrganiPhos. Unsure? Contact us."
       },
       {
         "number": 2,
-        "title": "Soil biology reactivates",
-        "description": "Organic matter and minerals break down gradually, rebuilding structure."
+        "title": "Apply with your equipment",
+        "description": "Pellets and fertilizers are designed for broadcast, drill, and typical farm or site equipment—no exotic setups."
       },
       {
         "number": 3,
-        "title": "Vegetation establishes",
-        "description": "Native species germinate and sites stabilize with fewer return visits."
+        "title": "Soil and crops respond",
+        "description": "Biology and structure improve over time on amended soils; fertility products follow label and agronomic best practices."
       }
     ]
   },
@@ -166,6 +173,10 @@
     "enabled": true,
     "title": "Frequently Asked Questions",
     "questions": [
+      {
+        "question": "What are SuperN and OrganiPhos?",
+        "answer": "SuperN is our OMRI-listed organic nitrogen fertilizer; OrganiPhos is our OMRI-listed organic phosphorus fertilizer. Each has its own page with specs, guaranteed analysis guidance, and a quote or sample form—no need to dig through unrelated products."
+      },
       {
         "question": "What is Terra Revive?",
         "answer": "Terra Revive is a pelleted soil amendment that rebuilds soil biology, structure, and nutrient cycling on degraded sites. It's designed specifically for large-scale reclamation projects and delivers organic matter and minerals in a form that's easy to apply with standard equipment."

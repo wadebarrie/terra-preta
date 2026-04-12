@@ -1,6 +1,31 @@
 {
   "heroTitle": "Agriculture",
-  "heroSubtitle": "Improve soil function and biology on pasture and cultivated land. Terra Revive rebuilds soil structure, activates nutrient cycling, and supports healthier, more resilient agricultural systems.",
+  "heroSubtitle": "Improve pasture and cropland with Terra Revive for soil biology and structure, and with SuperN and OrganiPhos when you need OMRI-listed organic nitrogen and phosphorus.",
+  "productLineupSection": {
+    "enabled": true,
+    "title": "Products for agriculture",
+    "intro": "Compare specs, see what's in the bag, and request a quote or sample on each product page.",
+    "products": [
+      {
+        "name": "SuperN",
+        "description": "Organic nitrogen fertility for crops and forage.",
+        "href": "/supern",
+        "omriListed": true
+      },
+      {
+        "name": "OrganiPhos",
+        "description": "Organic phosphorus for certified organic production systems.",
+        "href": "/organiphos",
+        "omriListed": true
+      },
+      {
+        "name": "Terra Revive",
+        "description": "Pelleted soil amendment to rebuild biology, structure, and nutrient cycling on degraded or tired soils.",
+        "href": "/product/terra-revive",
+        "omriListed": false
+      }
+    ]
+  },
   "problemSection": {
     "enabled": true,
     "title": "Why agricultural soils lose function",

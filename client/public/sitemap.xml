@@ -74,6 +74,13 @@
     <priority>0.8</priority>
   </url>
   
+  <url>
+    <loc>https://terrapretaorganics.ca/solutions/agriculture</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- Evidence Library -->
   <url>
     <loc>https://terrapretaorganics.ca/evidence</loc>

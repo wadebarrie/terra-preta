@@ -1,8 +1,18 @@
 {
   "slug": "supern",
   "productName": "SuperN",
+  "metaTitle": "SuperN Organic Nitrogen Fertilizer | OMRI | Terra Preta Ag | Alberta",
+  "metaDescription": "SuperN 10-3-0.3 — OMRI-listed organic nitrogen for Alberta & Saskatchewan grain farms. Up to ~16 weeks N from one seed-placed pass. Ships from Sundre, AB. Request a quote.",
   "heroTitle": "SuperN",
   "heroSubtitle": "Organic nitrogen fertility for crops and forage. Designed for growers who want dependable performance with materials suitable for organic systems.",
+  "tagline": "Up to ~16 weeks of nitrogen from a single seed-placed pass—OMRI listed, no synthetic inputs, shipped from Sundre, Alberta.",
+  "conversionBullets": [
+    "N-P-K 10-3-0.3 (see product label for guaranteed analysis)",
+    "OMRI Listed® certified organic crop input",
+    "Seed-placed organic nitrogen pellet — one pass at seeding",
+    "Blood meal, feather meal & BSFL frass for establishment through grain fill",
+    "Built for grain farms in Alberta & Saskatchewan"
+  ],
   "omriListed": true,
   "omriLabel": "OMRI Listed®",
   "omriCallout": "SuperN is OMRI Listed® for organic crop production. Listing details are on the product label, and we can provide the OMRI reference for your certifier on request.",
@@ -10,13 +20,16 @@
     "SuperN supplies plant-available nitrogen from approved organic sources to support strong growth and yield where synthetic nitrogen is not desired or permitted.",
     "Use rates depend on crop, rotation, and soil test results. Our team can help align application with your fertility plan and certification requirements."
   ],
-  "npk": "",
+  "npk": "10-3-0.3",
   "keySpecs": [
-    { "label": "Form", "value": "See specification sheet" },
-    { "label": "Primary use", "value": "Nitrogen fertility — organic production" },
-    { "label": "Packaging", "value": "Contact for tote, bulk, and bag options" },
-    { "label": "Availability", "value": "Canada — ask about delivery" }
+    { "label": "Guaranteed analysis (N-P-K)", "value": "10-3-0.3 — confirm current label; we provide the spec sheet on request." },
+    { "label": "Nitrogen coverage", "value": "Designed for an extended nitrogen window from a single seed-placed application (often discussed as up to ~16 weeks — program-dependent)." },
+    { "label": "Application", "value": "Seed-placed organic nitrogen pellet; one pass at seeding. No manure equipment required." },
+    { "label": "OMRI", "value": "OMRI Listed® for certified organic production (see label for listing scope)." },
+    { "label": "Formulation notes", "value": "Blood meal supports early establishment; feather meal supports later-season demand; BSFL frass supports soil biology." },
+    { "label": "Origin & service area", "value": "Made in Sundre, Alberta. Programs for Alberta, Saskatchewan, and beyond." },
+    { "label": "Crops", "value": "Wheat, barley, canola, oats, rye, and other organic rotations — custom programs." }
   ],
-  "specSheetUrl": "",
+  "specSheetUrl": "/spec-sheets/supern-spec-sheet.pdf",
   "specSheetLabel": "Download specification sheet (PDF)"
 }

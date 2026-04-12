@@ -90,6 +90,7 @@ collections:
             fields:
               - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Section Title", name: "title", widget: "string", default: "Product snapshot: Terra Revive" }
+              - { label: "Intro (optional)", name: "intro", widget: "text", required: false }
               - { label: "Product Image", name: "image", widget: "image" }
               - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
               - label: "Product Details"

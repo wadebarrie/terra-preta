@@ -103,7 +103,7 @@ export default function Home() {
                 {homeContent.agProductsSection.intro}
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {homeContent.agProductsSection.products.map((product) => (
                 <Card key={product.href} className="hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
@@ -220,9 +220,14 @@ export default function Home() {
         <section className="py-20 bg-muted">
           <div className="container">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {homeContent.productSnapshotSection.title}
               </h2>
+              {(homeContent.productSnapshotSection as { intro?: string }).intro ? (
+                <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
+                  {(homeContent.productSnapshotSection as { intro?: string }).intro}
+                </p>
+              ) : null}
               <div className="mb-8 rounded-lg overflow-hidden">
                 <img 
                   src={homeContent.productSnapshotSection.image} 

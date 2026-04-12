@@ -5,3 +5,7 @@ export const FORMSPREE_ENDPOINT =
 
 export const FORM_SUCCESS_MESSAGE =
   "Thanks — we will be in touch within one business day.";
+
+/** Google Ads landing pages — sets expectation for agronomy follow-up */
+export const ADS_QUOTE_SUCCESS_MESSAGE =
+  "We will be in touch within one business day to put together your program.";
