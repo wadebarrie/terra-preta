@@ -101,7 +101,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-primary"
+                  className="bg-card text-primary border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
                 >
                   <Link href={homeContent.agPivot.heroSecondaryCta.href}>
                     {homeContent.agPivot.heroSecondaryCta.label}
@@ -376,7 +376,7 @@ export default function Home() {
                   size="lg" 
                   variant="outline" 
                   asChild
-                  className="bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-primary"
+                  className="bg-card text-primary border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
                 >
                   <Link href="/evidence/sds-tds">
                     <Download className="mr-2 h-5 w-5" />

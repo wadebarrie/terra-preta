@@ -10,7 +10,7 @@ export default function Header() {
   const { ctaLabel, ctaHref, navItems } = siteChrome.header;
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-border">
+    <header className="sticky top-0 z-50 bg-background border-b border-border">
       <nav className="container flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-2">
           <img src={APP_LOGO} alt={APP_TITLE} className="h-8 w-8" />
@@ -26,7 +26,7 @@ export default function Header() {
                   <button className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                     {item.label}
                   </button>
-                  <div className="absolute left-0 top-full mt-2 w-56 bg-white border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                  <div className="absolute left-0 top-full mt-2 w-56 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                     <div className="py-2">
                       {item.children.map((child) => (
                         <Link
@@ -73,7 +73,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border bg-white">
+        <div className="lg:hidden border-t border-border bg-background">
           <div className="container py-4 space-y-4">
             {navItems.map((item) => (
               <div key={item.label}>
