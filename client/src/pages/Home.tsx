@@ -101,7 +101,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="bg-card text-primary border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                  className="text-primary"
                 >
                   <Link href={homeContent.agPivot.heroSecondaryCta.href}>
                     {homeContent.agPivot.heroSecondaryCta.label}
@@ -372,12 +372,7 @@ export default function Home() {
                 <Button size="lg" asChild>
                   <Link href="/contact">Get a Quote</Link>
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  asChild
-                  className="bg-card text-primary border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
-                >
+                <Button size="lg" variant="outline" asChild className="text-primary">
                   <Link href="/evidence/sds-tds">
                     <Download className="mr-2 h-5 w-5" />
                     Download Bid Ready Spec Pack

@@ -49,6 +49,9 @@
   /* Solid CTA buttons (darker than --brand / --primary accents) */
   --color-cta: var(--cta);
   --color-cta-foreground: var(--cta-foreground);
+  /* Outline / white chip CTAs — hover fill (warm near-black, not #000) */
+  --color-outline-cta-hover: var(--outline-cta-hover);
+  --color-outline-cta-hover-fg: var(--outline-cta-hover-fg);
 }
 
 :root {
@@ -58,6 +61,8 @@
   --heading: #133015;
   --cta: #244d26;
   --cta-foreground: #f7faf5;
+  --outline-cta-hover: #1a1917;
+  --outline-cta-hover-fg: #faf9f7;
   --primary: var(--brand);
   --primary-foreground: var(--brand-foreground);
   --sidebar-primary: var(--brand);
@@ -102,6 +107,8 @@
   --heading: oklch(0.91 0.04 142);
   --cta: #2d6b32;
   --cta-foreground: oklch(0.98 0.01 139);
+  --outline-cta-hover: #e8e6e1;
+  --outline-cta-hover-fg: #1a1917;
   --primary: var(--brand);
   --primary-foreground: oklch(0.98 0.01 139);
   --sidebar-primary: var(--brand);
