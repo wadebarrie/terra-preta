@@ -1,0 +1,148 @@
+{
+  "agPivot": {
+    "enabled": true,
+    "brandLine": "Terra Preta",
+    "heroTitle": "Fertilize Different.",
+    "heroSubtitle": "Terra Preta makes fertilizers that deliver serious nutrition to producers trying to grow a crop. Whether you run a fully organic operation or you're looking to reduce your synthetic inputs without sacrificing yield, our products are built to work as hard as you do.",
+    "heroPrimaryCta": {
+      "label": "Explore our products",
+      "href": "#products"
+    },
+    "heroSecondaryCta": {
+      "label": "Request a quote",
+      "href": "/contact"
+    },
+    "compromiseSection": {
+      "enabled": true,
+      "title": "Organic fertility has always meant compromise.",
+      "paragraphs": [
+        "Manure is getting harder to justify. Hauling costs are up, equipment is specialized, and nutrient consistency is unreliable.",
+        "Legume fallows work, but they cost you a full season of revenue on every acre you rest.",
+        "Synthetic inputs solve the yield problem but create a different one: your certification, your soil biology, your long-term productivity.",
+        "There has to be a different way."
+      ]
+    },
+    "thereIsSection": {
+      "enabled": true,
+      "title": "There is.",
+      "paragraph": "Terra Preta builds targeted fertility products that deliver precise nutrition through biological activation and phase release. Each product does one job and does it exceptionally well. No synthetic inputs. No extra equipment. No compromises on certification."
+    },
+    "productsSection": {
+      "enabled": true,
+      "title": "Targeted fertility, precisely delivered",
+      "anchorId": "products",
+      "products": [
+        {
+          "name": "SuperN",
+          "badge": "Organic",
+          "headline": "SuperN 10-3-0.3",
+          "subheadline": "Organic nitrogen. Seed-placed. One pass at seeding.",
+          "description": "A compressed fertility pellet that delivers a complete two-phase nitrogen program from a single pass at seeding. No extra equipment. No fallowing. No compromises.",
+          "priceNote": "",
+          "primaryCta": {
+            "label": "Order spring fertility",
+            "href": "/supern?intent=order#quote"
+          },
+          "secondaryCta": {
+            "label": "Request a sample",
+            "href": "/supern?intent=sample#quote"
+          },
+          "learnMoreCta": {
+            "label": "View SuperN details",
+            "href": "/supern"
+          }
+        },
+        {
+          "name": "OrganiPhos",
+          "badge": "Organic",
+          "headline": "OrganiPhos 1-14-0.6 + 18% Ca",
+          "subheadline": "Organic phosphorus. Three-phase release. Built for alkaline prairie soils.",
+          "description": "A biological phosphorus starter granule built for alkaline prairie soils. Three-phase release ensures your crop gets phosphorus when it needs it most.",
+          "priceNote": "",
+          "primaryCta": {
+            "label": "Order spring fertility",
+            "href": "/organiphos?intent=order#quote"
+          },
+          "secondaryCta": {
+            "label": "Request a sample",
+            "href": "/organiphos?intent=sample#quote"
+          },
+          "learnMoreCta": {
+            "label": "View OrganiPhos details",
+            "href": "/organiphos"
+          }
+        }
+      ],
+      "moreComing": "More targeted products are in development. Stay in touch."
+    },
+    "fitSection": {
+      "enabled": true,
+      "title": "Built for organic, transitioning, and conventional producers who believe healthy soil and strong yields are the same goal.",
+      "goodFitTitle": "You're a good fit if:",
+      "goodFitBullets": [
+        "You are an organic producer looking for a reliable, compliant fertility source that does not require extra equipment or a lost season.",
+        "You are transitioning to organic and need a fertility program that works while your operation shifts.",
+        "You are a conventional producer looking to reduce synthetic inputs without sacrificing yield.",
+        "You are tired of the true cost of manure: the hauling, the equipment, the inconsistency.",
+        "You have fallowed with legumes and you know what that lost season actually costs you.",
+        "You believe healthy soil and strong yields are the same goal, not competing ones."
+      ],
+      "notFitTitle": "You might not be a fit if:",
+      "notFitBullets": [
+        "You are looking for a fast release, synthetic NPK.",
+        "You are looking for a complete fertility replacement without a current soil test. Our products work best as part of an informed nutrient program."
+      ]
+    },
+    "prairieSection": {
+      "enabled": true,
+      "title": "This is where we work.",
+      "paragraph": "Our products are formulated specifically for growing in prairie soils. The phase release profiles, the retention strategy, and the pH advisories are built around the conditions your crops actually grow in."
+    },
+    "storySection": {
+      "enabled": true,
+      "title": "Built by a farmer. Grounded in soil science.",
+      "sections": [
+        {
+          "title": "The Founder",
+          "paragraph": "Lee Martineau farms north of Bearberry, Alberta. He came to regenerative agriculture through the same frustration most producers know well: the tools available did not match the problem in front of him. That gap led to Terra Preta."
+        },
+        {
+          "title": "Why Terra Preta",
+          "paragraph": "Terra preta means dark earth. It refers to ancient Amazonian soils deliberately enriched using biochar, bone, and organic matter. Those soils remain fertile centuries later. The principle is simple: soil health is about building biological systems that sustain fertility season after season without synthetic inputs."
+        },
+        {
+          "title": "How It Started",
+          "paragraph": "Why does organic fertility have to mean manure equipment, lost seasons, or unreliable results? It does not. SuperN and OrganiPhos were built to deliver targeted fertility programs from a single pass at seeding—no extra equipment and no compromises on certification."
+        },
+        {
+          "title": "Who We Work With",
+          "paragraph": "We work directly with producers across the prairies. No dealer network. No runaround. Just a straight conversation about whether our products fit your operation before you spend a dollar."
+        }
+      ]
+    },
+    "talkSection": {
+      "enabled": true,
+      "title": "Let's talk soil.",
+      "subtitle": "We work directly with producers. No dealer network, no runaround. Just a straight conversation about whether our products fit your operation.",
+      "ctas": [
+        {
+          "title": "Order spring fertility",
+          "description": "Secure your spring fertility now. Order today to make sure your product arrives before seeding begins.",
+          "href": "/contact?intent=order"
+        },
+        {
+          "title": "Request a sample",
+          "description": "Want to see and feel the product before committing? We will send you a sample bag so you can evaluate the format, density, and composition yourself.",
+          "href": "/contact?intent=sample"
+        },
+        {
+          "title": "General inquiry",
+          "description": "Questions about products, pricing, certification documentation, or application rates? Get in touch and we will get back to you within one business day.",
+          "href": "/contact?intent=general"
+        }
+      ],
+      "directContactLine": "Prefer to talk directly?",
+      "directContactEmail": "sales@terrapreta.ca"
+    }
+  }
+}

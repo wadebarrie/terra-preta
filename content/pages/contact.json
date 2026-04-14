@@ -1,21 +1,59 @@
 {
-  "heroTitle": "Contact Us",
-  "heroSubtitle": "Request a quote or start a pilot project. On-site support and partner application services available.",
+  "metaTitle": "Contact Terra Preta Organics | Quote, sample & inquiries",
+  "metaDescription": "Order spring fertility, request a sample, or ask about SuperN, OrganiPhos, and Terra Revive. We respond within one business day. Sundre, Alberta — serving producers across Canada.",
+  "heroTitle": "Let's Talk Soil",
+  "heroSubtitle": "Order spring fertility, request a sample, or ask a question. We respond within one business day.",
   "contactCards": [
     {
       "icon": "MapPin",
       "title": "Location",
-      "lines": [
-        "Sundre, Alberta",
-        "Service Area: Canada Wide"
-      ]
+      "lines": ["Sundre, Alberta", "Service Area: Canada Wide"]
+    },
+    {
+      "icon": "Phone",
+      "title": "Phone",
+      "lines": ["(403) 921-6291"],
+      "tel": "+14039216291"
     },
     {
       "icon": "Mail",
       "title": "Email",
-      "email": "chris@terrapreta.ca"
+      "email": "sales@terrapreta.ca"
     }
   ],
+  "leadForm": {
+    "cardTitle": "Request a quote",
+    "submitLabel": "Request your program",
+    "submittingLabel": "Sending…",
+    "footerNote": "We will be in touch within one business day to put together your program.",
+    "intentOptions": [
+      { "value": "Order", "label": "Order spring fertility" },
+      { "value": "Sample", "label": "Request a sample" },
+      { "value": "General", "label": "General inquiry" }
+    ],
+    "labels": {
+      "intent": "Inquiry type *",
+      "name": "Name *",
+      "company": "Farm / Company *",
+      "email": "Email *",
+      "phone": "Phone",
+      "province": "Province / region *",
+      "acres": "Approximate acres *",
+      "productInterest": "Product interest *",
+      "notes": "Notes"
+    },
+    "placeholders": {
+      "province": "e.g. AB, SK",
+      "acres": "e.g. 1,200",
+      "notes": "Crop mix, timing, delivery location—optional"
+    },
+    "productOptions": [
+      { "value": "SuperN", "label": "SuperN" },
+      { "value": "OrganiPhos", "label": "OrganiPhos" },
+      { "value": "Both", "label": "Both" }
+    ],
+    "submitAnotherLabel": "Submit another request"
+  },
   "form": {
     "successMessage": "Thank you for your inquiry! We'll be in touch within 24 hours.",
     "footerNote": "By submitting this form, you'll receive a bid ready spec pack via email and a member of our team will contact you within 24 hours.",
@@ -42,7 +80,7 @@
       "Environmental Manager",
       "Other"
     ],
-    "errorMessage": "Failed to submit form. Please try again or contact us directly at chris@terrapreta.ca"
+    "errorMessage": "Failed to submit form. Please try again or contact us directly at sales@terrapreta.ca"
   },
   "formspreeEndpoint": "https://formspree.io/f/mnjaqwoe"
 }

@@ -1,46 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { APP_LOGO, APP_TITLE } from "@/const";
+import siteChrome from "@content/settings/site-chrome.json";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
-
-const navigation = [
-  {
-    name: "Solutions",
-    href: "/solutions",
-    children: [
-      { name: "Oil & Gas Reclamation", href: "/solutions/reclamation" },
-      { name: "Mining and Industrial", href: "/solutions/mining" },
-      { name: "Agriculture", href: "/solutions/agriculture" },
-    ],
-  },
-  {
-    name: "Product",
-    href: "/product",
-    children: [
-      { name: "SuperN", href: "/supern" },
-      { name: "OrganiPhos", href: "/organiphos" },
-      { name: "Terra Revive", href: "/product/terra-revive" },
-    ],
-  },
-  {
-    name: "Pellet Calculator",
-    href: "/calculator/pellet-selector",
-  },
-  {
-    name: "Evidence Library",
-    href: "/evidence",
-    children: [
-      { name: "SDS and TDS", href: "/evidence/sds-tds" },
-    ],
-  },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-];
+import { Link } from "wouter";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
+  const { ctaLabel, ctaHref, navItems } = siteChrome.header;
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-border">
@@ -52,12 +19,12 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
-          {navigation.map((item) => (
-            <div key={item.name} className="relative group">
-              {item.children ? (
+          {navItems.map((item) => (
+            <div key={item.label} className="relative group">
+              {item.children?.length ? (
                 <>
                   <button className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-                    {item.name}
+                    {item.label}
                   </button>
                   <div className="absolute left-0 top-full mt-2 w-56 bg-white border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                     <div className="py-2">
@@ -67,7 +34,7 @@ export default function Header() {
                           href={child.href}
                           className="block px-4 py-2 text-sm text-foreground hover:bg-muted transition-colors"
                         >
-                          {child.name}
+                          {child.label}
                         </Link>
                       ))}
                     </div>
@@ -78,7 +45,7 @@ export default function Header() {
                   href={item.href}
                   className="text-sm font-medium text-foreground hover:text-primary transition-colors"
                 >
-                  {item.name}
+                  {item.label}
                 </Link>
               )}
             </div>
@@ -87,7 +54,7 @@ export default function Header() {
 
         <div className="hidden lg:block">
           <Button asChild>
-            <Link href="/contact">Get a Quote</Link>
+            <Link href={ctaHref}>{ctaLabel}</Link>
           </Button>
         </div>
 
@@ -108,11 +75,11 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-border bg-white">
           <div className="container py-4 space-y-4">
-            {navigation.map((item) => (
-              <div key={item.name}>
-                {item.children ? (
+            {navItems.map((item) => (
+              <div key={item.label}>
+                {item.children?.length ? (
                   <>
-                    <div className="font-medium text-sm mb-2">{item.name}</div>
+                    <div className="font-medium text-sm mb-2">{item.label}</div>
                     <div className="pl-4 space-y-2">
                       {item.children.map((child) => (
                         <Link
@@ -121,7 +88,7 @@ export default function Header() {
                           className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          {child.name}
+                          {child.label}
                         </Link>
                       ))}
                     </div>
@@ -132,14 +99,14 @@ export default function Header() {
                     className="block font-medium text-sm hover:text-primary transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {item.name}
+                    {item.label}
                   </Link>
                 )}
               </div>
             ))}
             <Button asChild className="w-full">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Get a Quote
+              <Link href={ctaHref} onClick={() => setMobileMenuOpen(false)}>
+                {ctaLabel}
               </Link>
             </Button>
           </div>

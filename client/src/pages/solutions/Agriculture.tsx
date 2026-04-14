@@ -4,6 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import agricultureContent from "@content/pages/agriculture.json";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { SITE_ORIGIN } from "@/const";
+import { cmsStringList } from "@/lib/cmsStringList";
 
 type AgCaseStudy = {
   title: string;
@@ -13,6 +16,12 @@ type AgCaseStudy = {
 };
 
 export default function Agriculture() {
+  usePageMeta(
+    agricultureContent.metaTitle,
+    agricultureContent.metaDescription,
+    `${SITE_ORIGIN}/solutions/agriculture`,
+  );
+
   return (
     <div>
       {/* Hero Section */}
@@ -150,7 +159,9 @@ export default function Agriculture() {
                 <div>
                   <h3 className="font-semibold text-lg mb-3">{agricultureContent.expectationsSection.thisSeason.title}</h3>
                   <ul className="space-y-2 text-muted-foreground">
-                    {agricultureContent.expectationsSection.thisSeason.items.map((item, index) => (
+                    {cmsStringList(
+                      agricultureContent.expectationsSection.thisSeason.items as unknown,
+                    ).map((item, index) => (
                       <li key={index} className="flex gap-2">
                         <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                         <span>{item}</span>
@@ -161,7 +172,9 @@ export default function Agriculture() {
                 <div>
                   <h3 className="font-semibold text-lg mb-3">{agricultureContent.expectationsSection.nextSeason.title}</h3>
                   <ul className="space-y-2 text-muted-foreground">
-                    {agricultureContent.expectationsSection.nextSeason.items.map((item, index) => (
+                    {cmsStringList(
+                      agricultureContent.expectationsSection.nextSeason.items as unknown,
+                    ).map((item, index) => (
                       <li key={index} className="flex gap-2">
                         <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                         <span>{item}</span>

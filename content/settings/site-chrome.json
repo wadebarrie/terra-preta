@@ -1,0 +1,48 @@
+{
+  "header": {
+    "ctaLabel": "Get a Quote",
+    "ctaHref": "/contact",
+    "navItems": [
+      {
+        "label": "Products",
+        "href": "/#products",
+        "children": [
+          { "label": "SuperN", "href": "/supern" },
+          { "label": "OrganiPhos", "href": "/organiphos" }
+        ]
+      },
+      { "label": "Prairie soils", "href": "/solutions/agriculture" },
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "trustStrip": {
+    "enabled": true,
+    "heading": "Trusted by leading partners:",
+    "partners": [
+      { "name": "Choice Environmental", "logo": "/partner-choice.png" },
+      { "name": "Trace Associates", "logo": "/partner-trace.png" },
+      { "name": "Gran Tierra Energy", "logo": "/partner-grantierra.png" }
+    ]
+  },
+  "footer": {
+    "agricultureColumnTitle": "Agriculture",
+    "resourcesColumnTitle": "Resources",
+    "companyColumnTitle": "Company",
+    "copyrightEntity": "Terra Preta Organics",
+    "agricultureLinks": [
+      { "label": "Prairie soils", "href": "/solutions/agriculture" },
+      { "label": "SuperN", "href": "/supern" },
+      { "label": "OrganiPhos", "href": "/organiphos" }
+    ],
+    "resourceLinks": [
+      { "label": "Order spring fertility", "href": "/contact?intent=order" },
+      { "label": "Request a sample", "href": "/contact?intent=sample" },
+      { "label": "General inquiry", "href": "/contact?intent=general" }
+    ],
+    "companyLinks": [
+      { "label": "About Us", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  }
+}

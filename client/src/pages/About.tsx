@@ -1,8 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Building, Shield, Users } from "lucide-react";
 import aboutContent from "@content/pages/about.json";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { SITE_ORIGIN } from "@/const";
 
 export default function About() {
+  usePageMeta(
+    aboutContent.metaTitle,
+    aboutContent.metaDescription,
+    `${SITE_ORIGIN}/about`,
+  );
 
   return (
     <div>

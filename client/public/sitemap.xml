@@ -5,7 +5,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://terrapreta.ca/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- About Page -->
   <url>
     <loc>https://terrapreta.ca/about</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,7 +21,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://terrapreta.ca/contact</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -29,100 +29,23 @@
   <!-- Agriculture product landing pages -->
   <url>
     <loc>https://terrapreta.ca/supern</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://terrapreta.ca/organiphos</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
-
-  <!-- Product Pages -->
-  <url>
-    <loc>https://terrapreta.ca/product/terra-revive</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://terrapreta.ca/pellets-in-hand.jpg</image:loc>
-      <image:title>Terra Revive Pelleted Soil Amendment</image:title>
-    </image:image>
-  </url>
   
-  <!-- Solutions Pages -->
-  <url>
-    <loc>https://terrapreta.ca/solutions/reclamation</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrapreta.ca/solutions/hydroseeding</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrapreta.ca/solutions/mining</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
+  <!-- Agriculture -->
   <url>
     <loc>https://terrapreta.ca/solutions/agriculture</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Evidence Library -->
-  <url>
-    <loc>https://terrapreta.ca/evidence</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrapreta.ca/evidence/case-studies</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrapreta.ca/evidence/method-statements</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrapreta.ca/evidence/sds-tds</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Calculator Pages -->
-  <url>
-    <loc>https://terrapreta.ca/calculator/pellet-selector</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://terrapreta.ca/calculator/cost-payback</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.85</priority>
   </url>
   
 </urlset>

@@ -40,13 +40,23 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  /* Agriculture brand — use bg-brand, text-brand, bg-brand-muted, etc. */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-muted: var(--brand-muted);
+  --color-heading: var(--heading);
+  --font-heading: "Libre Baskerville", ui-serif, Georgia, serif;
 }
 
 :root {
-  --primary: oklch(0.45 0.08 50);
-  --primary-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.45 0.08 50);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --brand: #4a7b2d;
+  --brand-foreground: #f7faf5;
+  --brand-muted: color-mix(in oklch, var(--brand) 9%, var(--background));
+  --heading: #133015;
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: var(--brand-foreground);
   --chart-1: var(--color-blue-300);
   --chart-2: var(--color-blue-500);
   --chart-3: var(--color-blue-600);
@@ -63,26 +73,31 @@
   --secondary-foreground: oklch(0.4 0.015 65);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.45 0.08 50);
-  --accent-foreground: oklch(0.98 0 0);
+  --accent: var(--brand);
+  --accent-foreground: var(--brand-foreground);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
+  --ring: oklch(0.52 0.11 139);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.235 0.015 65);
   --sidebar-accent: oklch(0.967 0.001 286.375);
   --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
   --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --sidebar-ring: oklch(0.52 0.11 139);
 }
 
 .dark {
-  --primary: oklch(0.45 0.08 50);
-  --primary-foreground: oklch(0.98 0 0);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
+  /* Slightly brighter green on dark UI for legibility */
+  --brand: oklch(0.62 0.11 139);
+  --brand-foreground: oklch(0.98 0.01 139);
+  --brand-muted: color-mix(in oklch, var(--brand) 14%, var(--background));
+  --heading: oklch(0.91 0.04 142);
+  --primary: var(--brand);
+  --primary-foreground: oklch(0.98 0.01 139);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: var(--primary-foreground);
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.85 0.005 65);
   --card: oklch(0.21 0.006 285.885);
@@ -99,7 +114,7 @@
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
+  --ring: oklch(0.58 0.12 139);
   --chart-1: var(--color-blue-300);
   --chart-2: var(--color-blue-500);
   --chart-3: var(--color-blue-600);
@@ -110,7 +125,7 @@
   --sidebar-accent: oklch(0.274 0.006 286.033);
   --sidebar-accent-foreground:  oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --sidebar-ring: oklch(0.58 0.12 139);
 }
 
 @layer base {
@@ -120,6 +135,20 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  [data-slot="card-title"] {
+    font-family: var(--font-heading);
+    color: var(--heading);
+  }
+  /* Footer uses a dark band; global heading color would fail contrast */
+  footer :is(h1, h2, h3, h4, h5, h6) {
+    color: #fff;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),

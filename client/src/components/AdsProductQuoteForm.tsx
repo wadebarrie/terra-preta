@@ -10,12 +10,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { FORMSPREE_ENDPOINT, ADS_QUOTE_SUCCESS_MESSAGE } from "@/lib/formspree";
 import { trackQualifiedLead } from "@/lib/analytics";
 
 export type AdsProductChoice = "SuperN" | "OrganiPhos" | "Both";
+export type AdsInquiryIntent = "Order" | "Sample" | "General";
 
 const PROVINCES = [
   { value: "AB", label: "Alberta" },
@@ -30,11 +31,13 @@ type AdsProductQuoteFormProps = {
   /** Page context for analytics + Formspree */
   landingSlug: string;
   defaultProduct: AdsProductChoice;
+  defaultIntent?: AdsInquiryIntent;
 };
 
 export function AdsProductQuoteForm({
   landingSlug,
   defaultProduct,
+  defaultIntent,
 }: AdsProductQuoteFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -43,12 +46,28 @@ export function AdsProductQuoteForm({
   const [acres, setAcres] = useState("");
   const [productInterest, setProductInterest] =
     useState<AdsProductChoice>(defaultProduct);
+  const [intent, setIntent] = useState<AdsInquiryIntent>(
+    defaultIntent ?? "General"
+  );
   const [notes, setNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  useEffect(() => {
+    if (defaultIntent) return;
+    const params = new URLSearchParams(window.location.search);
+    const raw = (params.get("intent") || "").toLowerCase();
+    if (raw === "order") setIntent("Order");
+    else if (raw === "sample") setIntent("Sample");
+    else if (raw === "general") setIntent("General");
+  }, [defaultIntent]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!intent) {
+      toast.error("Please select an inquiry type.");
+      return;
+    }
     if (!province) {
       toast.error("Please select a province or region.");
       return;
@@ -71,8 +90,9 @@ export function AdsProductQuoteForm({
           province,
           approximateAcres: acres,
           productInterest,
+          intent,
           notes,
-          _subject: `[Quote] ${productInterest} — ${name} (${province}, ${acres} ac)`,
+          _subject: `[${intent}] ${productInterest} — ${name} (${province}, ${acres} ac)`,
         }),
       });
 
@@ -92,6 +112,7 @@ export function AdsProductQuoteForm({
       setProvince("");
       setAcres("");
       setProductInterest(defaultProduct);
+      setIntent("General");
       setNotes("");
     } catch (err) {
       console.error(err);
@@ -139,6 +160,24 @@ export function AdsProductQuoteForm({
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Label htmlFor="ads-intent">Inquiry type *</Label>
+            <Select
+              required
+              value={intent}
+              onValueChange={(v) => setIntent(v as AdsInquiryIntent)}
+            >
+              <SelectTrigger id="ads-intent" className="mt-1">
+                <SelectValue placeholder="Select" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Order">Order spring fertility</SelectItem>
+                <SelectItem value="Sample">Request a sample</SelectItem>
+                <SelectItem value="General">General inquiry</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           <div>
             <Label htmlFor="ads-name">Name *</Label>
             <Input

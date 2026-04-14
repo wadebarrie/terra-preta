@@ -2,11 +2,18 @@ User-agent: *
 Allow: /
 
 # Disallow CMS admin
-User-agent: *
 Disallow: /admin/
 
 # Disallow API routes
 Disallow: /api/
+
+# Disallow legacy / non-ag pages (ag pivot)
+Disallow: /evidence/
+Disallow: /calculator/
+Disallow: /solutions/reclamation
+Disallow: /solutions/hydroseeding
+Disallow: /solutions/mining
+Disallow: /product/terra-revive
 
 # Sitemap
 Sitemap: https://terrapreta.ca/sitemap.xml

@@ -1,11 +1,15 @@
-import organiphosSpecPdfUrl from "@/assets/spec-sheets/TerraPretaAg-OrganiPhos.pdf?url";
 import organiphosContent from "@content/pages/organiphos.json";
+import { organiphosDocs } from "@/lib/productDocs";
 import { RetailAgProductPage } from "./product/RetailAgProductPage";
 
 export default function OrganiPhos() {
   return (
     <RetailAgProductPage
-      content={{ ...organiphosContent, specSheetUrl: organiphosSpecPdfUrl }}
+      content={{
+        ...organiphosContent,
+        specSheetUrl: organiphosDocs.primarySpecSheetUrl,
+        documents: organiphosDocs.docs,
+      }}
     />
   );
 }

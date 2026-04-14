@@ -4,8 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { APP_TITLE, SITE_ORIGIN } from "@/const";
+import { cmsStringList } from "@/lib/cmsStringList";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { Download, ShieldCheck } from "lucide-react";
+import { useMemo, useState } from "react";
 
 export type RetailAgProductContent = {
   slug: string;
@@ -25,6 +27,7 @@ export type RetailAgProductContent = {
   keySpecs: { label: string; value: string }[];
   specSheetUrl?: string;
   specSheetLabel?: string;
+  documents?: { title: string; url: string }[];
 };
 
 function defaultAdsProduct(slug: string): AdsProductChoice {
@@ -33,6 +36,18 @@ function defaultAdsProduct(slug: string): AdsProductChoice {
 }
 
 export function RetailAgProductPage({ content }: { content: RetailAgProductContent }) {
+  const initialIntent = useMemo(() => {
+    if (typeof window === "undefined") return "General" as const;
+    const raw = new URLSearchParams(window.location.search)
+      .get("intent")
+      ?.toLowerCase();
+    if (raw === "order") return "Order" as const;
+    if (raw === "sample") return "Sample" as const;
+    return "General" as const;
+  }, []);
+
+  const [intentKey, setIntentKey] = useState(initialIntent);
+
   usePageMeta(
     content.metaTitle || `${content.productName} | ${APP_TITLE}`,
     content.metaDescription,
@@ -44,7 +59,7 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
 
   const tagline = content.tagline?.trim() || content.heroSubtitle;
   const bullets = content.conversionBullets?.length
-    ? content.conversionBullets
+    ? cmsStringList(content.conversionBullets)
     : [];
 
   const omriCalloutText =
@@ -73,6 +88,19 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
           ],
         }
       : {}),
+  };
+
+  const setIntentAndScroll = (next: "Order" | "Sample" | "General") => {
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("intent", next.toLowerCase());
+      url.hash = "quote";
+      window.history.replaceState({}, "", url.toString());
+    } catch {
+      // ignore
+    }
+    setIntentKey(next);
+    document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -118,6 +146,26 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
                 </ul>
               ) : null}
 
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Button type="button" onClick={() => setIntentAndScroll("Order")}>
+                  Order spring fertility
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setIntentAndScroll("Sample")}
+                >
+                  Request a sample
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setIntentAndScroll("General")}
+                >
+                  General inquiry
+                </Button>
+              </div>
+
               <div className="flex flex-wrap gap-3 pt-2">
                 {hasSpecSheet ? (
                   <Button size="lg" asChild>
@@ -132,12 +180,33 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
                   </p>
                 )}
               </div>
+
+              {content.documents?.length ? (
+                <div className="pt-4">
+                  <p className="text-sm font-semibold mb-2">Documents</p>
+                  <div className="flex flex-col gap-2">
+                    {content.documents.map((doc) => (
+                      <a
+                        key={doc.url}
+                        href={doc.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary hover:underline"
+                      >
+                        {doc.title}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
 
             <div className="lg:col-span-5">
               <AdsProductQuoteForm
+                key={`${content.slug}-${intentKey}`}
                 landingSlug={content.slug}
                 defaultProduct={defaultAdsProduct(content.slug)}
+                defaultIntent={intentKey}
               />
             </div>
           </div>

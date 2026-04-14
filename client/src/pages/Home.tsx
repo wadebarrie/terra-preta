@@ -8,10 +8,24 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import TrustStrip from "@/components/TrustStrip";
-import { ArrowRight, CheckCircle, Download, Layers, Leaf, Sprout } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle,
+  Download,
+  Layers,
+  Leaf,
+  Sprout,
+  XCircle,
+} from "lucide-react";
 import { Link } from "wouter";
-import homeContent from "@content/pages/home.json";
+import homeBase from "@content/pages/home.json";
+import homeAgPivot from "@content/pages/home-ag-pivot.json";
+
+const homeContent = { ...homeBase, ...homeAgPivot };
 import { WistiaVideo, extractWistiaId } from "@/components/WistiaVideo";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { APP_TITLE, SITE_ORIGIN } from "@/const";
+import { cmsStringList } from "@/lib/cmsStringList";
 
 // Map icon names to components
 const iconMap: Record<string, any> = {
@@ -21,6 +35,13 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Home() {
+  usePageMeta(
+    homeContent.metaTitle ??
+      `Terra Preta Organics | Organic fertilizers | ${APP_TITLE}`,
+    homeContent.metaDescription,
+    `${SITE_ORIGIN}/`,
+  );
+
   // Extract Wistia ID if video is configured
   const wistiaId = homeContent.heroVideo?.wistiaUrl 
     ? extractWistiaId(homeContent.heroVideo.wistiaUrl)
@@ -39,6 +60,286 @@ export default function Home() {
     
     return `bg-gradient-${direction} from-background/${topOpacity} to-background/${bottomOpacity}`;
   };
+
+  // Agriculture-first homepage (migrated from terrapretaag.com)
+  if (homeContent.agPivot?.enabled) {
+    return (
+      <div>
+        {/* Hero */}
+        <section className="relative py-20 md:py-28 overflow-hidden">
+          {wistiaId && homeContent.heroVideo ? (
+            <div className="absolute inset-0 w-full h-full z-0">
+              <WistiaVideo
+                videoId={wistiaId}
+                autoplay={homeContent.heroVideo.autoplay ?? true}
+                loop={homeContent.heroVideo.loop ?? true}
+                controls={homeContent.heroVideo.controls ?? false}
+                muted={homeContent.heroVideo.muted ?? true}
+                className="w-full h-full"
+              />
+            </div>
+          ) : null}
+          <div className={`absolute inset-0 ${getGradientClass()} z-10`} />
+          <div className="container relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-sm font-semibold tracking-wide text-black/80 mb-3">
+                {homeContent.agPivot.brandLine}
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                {homeContent.agPivot.heroTitle}
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed text-black">
+                {homeContent.agPivot.heroSubtitle}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild>
+                  <a href={homeContent.agPivot.heroPrimaryCta.href}>
+                    {homeContent.agPivot.heroPrimaryCta.label}
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-primary"
+                >
+                  <Link href={homeContent.agPivot.heroSecondaryCta.href}>
+                    {homeContent.agPivot.heroSecondaryCta.label}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <TrustStrip />
+
+        {/* Organic fertility has always meant compromise */}
+        {homeContent.agPivot.compromiseSection?.enabled ? (
+          <section className="py-20">
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                  {homeContent.agPivot.compromiseSection.title}
+                </h2>
+                <div className="space-y-5">
+                  {cmsStringList(homeContent.agPivot.compromiseSection.paragraphs).map(
+                    (p, i) => (
+                      <p
+                        key={i}
+                        className="text-lg text-muted-foreground leading-relaxed"
+                      >
+                        {p}
+                      </p>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* There is */}
+        {homeContent.agPivot.thereIsSection?.enabled ? (
+          <section className="py-20 bg-muted">
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  {homeContent.agPivot.thereIsSection.title}
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {homeContent.agPivot.thereIsSection.paragraph}
+                </p>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* Products */}
+        {homeContent.agPivot.productsSection?.enabled ? (
+          <section
+            id={homeContent.agPivot.productsSection.anchorId || "products"}
+            className="py-20"
+          >
+            <div className="container">
+              <div className="max-w-4xl mx-auto mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  {homeContent.agPivot.productsSection.title}
+                </h2>
+              </div>
+              <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {homeContent.agPivot.productsSection.products.map((p: any) => (
+                  <Card key={p.name} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="pt-6">
+                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                        <Badge variant="secondary" className="font-medium">
+                          {p.badge}
+                        </Badge>
+                      </div>
+                      <h3 className="text-2xl font-semibold mb-2">{p.headline}</h3>
+                      <p className="text-muted-foreground font-medium mb-4">
+                        {p.subheadline}
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed mb-6">
+                        {p.description}
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <Button asChild className="flex-1">
+                          <Link href={p.primaryCta.href}>{p.primaryCta.label}</Link>
+                        </Button>
+                        <Button asChild variant="outline" className="flex-1">
+                          <Link href={p.secondaryCta.href}>{p.secondaryCta.label}</Link>
+                        </Button>
+                      </div>
+                      <div className="mt-4">
+                        <Button variant="link" asChild className="p-0">
+                          <Link href={p.learnMoreCta.href}>
+                            {p.learnMoreCta.label}{" "}
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              {homeContent.agPivot.productsSection.moreComing ? (
+                <div className="max-w-4xl mx-auto text-center mt-10">
+                  <p className="text-muted-foreground">
+                    {homeContent.agPivot.productsSection.moreComing}
+                  </p>
+                </div>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
+        {/* Fit / not fit */}
+        {homeContent.agPivot.fitSection?.enabled ? (
+          <section className="py-20 bg-brand-muted">
+            <div className="container">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-10">
+                  {homeContent.agPivot.fitSection.title}
+                </h2>
+                <div className="grid md:grid-cols-2 gap-10">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">
+                      {homeContent.agPivot.fitSection.goodFitTitle}
+                    </h3>
+                    <ul className="space-y-3">
+                      {cmsStringList(homeContent.agPivot.fitSection.goodFitBullets).map(
+                        (b, i) => (
+                          <li key={i} className="flex gap-3">
+                            <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{b}</span>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">
+                      {homeContent.agPivot.fitSection.notFitTitle}
+                    </h3>
+                    <ul className="space-y-3">
+                      {cmsStringList(homeContent.agPivot.fitSection.notFitBullets).map(
+                        (b, i) => (
+                          <li key={i} className="flex gap-3">
+                            <XCircle className="h-5 w-5 text-red-600 dark:text-red-500 shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{b}</span>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* Prairie soils */}
+        {homeContent.agPivot.prairieSection?.enabled ? (
+          <section className="py-20">
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  {homeContent.agPivot.prairieSection.title}
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {homeContent.agPivot.prairieSection.paragraph}
+                </p>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* Story */}
+        {homeContent.agPivot.storySection?.enabled ? (
+          <section className="py-20 bg-muted">
+            <div className="container">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-10">
+                  {homeContent.agPivot.storySection.title}
+                </h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {homeContent.agPivot.storySection.sections.map((s: any) => (
+                    <Card key={s.title}>
+                      <CardContent className="pt-6">
+                        <h3 className="text-xl font-semibold mb-3">{s.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {s.paragraph}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* Let's talk soil */}
+        {homeContent.agPivot.talkSection?.enabled ? (
+          <section className="py-20">
+            <div className="container">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  {homeContent.agPivot.talkSection.title}
+                </h2>
+                <p className="text-lg text-muted-foreground mb-10">
+                  {homeContent.agPivot.talkSection.subtitle}
+                </p>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {homeContent.agPivot.talkSection.ctas.map((cta: any) => (
+                    <Card key={cta.title} className="hover:shadow-lg transition-shadow">
+                      <CardContent className="pt-6">
+                        <h3 className="text-xl font-semibold mb-3">{cta.title}</h3>
+                        <p className="text-muted-foreground mb-6">{cta.description}</p>
+                        <Button asChild className="w-full">
+                          <Link href={cta.href}>Get started</Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+                <div className="text-center mt-10 text-muted-foreground">
+                  {homeContent.agPivot.talkSection.directContactLine}{" "}
+                  <a
+                    href={`mailto:${homeContent.agPivot.talkSection.directContactEmail}`}
+                    className="text-primary font-medium hover:underline"
+                  >
+                    {homeContent.agPivot.talkSection.directContactEmail}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -61,7 +362,7 @@ export default function Home() {
           <div className={`absolute inset-0 ${getGradientClass()} z-10`} />
           <div className="container relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 {homeContent.heroSection.title}
               </h1>
               <p className="text-xl md:text-2xl mb-8 leading-relaxed text-black">

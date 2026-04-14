@@ -11,6 +11,7 @@ import {
   StructuredData,
   organizationSchema,
   localBusinessSchema,
+  websiteSchema,
 } from "./components/StructuredData";
 import { initializeTracking } from "./lib/analytics";
 import { useEffect } from "react";
@@ -90,6 +91,7 @@ function App() {
           {/* Global Structured Data */}
           <StructuredData data={organizationSchema} />
           <StructuredData data={localBusinessSchema} />
+          <StructuredData data={websiteSchema} />
 
           <div className="min-h-screen flex flex-col">
             <Header />

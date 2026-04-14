@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -11,477 +11,360 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { trackFormSubmission } from "@/lib/analytics";
-import { FORMSPREE_ENDPOINT, FORM_SUCCESS_MESSAGE } from "@/lib/formspree";
+import { FORMSPREE_ENDPOINT, ADS_QUOTE_SUCCESS_MESSAGE } from "@/lib/formspree";
+import contactContent from "@content/pages/contact.json";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { SITE_ORIGIN } from "@/const";
+import { cmsStringList } from "@/lib/cmsStringList";
+
+type InquiryIntent = "Order" | "Sample" | "General";
+type ProductInterest = "SuperN" | "OrganiPhos" | "Both";
+
+const iconFor = (name: string) => {
+  if (name === "Phone") return Phone;
+  if (name === "Mail") return Mail;
+  return MapPin;
+};
 
 export default function Contact() {
-  const [step, setStep] = useState(1);
+  usePageMeta(
+    contactContent.metaTitle,
+    contactContent.metaDescription,
+    `${SITE_ORIGIN}/contact`,
+  );
+
+  const lf = contactContent.leadForm;
+  const formEndpoint =
+    contactContent.formspreeEndpoint?.trim() || FORMSPREE_ENDPOINT;
+  const errMsg =
+    contactContent.form?.errorMessage ||
+    "Failed to submit form. Please try again or contact us directly at sales@terrapreta.ca";
+
+  const intentOptions = lf?.intentOptions?.length
+    ? lf.intentOptions
+    : [
+        { value: "Order" as const, label: "Order spring fertility" },
+        { value: "Sample" as const, label: "Request a sample" },
+        { value: "General" as const, label: "General inquiry" },
+      ];
+
+  const productOptions = lf?.productOptions?.length
+    ? lf.productOptions
+    : [
+        { value: "SuperN" as const, label: "SuperN" },
+        { value: "OrganiPhos" as const, label: "OrganiPhos" },
+        { value: "Both" as const, label: "Both" },
+      ];
+
+  const L = lf?.labels ?? {};
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [formData, setFormData] = useState({
-    inquiryType: "",
-    role: "",
-    company: "",
-    email: "",
-    phone: "",
-    siteSize: "",
-    legalDescription: "",
-    timeline: "",
-    method: "",
-    deliveryNeeds: "",
-    notes: "",
-  });
+
+  const [intent, setIntent] = useState<InquiryIntent>("General");
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [province, setProvince] = useState("");
+  const [acres, setAcres] = useState("");
+  const [productInterest, setProductInterest] =
+    useState<ProductInterest>("Both");
+  const [notes, setNotes] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const raw = (params.get("intent") || "").toLowerCase();
+    if (raw === "order") setIntent("Order");
+    else if (raw === "sample") setIntent("Sample");
+    else if (raw === "general") setIntent("General");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(formEndpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          inquiryType: formData.inquiryType,
-          role: formData.role,
-          company: formData.company,
-          email: formData.email,
-          phone: formData.phone,
-          siteSize: formData.siteSize,
-          legalDescription: formData.legalDescription,
-          timeline: formData.timeline,
-          method: formData.method,
-          deliveryNeeds: formData.deliveryNeeds,
-          notes: formData.notes,
-          _subject: `[${formData.inquiryType}] Contact — ${formData.company}`,
+          form: "ag_contact",
+          intent,
+          name,
+          company,
+          email,
+          phone,
+          province,
+          approximateAcres: acres,
+          productInterest,
+          notes,
+          _subject: `[${intent}] ${productInterest} — ${name} (${province}, ${acres} ac)`,
         }),
       });
 
-      if (response.ok) {
-        trackFormSubmission({
-          role: formData.role,
-          company: formData.company,
-          siteSize: formData.siteSize,
-          timeline: formData.timeline,
-          inquiry_type: formData.inquiryType,
-        });
+      if (!response.ok) throw new Error("Form submission failed");
 
-        toast.success(FORM_SUCCESS_MESSAGE);
-        setSubmitSuccess(true);
+      trackFormSubmission({
+        company,
+        inquiry_type: intent,
+      });
 
-        setFormData({
-          inquiryType: "",
-          role: "",
-          company: "",
-          email: "",
-          phone: "",
-          siteSize: "",
-          legalDescription: "",
-          timeline: "",
-          method: "",
-          deliveryNeeds: "",
-          notes: "",
-        });
-        setStep(1);
-      } else {
-        throw new Error("Form submission failed");
-      }
+      toast.success(ADS_QUOTE_SUCCESS_MESSAGE);
+      setSubmitSuccess(true);
+
+      setIntent("General");
+      setName("");
+      setCompany("");
+      setEmail("");
+      setPhone("");
+      setProvince("");
+      setAcres("");
+      setProductInterest("Both");
+      setNotes("");
     } catch (error) {
-      toast.error("Failed to submit form. Please try again or contact us directly at sales@terrapreta.ca");
+      toast.error(errMsg);
       console.error(error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const nextStep = () => {
-    if (step < 3) setStep(step + 1);
-  };
-
-  const prevStep = () => {
-    if (step > 1) setStep(step - 1);
-  };
-
   return (
     <div>
-      {/* Hero Section */}
       <section className="bg-gradient-to-b from-muted/50 to-background py-16 md:py-24">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              {contactContent.heroTitle}
+            </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Request a quote or start a pilot project.
-              On-site support and partner application services available.
+              {contactContent.heroSubtitle}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Info */}
       <section className="py-16">
         <div className="container">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Location</h3>
-                <p className="text-muted-foreground">
-                  Sundre, Alberta
-                  <br />
-                  Service Area: Canada Wide
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Phone</h3>
-                <p className="text-muted-foreground">
-                  <a
-                    href="tel:+14039216291"
-                    className="hover:text-foreground transition-colors"
-                  >
-                    (403) 921-6291
-                  </a>
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-muted-foreground">
-                  <a
-                    href="mailto:sales@terrapreta.ca"
-                    className="hover:text-foreground transition-colors"
-                  >
-                    sales@terrapreta.ca
-                  </a>
-                </p>
-              </CardContent>
-            </Card>
+          <div
+            className={`grid gap-8 mb-12 ${
+              contactContent.contactCards?.length === 2
+                ? "md:grid-cols-2"
+                : "md:grid-cols-3"
+            }`}
+          >
+            {(contactContent.contactCards ?? []).map((card) => {
+              const Icon = iconFor(card.icon);
+              const lines = cmsStringList(card.lines as unknown);
+              return (
+                <Card key={card.title}>
+                  <CardContent className="pt-6 text-center">
+                    <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <h3 className="font-semibold mb-2">{card.title}</h3>
+                    <div className="text-muted-foreground">
+                      {card.email ? (
+                        <a
+                          href={`mailto:${card.email}`}
+                          className="hover:text-foreground transition-colors"
+                        >
+                          {card.email}
+                        </a>
+                      ) : card.tel ? (
+                        <a
+                          href={`tel:${String(card.tel).replace(/\s/g, "")}`}
+                          className="hover:text-foreground transition-colors"
+                        >
+                          {lines[0] ?? card.tel}
+                        </a>
+                      ) : (
+                        lines.map((line, i) => (
+                          <span key={i}>
+                            {line}
+                            {i < lines.length - 1 ? <br /> : null}
+                          </span>
+                        ))
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
-          {/* Multi-step Form */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             {submitSuccess ? (
               <Card className="border-primary/30 bg-muted/40">
                 <CardContent className="pt-6 text-center">
-                  <p className="text-lg font-medium">{FORM_SUCCESS_MESSAGE}</p>
+                  <p className="text-lg font-medium">{ADS_QUOTE_SUCCESS_MESSAGE}</p>
                   <Button
                     type="button"
                     variant="outline"
                     className="mt-6"
                     onClick={() => setSubmitSuccess(false)}
                   >
-                    Submit another inquiry
+                    {lf?.submitAnotherLabel ?? "Submit another request"}
                   </Button>
                 </CardContent>
               </Card>
             ) : (
-            <Card>
-              <CardContent className="pt-6">
-                <div className="mb-8">
-                  <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-2xl font-bold">
-                      {step === 1 && "Step 1: Your Information"}
-                      {step === 2 && "Step 2: Site Details"}
-                      {step === 3 && "Step 3: Project Requirements"}
-                    </h2>
-                    <span className="text-sm text-muted-foreground">
-                      Step {step} of 3
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <div
-                      className={`flex-1 h-2 rounded ${
-                        step >= 1 ? "bg-primary" : "bg-muted"
-                      }`}
-                    />
-                    <div
-                      className={`flex-1 h-2 rounded ${
-                        step >= 2 ? "bg-primary" : "bg-muted"
-                      }`}
-                    />
-                    <div
-                      className={`flex-1 h-2 rounded ${
-                        step >= 3 ? "bg-primary" : "bg-muted"
-                      }`}
-                    />
-                  </div>
-                </div>
-
-                <form 
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
-                  {/* Step 1: Your Information */}
-                  {step === 1 && (
-                    <div className="space-y-6">
-                      <div>
-                        <Label htmlFor="inquiryType">Inquiry type *</Label>
-                        <Select
-                          required
-                          value={formData.inquiryType}
-                          onValueChange={(value) =>
-                            setFormData({ ...formData, inquiryType: value })
-                          }
-                        >
-                          <SelectTrigger id="inquiryType">
-                            <SelectValue placeholder="What can we help with?" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Order">Order</SelectItem>
-                            <SelectItem value="Sample">Sample</SelectItem>
-                            <SelectItem value="General">General</SelectItem>
-                            <SelectItem value="Reclamation / Terra Revive">
-                              Reclamation / Terra Revive
+              <Card>
+                <CardHeader>
+                  <CardTitle>{lf?.cardTitle ?? "Request a quote"}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div>
+                      <Label htmlFor="intent">{L.intent ?? "Inquiry type *"}</Label>
+                      <Select
+                        required
+                        value={intent}
+                        onValueChange={(v) => setIntent(v as InquiryIntent)}
+                      >
+                        <SelectTrigger id="intent" className="mt-1.5">
+                          <SelectValue placeholder="Select one" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {intentOptions.map((o) => (
+                            <SelectItem key={o.value} value={o.value}>
+                              {o.label}
                             </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label htmlFor="role">Role *</Label>
-                        <Select
-                          required
-                          value={formData.role}
-                          onValueChange={(value) =>
-                            setFormData({ ...formData, role: value })
-                          }
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select your role" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Reclamation Consultant">
-                              Reclamation Consultant
-                            </SelectItem>
-                            <SelectItem value="EPC / Contractor">EPC / Contractor</SelectItem>
-                            <SelectItem value="Site Operator">
-                              Site Operator
-                            </SelectItem>
-                            <SelectItem value="Environmental Manager">
-                              Environmental Manager
-                            </SelectItem>
-                            <SelectItem value="Other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label htmlFor="company">Company *</Label>
-                        <Input
-                          id="company"
-                          required
-                          value={formData.company}
-                          onChange={(e) =>
-                            setFormData({ ...formData, company: e.target.value })
-                          }
-                          placeholder="Your company name"
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                          placeholder="your.email@company.com"
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="phone">Phone</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            setFormData({ ...formData, phone: e.target.value })
-                          }
-                          placeholder="(403) 555-1234"
-                        />
-                      </div>
-
-                      <Button type="button" onClick={nextStep} className="w-full">
-                        Next Step
-                      </Button>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
-                  )}
 
-                  {/* Step 2: Site Details */}
-                  {step === 2 && (
-                    <div className="space-y-6">
+                    <div>
+                      <Label htmlFor="name">{L.name ?? "Name *"}</Label>
+                      <Input
+                        id="name"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="mt-1.5"
+                        autoComplete="name"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="company">{L.company ?? "Farm / Company *"}</Label>
+                      <Input
+                        id="company"
+                        required
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                        className="mt-1.5"
+                        autoComplete="organization"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="email">{L.email ?? "Email *"}</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="mt-1.5"
+                        autoComplete="email"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="phone">{L.phone ?? "Phone"}</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="mt-1.5"
+                        autoComplete="tel"
+                      />
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="siteSize">Site Size (acres) *</Label>
+                        <Label htmlFor="province">{L.province ?? "Province / region *"}</Label>
                         <Input
-                          id="siteSize"
-                          type="number"
+                          id="province"
                           required
-                          value={formData.siteSize}
-                          onChange={(e) =>
-                            setFormData({ ...formData, siteSize: e.target.value })
-                          }
-                          placeholder="e.g., 25"
+                          value={province}
+                          onChange={(e) => setProvince(e.target.value)}
+                          className="mt-1.5"
+                          placeholder={lf?.placeholders?.province ?? "e.g. AB, SK"}
                         />
                       </div>
-
                       <div>
-                        <Label htmlFor="legalDescription">
-                          Legal Land Description or Coordinates
-                        </Label>
+                        <Label htmlFor="acres">{L.acres ?? "Approximate acres *"}</Label>
                         <Input
-                          id="legalDescription"
-                          value={formData.legalDescription}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              legalDescription: e.target.value,
-                            })
-                          }
-                          placeholder="e.g., NW 12-34-5-W5M or 51.0447° N, 114.0719° W"
+                          id="acres"
+                          required
+                          value={acres}
+                          onChange={(e) => setAcres(e.target.value)}
+                          className="mt-1.5"
+                          placeholder={lf?.placeholders?.acres ?? "e.g. 1,200"}
                         />
-                      </div>
-
-                      <div className="flex gap-4">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          onClick={prevStep}
-                          className="flex-1"
-                        >
-                          Back
-                        </Button>
-                        <Button
-                          type="button"
-                          onClick={nextStep}
-                          className="flex-1"
-                        >
-                          Next Step
-                        </Button>
                       </div>
                     </div>
-                  )}
 
-                  {/* Step 3: Project Requirements */}
-                  {step === 3 && (
-                    <div className="space-y-6">
-                      <div>
-                        <Label htmlFor="timeline">Timeline *</Label>
-                        <Select
-                          required
-                          value={formData.timeline}
-                          onValueChange={(value) =>
-                            setFormData({ ...formData, timeline: value })
-                          }
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select timeline" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Immediate (within 2 weeks)">
-                              Immediate (within 2 weeks)
+                    <div>
+                      <Label htmlFor="productInterest">
+                        {L.productInterest ?? "Product interest *"}
+                      </Label>
+                      <Select
+                        required
+                        value={productInterest}
+                        onValueChange={(v) =>
+                          setProductInterest(v as ProductInterest)
+                        }
+                      >
+                        <SelectTrigger id="productInterest" className="mt-1.5">
+                          <SelectValue placeholder="Select one" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {productOptions.map((o) => (
+                            <SelectItem key={o.value} value={o.value}>
+                              {o.label}
                             </SelectItem>
-                            <SelectItem value="1-2 months">1-2 months</SelectItem>
-                            <SelectItem value="3-6 months">3-6 months</SelectItem>
-                            <SelectItem value="Planning stage">
-                              Planning stage
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label htmlFor="method">
-                          Preferred Application Method
-                        </Label>
-                        <Select
-                          value={formData.method}
-                          onValueChange={(value) =>
-                            setFormData({ ...formData, method: value })
-                          }
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select method" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Broadcast">Broadcast</SelectItem>
-                            <SelectItem value="Drill Incorporation">
-                              Drill Incorporation
-                            </SelectItem>
-                            <SelectItem value="Hydroseeding">
-                              Hydroseeding
-                            </SelectItem>
-                            <SelectItem value="Drone">Drone</SelectItem>
-                            <SelectItem value="Not sure yet">Not sure yet</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label htmlFor="deliveryNeeds">Delivery Needs</Label>
-                        <Input
-                          id="deliveryNeeds"
-                          value={formData.deliveryNeeds}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              deliveryNeeds: e.target.value,
-                            })
-                          }
-                          placeholder="e.g., Deliver to site, pickup in Sundre"
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="notes">Additional Notes</Label>
-                        <Textarea
-                          id="notes"
-                          value={formData.notes}
-                          onChange={(e) =>
-                            setFormData({ ...formData, notes: e.target.value })
-                          }
-                          placeholder="Tell us about your project, any specific requirements, or questions you have..."
-                          rows={5}
-                        />
-                      </div>
-
-                      <div className="flex gap-4">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          onClick={prevStep}
-                          className="flex-1"
-                        >
-                          Back
-                        </Button>
-                        <Button type="submit" className="flex-1" disabled={isSubmitting}>
-                          {isSubmitting ? "Submitting..." : "Submit Request"}
-                        </Button>
-                      </div>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
-                  )}
-                </form>
-              </CardContent>
-            </Card>
+
+                    <div>
+                      <Label htmlFor="notes">{L.notes ?? "Notes"}</Label>
+                      <Textarea
+                        id="notes"
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                        className="mt-1.5"
+                        rows={4}
+                        placeholder={
+                          lf?.placeholders?.notes ??
+                          "Crop mix, timing, delivery location—optional"
+                        }
+                      />
+                    </div>
+
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting
+                        ? lf?.submittingLabel ?? "Sending…"
+                        : lf?.submitLabel ?? "Request your program"}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
             )}
 
             {!submitSuccess ? (
-            <p className="text-sm text-muted-foreground text-center mt-6">
-              We typically respond within one business day. For reclamation
-              projects, we can also provide bid-ready documentation by email.
-            </p>
+              <p className="text-sm text-muted-foreground text-center mt-6">
+                {lf?.footerNote ??
+                  "We will be in touch within one business day to put together your program."}
+              </p>
             ) : null}
           </div>
         </div>

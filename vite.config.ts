@@ -27,15 +27,18 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        // Stable URLs for spec PDFs (imports in SuperN / OrganiPhos pages)
+        // Stable URLs for agriculture product PDFs (imports via ?url)
         assetFileNames: (assetInfo) => {
           const name = assetInfo.names?.[0] ?? "";
-          if (name === "TerraPretaAg-SuperNCertified.pdf") {
-            return "spec-sheets/TerraPretaAg-SuperNCertified.pdf";
-          }
-          if (name === "TerraPretaAg-OrganiPhos.pdf") {
-            return "spec-sheets/TerraPretaAg-OrganiPhos.pdf";
-          }
+          // SuperN
+          if (name === "SuperN-SpecSheet.pdf") return "spec-sheets/SuperN-SpecSheet.pdf";
+          if (name === "SuperN-Certified-SpecSheet.pdf") return "spec-sheets/SuperN-Certified-SpecSheet.pdf";
+          if (name === "SuperN-CFIA-Label.pdf") return "docs/SuperN-CFIA-Label.pdf";
+          if (name === "SuperN-SDS.pdf") return "docs/SuperN-SDS.pdf";
+          // OrganiPhos
+          if (name === "OrganiPhos-SpecSheet.pdf") return "spec-sheets/OrganiPhos-SpecSheet.pdf";
+          if (name === "OrganiPhos-CFIA-Label.pdf") return "docs/OrganiPhos-CFIA-Label.pdf";
+          if (name === "OrganiPhos-SDS.pdf") return "docs/OrganiPhos-SDS.pdf";
           return "assets/[name]-[hash][extname]";
         },
       },

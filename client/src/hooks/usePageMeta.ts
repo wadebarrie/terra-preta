@@ -10,21 +10,40 @@ function getOrCreateMeta(attr: "name" | "property", key: string) {
   return el;
 }
 
+function getOrCreateCanonicalLink(): HTMLLinkElement {
+  let el = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", "canonical");
+    document.head.appendChild(el);
+  }
+  return el;
+}
+
 /**
- * Sets document title, meta description, and Open Graph tags for SPA routes (Google Ads, SEO).
- * @param ogUrl Full canonical URL for og:url (e.g. https://terrapreta.ca/supern)
+ * Sets document title, meta description, canonical URL, Open Graph, and Twitter Card tags for SPA routes.
+ * @param canonicalUrl Full canonical URL (e.g. https://terrapreta.ca/supern) — used for og:url and link[rel=canonical]
  */
-export function usePageMeta(title: string, description?: string, ogUrl?: string) {
+export function usePageMeta(
+  title: string,
+  description?: string,
+  canonicalUrl?: string,
+) {
   useEffect(() => {
     const prevTitle = document.title;
     document.title = title;
 
-    let descEl = document.querySelector('meta[name="description"]');
+    let descEl = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     const prevDesc = descEl?.getAttribute("content") ?? null;
 
     if (description) {
-      descEl = descEl ?? getOrCreateMeta("name", "description");
+      descEl = descEl ?? (getOrCreateMeta("name", "description") as HTMLMetaElement);
       descEl.setAttribute("content", description);
+    }
+
+    const canonicalEl = getOrCreateCanonicalLink();
+    if (canonicalUrl) {
+      canonicalEl.setAttribute("href", canonicalUrl);
     }
 
     const ogTitle = getOrCreateMeta("property", "og:title");
@@ -35,9 +54,22 @@ export function usePageMeta(title: string, description?: string, ogUrl?: string)
       ogDesc.setAttribute("content", description);
     }
 
-    if (ogUrl) {
+    if (canonicalUrl) {
       const ogUrlEl = getOrCreateMeta("property", "og:url");
-      ogUrlEl.setAttribute("content", ogUrl);
+      ogUrlEl.setAttribute("content", canonicalUrl);
+    }
+
+    const twTitle = getOrCreateMeta("name", "twitter:title");
+    twTitle.setAttribute("content", title);
+
+    if (description) {
+      const twDesc = getOrCreateMeta("name", "twitter:description");
+      twDesc.setAttribute("content", description);
+    }
+
+    if (canonicalUrl) {
+      const twUrl = getOrCreateMeta("name", "twitter:url");
+      twUrl.setAttribute("content", canonicalUrl);
     }
 
     return () => {
@@ -45,6 +77,7 @@ export function usePageMeta(title: string, description?: string, ogUrl?: string)
       if (descEl && prevDesc !== null) {
         descEl.setAttribute("content", prevDesc);
       }
+      /* Canonical / OG / Twitter are left for the next route’s usePageMeta to overwrite */
     };
-  }, [title, description, ogUrl]);
+  }, [title, description, canonicalUrl]);
 }

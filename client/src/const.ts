@@ -1,6 +1,11 @@
+import generalSettings from "@content/settings/general.json";
+
 export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
-export const APP_TITLE = import.meta.env.VITE_APP_TITLE || "Terra Preta Organics";
+export const APP_TITLE =
+  (import.meta.env.VITE_APP_TITLE as string | undefined) ||
+  (generalSettings.siteTitle as string) ||
+  "Terra Preta Organics";
 
 /** Canonical origin for JSON-LD, absolute OG images, and marketing URLs (override in env if needed). */
 export const SITE_ORIGIN =

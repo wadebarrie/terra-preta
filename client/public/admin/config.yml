@@ -18,6 +18,37 @@ collections:
         name: "home"
         file: "content/pages/home.json"
         fields:
+          - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
+          - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }
+          - label: "Home — Product cards (below fold)"
+            name: "agProductsSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - label: "Products"
+                name: "products"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Link (href)", name: "href", widget: "string" }
+                  - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: false }
+          - label: "FAQ Section"
+            name: "faqSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Questions"
+                name: "questions"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
           - label: "Hero Section"
             name: "heroSection"
             widget: "object"
@@ -131,12 +162,153 @@ collections:
               - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
               - { label: "Section Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+              - { label: "Primary button label", name: "primaryButton", widget: "string", required: false }
+              - { label: "Secondary button label", name: "secondaryButton", widget: "string", required: false }
+
+      - label: "Home Page — Agriculture hero & sections"
+        name: "home-ag-pivot"
+        file: "content/pages/home-ag-pivot.json"
+        fields:
+          - label: "Agriculture homepage"
+            name: "agPivot"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Enable agriculture layout on home", name: "enabled", widget: "boolean", default: true }
+              - { label: "Brand line (over hero)", name: "brandLine", widget: "string" }
+              - { label: "Hero title", name: "heroTitle", widget: "string" }
+              - { label: "Hero subtitle", name: "heroSubtitle", widget: "text" }
+              - label: "Hero primary CTA"
+                name: "heroPrimaryCta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string" }
+              - label: "Hero secondary CTA"
+                name: "heroSecondaryCta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string" }
+              - label: "Organic fertility compromise"
+                name: "compromiseSection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Paragraphs"
+                    name: "paragraphs"
+                    widget: "list"
+                    field: { label: "Paragraph", name: "paragraph", widget: "text" }
+              - label: "There is"
+                name: "thereIsSection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Paragraph", name: "paragraph", widget: "text" }
+              - label: "Products grid (SuperN / OrganiPhos cards)"
+                name: "productsSection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Anchor ID (e.g. products)", name: "anchorId", widget: "string", default: "products" }
+                  - { label: "More coming note", name: "moreComing", widget: "text", required: false }
+                  - label: "Products"
+                    name: "products"
+                    widget: "list"
+                    fields:
+                      - { label: "Name", name: "name", widget: "string" }
+                      - { label: "Badge", name: "badge", widget: "string", required: false }
+                      - { label: "Headline", name: "headline", widget: "string" }
+                      - { label: "Subheadline", name: "subheadline", widget: "string" }
+                      - { label: "Description", name: "description", widget: "text" }
+                      - { label: "Price note", name: "priceNote", widget: "string", required: false }
+                      - label: "Primary CTA"
+                        name: "primaryCta"
+                        widget: "object"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Href", name: "href", widget: "string" }
+                      - label: "Secondary CTA"
+                        name: "secondaryCta"
+                        widget: "object"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Href", name: "href", widget: "string" }
+                      - label: "Learn more CTA"
+                        name: "learnMoreCta"
+                        widget: "object"
+                        fields:
+                          - { label: "Label", name: "label", widget: "string" }
+                          - { label: "Href", name: "href", widget: "string" }
+              - label: "Good fit / not a fit"
+                name: "fitSection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Section title", name: "title", widget: "string" }
+                  - { label: "Good fit heading", name: "goodFitTitle", widget: "string" }
+                  - label: "Good fit bullets"
+                    name: "goodFitBullets"
+                    widget: "list"
+                    field: { label: "Bullet", name: "bullet", widget: "text" }
+                  - { label: "Not a fit heading", name: "notFitTitle", widget: "string" }
+                  - label: "Not a fit bullets"
+                    name: "notFitBullets"
+                    widget: "list"
+                    field: { label: "Bullet", name: "bullet", widget: "text" }
+              - label: "Prairie soils"
+                name: "prairieSection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Paragraph", name: "paragraph", widget: "text" }
+              - label: "Story"
+                name: "storySection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Sections"
+                    name: "sections"
+                    widget: "list"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Paragraph", name: "paragraph", widget: "text" }
+              - label: "Talk / CTAs"
+                name: "talkSection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Subtitle", name: "subtitle", widget: "text" }
+                  - label: "CTA cards"
+                    name: "ctas"
+                    widget: "list"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Description", name: "description", widget: "text" }
+                      - { label: "Href", name: "href", widget: "string" }
+                  - { label: "Direct contact line", name: "directContactLine", widget: "string" }
+                  - { label: "Direct contact email", name: "directContactEmail", widget: "string" }
 
       # ABOUT PAGE
       - label: "About Page"
         name: "about"
         file: "content/pages/about.json"
         fields:
+          - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
+          - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
           - label: "Our Story"
@@ -198,6 +370,8 @@ collections:
         name: "contact"
         file: "content/pages/contact.json"
         fields:
+          - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
+          - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }
           - { label: "Hero Title", name: "heroTitle", widget: "string" }
           - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
           - label: "Contact Cards"
@@ -212,6 +386,51 @@ collections:
                 required: false
                 field: { label: "Line", name: "line", widget: "string" }
               - { label: "Email", name: "email", widget: "string", required: false }
+              - { label: "Phone tel: link (E.164, optional)", name: "tel", widget: "string", required: false }
+          - label: "Lead form (agriculture quote)"
+            name: "leadForm"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Card title", name: "cardTitle", widget: "string" }
+              - { label: "Submit button label", name: "submitLabel", widget: "string" }
+              - { label: "Submitting label", name: "submittingLabel", widget: "string" }
+              - { label: "Footer note under form", name: "footerNote", widget: "text" }
+              - { label: "Submit another button", name: "submitAnotherLabel", widget: "string" }
+              - label: "Inquiry type options"
+                name: "intentOptions"
+                widget: "list"
+                fields:
+                  - { label: "Value (Order|Sample|General)", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - label: "Field labels"
+                name: "labels"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Inquiry type", name: "intent", widget: "string" }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Company", name: "company", widget: "string" }
+                  - { label: "Email", name: "email", widget: "string" }
+                  - { label: "Phone", name: "phone", widget: "string" }
+                  - { label: "Province", name: "province", widget: "string" }
+                  - { label: "Acres", name: "acres", widget: "string" }
+                  - { label: "Product interest", name: "productInterest", widget: "string" }
+                  - { label: "Notes", name: "notes", widget: "string" }
+              - label: "Placeholders"
+                name: "placeholders"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Province", name: "province", widget: "string", required: false }
+                  - { label: "Acres", name: "acres", widget: "string", required: false }
+                  - { label: "Notes", name: "notes", widget: "string", required: false }
+              - label: "Product options"
+                name: "productOptions"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
           - label: "Form Configuration"
             name: "form"
             widget: "object"
@@ -224,6 +443,186 @@ collections:
               - { label: "Error Message", name: "errorMessage", widget: "text" }
               - { label: "Footer Note", name: "footerNote", widget: "text" }
           - { label: "Formspree Endpoint", name: "formspreeEndpoint", widget: "string" }
+
+      - label: "Agriculture Page"
+        name: "agriculture"
+        file: "content/pages/agriculture.json"
+        fields:
+          - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
+          - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - label: "Product lineup"
+            name: "productLineupSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+              - label: "Products"
+                name: "products"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Href", name: "href", widget: "string" }
+                  - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: false }
+          - label: "Problem Section"
+            name: "problemSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Solution Section"
+            name: "solutionSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - label: "Benefits"
+                name: "benefits"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Methods Section"
+            name: "methodSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Methods"
+                name: "methods"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Best For", name: "bestFor", widget: "text" }
+          - label: "Expectations Section"
+            name: "expectationsSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "This Season"
+                name: "thisSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+              - label: "Next Season"
+                name: "nextSeason"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+          - label: "Evidence Section"
+            name: "evidenceSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Show Case Studies", name: "showCaseStudies", widget: "boolean", default: false }
+              - { label: "Coming Soon Message", name: "comingSoonMessage", widget: "string" }
+              - label: "Case Studies"
+                name: "caseStudies"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Result", name: "result", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+          - label: "CTA Section"
+            name: "ctaSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Primary Button", name: "primaryButton", widget: "string" }
+              - { label: "Secondary Button", name: "secondaryButton", widget: "string" }
+
+      - label: "SuperN Product Page"
+        name: "supern"
+        file: "content/pages/supern.json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Product name", name: "productName", widget: "string" }
+          - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
+          - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }
+          - { label: "Hero title", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Tagline", name: "tagline", widget: "text", required: false }
+          - label: "Conversion bullets"
+            name: "conversionBullets"
+            widget: "list"
+            field: { label: "Bullet", name: "bullet", widget: "string" }
+          - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: true }
+          - { label: "OMRI badge label", name: "omriLabel", widget: "string", required: false }
+          - { label: "OMRI callout", name: "omriCallout", widget: "text", required: false }
+          - label: "Description paragraphs"
+            name: "descriptionParagraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "NPK line", name: "npk", widget: "string" }
+          - label: "Key specs"
+            name: "keySpecs"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "text" }
+          - { label: "Spec sheet path (reference; live PDFs are bundled in code)", name: "specSheetUrl", widget: "string", required: false }
+          - { label: "Spec sheet button label", name: "specSheetLabel", widget: "string", required: false }
+
+      - label: "OrganiPhos Product Page"
+        name: "organiphos"
+        file: "content/pages/organiphos.json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Product name", name: "productName", widget: "string" }
+          - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
+          - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }
+          - { label: "Hero title", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Tagline", name: "tagline", widget: "text", required: false }
+          - label: "Conversion bullets"
+            name: "conversionBullets"
+            widget: "list"
+            field: { label: "Bullet", name: "bullet", widget: "string" }
+          - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: true }
+          - { label: "OMRI badge label", name: "omriLabel", widget: "string", required: false }
+          - { label: "OMRI callout", name: "omriCallout", widget: "text", required: false }
+          - label: "Description paragraphs"
+            name: "descriptionParagraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "NPK line", name: "npk", widget: "string" }
+          - label: "Key specs"
+            name: "keySpecs"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Value", name: "value", widget: "text" }
+          - { label: "Spec sheet path (reference)", name: "specSheetUrl", widget: "string", required: false }
+          - { label: "Spec sheet button label", name: "specSheetLabel", widget: "string", required: false }
 
       # RECLAMATION SITES
       - label: "Reclamation Sites"
@@ -762,6 +1161,71 @@ collections:
   - name: "settings"
     label: "Site Settings"
     files:
+      - label: "Header, footer & trust strip"
+        name: "site-chrome"
+        file: "content/settings/site-chrome.json"
+        fields:
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "CTA button label", name: "ctaLabel", widget: "string" }
+              - { label: "CTA button href", name: "ctaHref", widget: "string" }
+              - label: "Navigation"
+                name: "navItems"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href (unused if children set)", name: "href", widget: "string", required: false }
+                  - label: "Dropdown items"
+                    name: "children"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Href", name: "href", widget: "string" }
+          - label: "Trust strip (partner logos)"
+            name: "trustStrip"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show trust strip", name: "enabled", widget: "boolean", default: true }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Partners"
+                name: "partners"
+                widget: "list"
+                fields:
+                  - { label: "Name / alt text", name: "name", widget: "string" }
+                  - { label: "Logo path (e.g. /partner-choice.png)", name: "logo", widget: "string" }
+          - label: "Footer columns"
+            name: "footer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Agriculture column title", name: "agricultureColumnTitle", widget: "string" }
+              - { label: "Resources column title", name: "resourcesColumnTitle", widget: "string" }
+              - { label: "Company column title", name: "companyColumnTitle", widget: "string" }
+              - { label: "Copyright entity name", name: "copyrightEntity", widget: "string" }
+              - label: "Agriculture links"
+                name: "agricultureLinks"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string" }
+              - label: "Resource links"
+                name: "resourceLinks"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string" }
+              - label: "Company links"
+                name: "companyLinks"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string" }
+
       - label: "General Settings"
         name: "general"
         file: "content/settings/general.json"
@@ -769,13 +1233,15 @@ collections:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
           - { label: "Site Description", name: "siteDescription", widget: "text" }
           - { label: "Contact Email", name: "contactEmail", widget: "string" }
-          - { label: "Contact Phone", name: "contactPhone", widget: "string", required: false }
+          - { label: "Contact Phone (display)", name: "contactPhone", widget: "string", required: false }
+          - { label: "Contact Phone (tel: link, E.164)", name: "contactPhoneTel", widget: "string", required: false }
           - { label: "Address", name: "address", widget: "text" }
           - label: "Social Media"
             name: "socialMedia"
             widget: "object"
             fields:
               - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
               - { label: "Twitter", name: "twitter", widget: "string", required: false }
               - { label: "Facebook", name: "facebook", widget: "string", required: false }
 

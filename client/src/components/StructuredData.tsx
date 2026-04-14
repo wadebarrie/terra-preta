@@ -32,7 +32,8 @@ export const organizationSchema = {
   name: 'Terra Preta Organics',
   url: SITE_ORIGIN,
   logo: `${SITE_ORIGIN}/logo.png`,
-  description: 'Terra Preta Organics develops pelleted soil amendments that restore soil function on degraded reclamation sites across Alberta and the Prairies.',
+  description:
+    'OMRI-listed organic fertilizers (SuperN, OrganiPhos) and biological soil amendments (Terra Revive) for prairie agriculture and land restoration. Based in Sundre, Alberta, serving producers across Canada.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Sundre',
@@ -51,11 +52,33 @@ export const organizationSchema = {
   ],
   contactPoint: {
     '@type': 'ContactPoint',
-    contactType: 'Customer Service',
+    contactType: 'sales',
     email: 'sales@terrapreta.ca',
+    telephone: '+1-403-921-6291',
     availableLanguage: 'English',
   },
-  sameAs: [],
+  sameAs: [
+    'https://www.linkedin.com/company/terra-preta-organics',
+    'https://www.instagram.com/terrapretaorganics',
+  ],
+};
+
+/**
+ * WebSite JSON-LD for sitename in search and entity clarity
+ */
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Terra Preta Organics',
+  url: SITE_ORIGIN,
+  description:
+    'Organic fertilizers and soil amendments for Canadian agriculture — SuperN, OrganiPhos, and Terra Revive.',
+  inLanguage: 'en-CA',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Terra Preta Organics',
+    url: SITE_ORIGIN,
+  },
 };
 
 /**
@@ -134,7 +157,8 @@ export const localBusinessSchema = {
   '@type': 'LocalBusiness',
   '@id': SITE_ORIGIN,
   name: 'Terra Preta Organics',
-  description: 'Soil amendments for reclamation sites across Alberta and the Prairies',
+  description:
+    'Organic fertilizers and biological soil amendments for prairie producers — SuperN, OrganiPhos, Terra Revive. Sundre, Alberta.',
   url: SITE_ORIGIN,
   telephone: '+1-403-921-6291',
   email: 'sales@terrapreta.ca',
