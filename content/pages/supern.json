@@ -1,21 +1,21 @@
 {
   "slug": "supern",
   "productName": "SuperN",
-  "metaTitle": "SuperN Organic Nitrogen Fertilizer | OMRI | Terra Preta | Alberta",
-  "metaDescription": "SuperN 10-3-0.3 — OMRI-listed organic nitrogen for Alberta & Saskatchewan grain farms. Up to ~16 weeks N from one seed-placed pass. Ships from Sundre, AB. Request a quote.",
+  "metaTitle": "SuperN Organic Nitrogen Fertilizer | Terra Preta | Alberta",
+  "metaDescription": "SuperN 10-3-0.3 — organic nitrogen for Alberta & Saskatchewan grain farms. Up to ~16 weeks N from one seed-placed pass. Ships from Sundre, AB. Request a quote.",
   "heroTitle": "SuperN",
   "heroSubtitle": "Organic nitrogen fertility for crops and forage. Designed for growers who want dependable performance with materials suitable for organic systems.",
-  "tagline": "Up to ~16 weeks of nitrogen from a single seed-placed pass—OMRI listed, no synthetic inputs, shipped from Sundre, Alberta.",
+  "tagline": "Up to ~16 weeks of nitrogen from a single seed-placed pass—approved organic sources, no synthetic inputs, shipped from Sundre, Alberta.",
   "conversionBullets": [
     "N-P-K 10-3-0.3 (see product label for guaranteed analysis)",
-    "OMRI Listed® certified organic crop input",
+    "Designed for certified organic cropping programs (confirm eligibility with your certifier)",
     "Seed-placed organic nitrogen pellet — one pass at seeding",
     "Blood meal, feather meal & BSFL frass for establishment through grain fill",
     "Built for grain farms in Alberta & Saskatchewan"
   ],
-  "omriListed": true,
-  "omriLabel": "OMRI Listed®",
-  "omriCallout": "SuperN is OMRI Listed® for organic crop production. Listing details are on the product label, and we can provide the OMRI reference for your certifier on request.",
+  "omriListed": false,
+  "omriLabel": "",
+  "omriCallout": "",
   "descriptionParagraphs": [
     "SuperN supplies plant-available nitrogen from approved organic sources to support strong growth and yield where synthetic nitrogen is not desired or permitted.",
     "Use rates depend on crop, rotation, and soil test results. Our team can help align application with your fertility plan and certification requirements."
@@ -35,8 +35,8 @@
       "value": "Seed-placed organic nitrogen pellet; one pass at seeding. No manure equipment required."
     },
     {
-      "label": "OMRI",
-      "value": "OMRI Listed® for certified organic production (see label for listing scope)."
+      "label": "Organic programs",
+      "value": "Formulated for organic cropping systems — permitted uses and rates are on the product label; confirm with your certifier."
     },
     {
       "label": "Formulation notes",

@@ -33,7 +33,7 @@ export const organizationSchema = {
   url: SITE_ORIGIN,
   logo: `${SITE_ORIGIN}/logo.png`,
   description:
-    'OMRI-listed organic fertilizers (SuperN, OrganiPhos) and biological soil amendments (Terra Revive) for prairie agriculture and land restoration. Based in Sundre, Alberta, serving producers across Canada.',
+    'Organic fertilizers (SuperN, OrganiPhos) and biological soil amendments (Terra Revive) for prairie agriculture and land restoration. Based in Sundre, Alberta, serving producers across Canada.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Sundre',

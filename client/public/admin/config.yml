@@ -575,7 +575,7 @@ collections:
             name: "conversionBullets"
             widget: "list"
             field: { label: "Bullet", name: "bullet", widget: "string" }
-          - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: true }
+          - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: false }
           - { label: "OMRI badge label", name: "omriLabel", widget: "string", required: false }
           - { label: "OMRI callout", name: "omriCallout", widget: "text", required: false }
           - label: "Description paragraphs"
@@ -607,7 +607,7 @@ collections:
             name: "conversionBullets"
             widget: "list"
             field: { label: "Bullet", name: "bullet", widget: "string" }
-          - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: true }
+          - { label: "OMRI listed", name: "omriListed", widget: "boolean", default: false }
           - { label: "OMRI badge label", name: "omriLabel", widget: "string", required: false }
           - { label: "OMRI callout", name: "omriCallout", widget: "text", required: false }
           - label: "Description paragraphs"

@@ -64,7 +64,7 @@ export function RetailAgProductPage({ content }: { content: RetailAgProductConte
 
   const omriCalloutText =
     content.omriCallout?.trim() ||
-    "This product is OMRI Listed® for use in certified organic production. Listing details appear on the product label, and we can provide the OMRI reference for your certifier on request.";
+    "This product is intended for organic cropping programs. Permitted uses and rates are on the product label—confirm eligibility with your certifier.";
 
   const productLd = {
     "@context": "https://schema.org",

@@ -1,6 +1,6 @@
 {
   "metaTitle": "Terra Preta Organics | Organic fertilizers for prairie producers — SuperN, OrganiPhos & Terra Revive",
-  "metaDescription": "OMRI-listed organic nitrogen and phosphorus for Canadian agriculture. SuperN, OrganiPhos, and Terra Revive soil biology — from Sundre, Alberta. Request a quote or sample.",
+  "metaDescription": "Organic nitrogen and phosphorus fertilizers for Canadian agriculture. SuperN, OrganiPhos, and Terra Revive soil biology — from Sundre, Alberta. Request a quote or sample.",
   "heroVideo": {
     "wistiaUrl": "https://growdoug.wistia.com/medias/23bd5r9gld",
     "autoplay": true,
@@ -23,7 +23,7 @@
       },
       {
         "title": "Organic fertility you can spec with confidence",
-        "description": "SuperN and OrganiPhos are OMRI listed—see analysis and listing context on each product page."
+        "description": "SuperN and OrganiPhos are built for organic programs—see analysis and specs on each product page."
       },
       {
         "title": "Fewer return visits on reclamation projects",
@@ -73,15 +73,15 @@
     "products": [
       {
         "name": "SuperN",
-        "description": "OMRI-listed organic nitrogen for crops and forage.",
+        "description": "Organic nitrogen for crops and forage.",
         "href": "/supern",
-        "omriListed": true
+        "omriListed": false
       },
       {
         "name": "OrganiPhos",
-        "description": "OMRI-listed organic phosphorus for certified organic systems.",
+        "description": "Organic phosphorus for certified organic systems.",
         "href": "/organiphos",
-        "omriListed": true
+        "omriListed": false
       },
       {
         "name": "Terra Revive",
@@ -94,7 +94,7 @@
   "heroSection": {
     "enabled": true,
     "title": "Soil health and organic fertility—built for the field.",
-    "subtitle": "Terra Revive rebuilds biology and structure on disturbed land and agricultural soils. SuperN and OrganiPhos deliver OMRI-listed organic nitrogen and phosphorus when your crop plan needs them."
+    "subtitle": "Terra Revive rebuilds biology and structure on disturbed land and agricultural soils. SuperN and OrganiPhos deliver organic nitrogen and phosphorus when your crop plan needs them."
   },
   "evidenceSection": {
     "enabled": false,
@@ -177,7 +177,7 @@
     "questions": [
       {
         "question": "What are SuperN and OrganiPhos?",
-        "answer": "SuperN is our OMRI-listed organic nitrogen fertilizer; OrganiPhos is our OMRI-listed organic phosphorus fertilizer. Each has its own page with specs, guaranteed analysis guidance, and a quote or sample form—no need to dig through unrelated products."
+        "answer": "SuperN is our organic nitrogen fertilizer; OrganiPhos is our organic phosphorus fertilizer. Each has its own page with specs, guaranteed analysis guidance, and a quote or sample form—no need to dig through unrelated products."
       },
       {
         "question": "What is Terra Revive?",

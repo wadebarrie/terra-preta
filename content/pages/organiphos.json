@@ -1,21 +1,21 @@
 {
   "slug": "organiphos",
   "productName": "OrganiPhos",
-  "metaTitle": "OrganiPhos Organic Phosphorus | OMRI | Terra Preta | Prairie Soils",
-  "metaDescription": "OrganiPhos — OMRI-listed organic phosphorus with a multi-phase release profile for prairie grain crops. 14% P₂O₅, 18% Ca. Seed-placed or side-band. Quote from Sundre, AB.",
+  "metaTitle": "OrganiPhos Organic Phosphorus | Terra Preta | Prairie Soils",
+  "metaDescription": "OrganiPhos — organic phosphorus with a multi-phase release profile for prairie grain crops. 14% P₂O₅, 18% Ca. Seed-placed or side-band. Quote from Sundre, AB.",
   "heroTitle": "OrganiPhos",
   "heroSubtitle": "Organic phosphorus fertility for establishment, rooting, and yield response where phosphate from approved organic sources is required.",
-  "tagline": "Three-phase phosphorus release for prairie grain crops—designed for alkaline soils where P ties up, OMRI listed, from Sundre, Alberta.",
+  "tagline": "Three-phase phosphorus release for prairie grain crops—designed for alkaline soils where P ties up, from Sundre, Alberta.",
   "conversionBullets": [
     "Analysis 1-14-0.6 + 18% Ca (see product label for guarantees)",
-    "OMRI Listed® organic phosphorus starter",
+    "Organic phosphorus starter for certified organic programs (confirm with your certifier)",
     "Multi-phase P release from germination through grain fill",
     "Fishbone, bone ash & mineral P sources — biologically activated",
     "Seed-placed, side-band, or fall broadcast programs"
   ],
-  "omriListed": true,
-  "omriLabel": "OMRI Listed®",
-  "omriCallout": "OrganiPhos is OMRI Listed® for organic crop production, so certifiers and growers can confirm organic eligibility without opening a spec sheet. Permitted uses and any crop or rate limits are on the product label; we can provide the OMRI listing reference for your certifier on request.",
+  "omriListed": false,
+  "omriLabel": "",
+  "omriCallout": "",
   "descriptionParagraphs": [
     "OrganiPhos delivers phosphorus in forms compatible with organic cropping systems, supporting early growth, rooting, and reproductive development.",
     "Pair with soil testing and your agronomist's recommendations. We support row crops, forage, horticulture, and specialty markets."
@@ -39,8 +39,8 @@
       "value": "Typical programs: seed-placed (~35 lb/ac), side-band (~70 lb/ac), fall broadcast up to ~200 lb/ac — final rates from soil test and agronomy."
     },
     {
-      "label": "OMRI",
-      "value": "OMRI Listed® for certified organic production (see label for listing scope)."
+      "label": "Organic programs",
+      "value": "Formulated for organic cropping systems — permitted uses and rates are on the product label; confirm with your certifier."
     },
     {
       "label": "Crops",
