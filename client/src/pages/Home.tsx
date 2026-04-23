@@ -93,9 +93,9 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
-                  <a href={homeContent.agPivot.heroPrimaryCta.href}>
+                  <Link href={homeContent.agPivot.heroPrimaryCta.href}>
                     {homeContent.agPivot.heroPrimaryCta.label}
-                  </a>
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
@@ -214,6 +214,49 @@ export default function Home() {
           </section>
         ) : null}
 
+        {/* How soil functions */}
+        {homeContent.agPivot.howSoilWorksSection?.enabled ? (
+          <section className="py-20 bg-muted">
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                  {homeContent.agPivot.howSoilWorksSection.title}
+                </h2>
+                <div className="space-y-5">
+                  {cmsStringList(homeContent.agPivot.howSoilWorksSection.paragraphs).map(
+                    (p, i) => (
+                      <p
+                        key={i}
+                        className="text-lg text-muted-foreground leading-relaxed"
+                      >
+                        {p}
+                      </p>
+                    )
+                  )}
+                </div>
+                {homeContent.agPivot.howSoilWorksSection.cta?.label &&
+                homeContent.agPivot.howSoilWorksSection.cta?.href ? (
+                  <div className="mt-8">
+                    <Button asChild>
+                      {homeContent.agPivot.howSoilWorksSection.cta.href.startsWith(
+                        "#",
+                      ) ? (
+                        <a href={homeContent.agPivot.howSoilWorksSection.cta.href}>
+                          {homeContent.agPivot.howSoilWorksSection.cta.label}
+                        </a>
+                      ) : (
+                        <Link href={homeContent.agPivot.howSoilWorksSection.cta.href}>
+                          {homeContent.agPivot.howSoilWorksSection.cta.label}
+                        </Link>
+                      )}
+                    </Button>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         {/* Fit / not fit */}
         {homeContent.agPivot.fitSection?.enabled ? (
           <section className="py-20 bg-brand-muted">
@@ -222,38 +265,53 @@ export default function Home() {
                 <h2 className="text-3xl md:text-4xl font-bold mb-10">
                   {homeContent.agPivot.fitSection.title}
                 </h2>
-                <div className="grid md:grid-cols-2 gap-10">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">
-                      {homeContent.agPivot.fitSection.goodFitTitle}
-                    </h3>
-                    <ul className="space-y-3">
-                      {cmsStringList(homeContent.agPivot.fitSection.goodFitBullets).map(
-                        (b, i) => (
+                {homeContent.agPivot.fitSection.variant === "simple" ? (
+                  <div className="max-w-3xl space-y-5">
+                    {cmsStringList(homeContent.agPivot.fitSection.paragraphs).map(
+                      (p, i) => (
+                        <p
+                          key={i}
+                          className="text-lg text-muted-foreground leading-relaxed"
+                        >
+                          {p}
+                        </p>
+                      )
+                    )}
+                  </div>
+                ) : (
+                  <div className="grid md:grid-cols-2 gap-10">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        {homeContent.agPivot.fitSection.goodFitTitle}
+                      </h3>
+                      <ul className="space-y-3">
+                        {cmsStringList(
+                          homeContent.agPivot.fitSection.goodFitBullets,
+                        ).map((b, i) => (
                           <li key={i} className="flex gap-3">
                             <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                             <span className="text-muted-foreground">{b}</span>
                           </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">
-                      {homeContent.agPivot.fitSection.notFitTitle}
-                    </h3>
-                    <ul className="space-y-3">
-                      {cmsStringList(homeContent.agPivot.fitSection.notFitBullets).map(
-                        (b, i) => (
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        {homeContent.agPivot.fitSection.notFitTitle}
+                      </h3>
+                      <ul className="space-y-3">
+                        {cmsStringList(
+                          homeContent.agPivot.fitSection.notFitBullets,
+                        ).map((b, i) => (
                           <li key={i} className="flex gap-3">
                             <XCircle className="h-5 w-5 text-red-600 dark:text-red-500 shrink-0 mt-0.5" />
                             <span className="text-muted-foreground">{b}</span>
                           </li>
-                        )
-                      )}
-                    </ul>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </section>
@@ -311,14 +369,28 @@ export default function Home() {
                 <p className="text-lg text-muted-foreground mb-10">
                   {homeContent.agPivot.talkSection.subtitle}
                 </p>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div
+                  className={`grid gap-8 ${
+                    homeContent.agPivot.talkSection.ctas.length <= 2
+                      ? "md:grid-cols-2 max-w-3xl mx-auto"
+                      : "md:grid-cols-3"
+                  }`}
+                >
                   {homeContent.agPivot.talkSection.ctas.map((cta: any) => (
                     <Card key={cta.title} className="hover:shadow-lg transition-shadow">
                       <CardContent className="pt-6">
                         <h3 className="text-xl font-semibold mb-3">{cta.title}</h3>
                         <p className="text-muted-foreground mb-6">{cta.description}</p>
                         <Button asChild className="w-full">
-                          <Link href={cta.href}>Get started</Link>
+                          {cta.href?.startsWith("#") ? (
+                            <a href={cta.href}>
+                              {cta.buttonLabel ?? "Get started"}
+                            </a>
+                          ) : (
+                            <Link href={cta.href}>
+                              {cta.buttonLabel ?? "Get started"}
+                            </Link>
+                          )}
                         </Button>
                       </CardContent>
                     </Card>

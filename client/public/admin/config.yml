@@ -246,13 +246,43 @@ collections:
                         fields:
                           - { label: "Label", name: "label", widget: "string" }
                           - { label: "Href", name: "href", widget: "string" }
+              - label: "How soil functions (biology block)"
+                name: "howSoilWorksSection"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Paragraphs"
+                    name: "paragraphs"
+                    widget: "list"
+                    field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                  - label: "CTA button"
+                    name: "cta"
+                    widget: "object"
+                    required: false
+                    fields:
+                      - { label: "Label", name: "label", widget: "string", required: false }
+                      - { label: "Href", name: "href", widget: "string", required: false }
               - label: "Good fit / not a fit"
                 name: "fitSection"
                 widget: "object"
                 collapsed: true
                 fields:
                   - { label: "Show Section", name: "enabled", widget: "boolean", default: true }
+                  - {
+                      label: "Layout",
+                      name: "variant",
+                      widget: "select",
+                      options: ["simple", "columns"],
+                      default: "simple",
+                    }
                   - { label: "Section title", name: "title", widget: "string" }
+                  - label: "Paragraphs (simple layout)"
+                    name: "paragraphs"
+                    widget: "list"
+                    required: false
+                    field: { label: "Paragraph", name: "paragraph", widget: "text" }
                   - { label: "Good fit heading", name: "goodFitTitle", widget: "string" }
                   - label: "Good fit bullets"
                     name: "goodFitBullets"
@@ -299,6 +329,7 @@ collections:
                       - { label: "Title", name: "title", widget: "string" }
                       - { label: "Description", name: "description", widget: "text" }
                       - { label: "Href", name: "href", widget: "string" }
+                      - { label: "Button label", name: "buttonLabel", widget: "string", required: false }
                   - { label: "Direct contact line", name: "directContactLine", widget: "string" }
                   - { label: "Direct contact email", name: "directContactEmail", widget: "string" }
 

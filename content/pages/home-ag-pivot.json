@@ -1,43 +1,41 @@
 {
   "agPivot": {
     "enabled": true,
-    "brandLine": "Terra Preta",
-    "heroTitle": "Fertilize Different.",
-    "heroSubtitle": "Terra Preta makes fertilizers that deliver serious nutrition to producers trying to grow a crop. Whether you run a fully organic operation or you're looking to reduce your synthetic inputs without sacrificing yield, our products are built to work as hard as you do.",
+    "brandLine": "Terra Preta Ag",
+    "heroTitle": "Feed the Soil. Grow the Crop.",
+    "heroSubtitle": "Synthetic fertility feeds the plant and ignores the soil. SuperN and OrganiPhos work differently — biologically active, phased nutrient release, 100% organic. Built for farmers who are done compromising.",
     "heroPrimaryCta": {
-      "label": "Explore our products",
-      "href": "#products"
+      "label": "Shop SuperN",
+      "href": "/supern"
     },
     "heroSecondaryCta": {
-      "label": "Request a quote",
-      "href": "/contact"
+      "label": "Shop OrganiPhos",
+      "href": "/organiphos"
     },
     "compromiseSection": {
       "enabled": true,
-      "title": "Organic fertility has always meant compromise.",
+      "title": "Organic fertility has a performance problem. We fixed it.",
       "paragraphs": [
-        "Manure is getting harder to justify. Hauling costs are up, equipment is specialized, and nutrient consistency is unreliable.",
-        "Legume fallows work, but they cost you a full season of revenue on every acre you rest.",
-        "Synthetic inputs solve the yield problem but create a different one: your certification, your soil biology, your long-term productivity.",
-        "There has to be a different way."
+        "Most organic amendments are too slow, too dilute, or formulated for somewhere other than here. They were designed to meet a certification standard, not to move the needle in the field.",
+        "We started from a different place. Both products are built around soil biology first — how nutrients release, how microbes activate, how prairie soils behave at high pH. The result is fertility that performs from germination through grain fill, in a single application at seeding."
       ]
     },
     "thereIsSection": {
-      "enabled": true,
+      "enabled": false,
       "title": "There is.",
-      "paragraph": "Terra Preta builds targeted fertility products that deliver precise nutrition through biological activation and phase release. Each product does one job and does it exceptionally well. No synthetic inputs. No extra equipment. No compromises on certification."
+      "paragraph": ""
     },
     "productsSection": {
       "enabled": true,
-      "title": "Targeted fertility, precisely delivered",
+      "title": "Two products. One pass.",
       "anchorId": "products",
       "products": [
         {
           "name": "SuperN",
           "badge": "Organic",
-          "headline": "SuperN 10-3-0.3",
-          "subheadline": "Organic nitrogen. Seed-placed. One pass at seeding.",
-          "description": "A compressed fertility pellet that delivers a complete two-phase nitrogen program from a single pass at seeding. No extra equipment. No fallowing. No compromises.",
+          "headline": "SuperN 10-2-0",
+          "subheadline": "High-nitrogen organic starter. Two-phase nitrogen release.",
+          "description": "A high-nitrogen organic starter with a two-phase release window. Fast nitrogen at germination. Sustained nitrogen through to harvest. BSFL frass activates soil biology alongside the nitrogen program from day one.",
           "priceNote": "",
           "primaryCta": {
             "label": "Order spring fertility",
@@ -48,16 +46,16 @@
             "href": "/supern?intent=sample#quote"
           },
           "learnMoreCta": {
-            "label": "View SuperN details",
+            "label": "Learn more",
             "href": "/supern"
           }
         },
         {
           "name": "OrganiPhos",
           "badge": "Organic",
-          "headline": "OrganiPhos 1-14-0.6 + 18% Ca",
-          "subheadline": "Organic phosphorus. Three-phase release. Built for alkaline prairie soils.",
-          "description": "A biological phosphorus starter granule built for alkaline prairie soils. Three-phase release ensures your crop gets phosphorus when it needs it most.",
+          "headline": "OrganiPhos 1-8-0 + 23% Ca",
+          "subheadline": "Biological phosphorus for alkaline prairie soils.",
+          "description": "A biological phosphorus starter built for alkaline soils where phosphorus fixation limits availability. Three staggered phosphorus sources, 23% calcium, and biological activators that keep phosphorus in plant-available form when it matters most.",
           "priceNote": "",
           "primaryCta": {
             "label": "Order spring fertility",
@@ -68,35 +66,43 @@
             "href": "/organiphos?intent=sample#quote"
           },
           "learnMoreCta": {
-            "label": "View OrganiPhos details",
+            "label": "Learn more",
             "href": "/organiphos"
           }
         }
       ],
-      "moreComing": "More targeted products are in development. Stay in touch."
+      "moreComing": ""
+    },
+    "howSoilWorksSection": {
+      "enabled": true,
+      "title": "Built around how soil actually functions.",
+      "paragraphs": [
+        "Conventional fertilizers bypass biology and deliver nutrients directly to the plant. Fast results, long-term cost.",
+        "SuperN and OrganiPhos are designed around biological activation. Nutrients release in phases that match crop demand. Chitin from BSFL frass drives phosphorus-solubilizing bacteria in the root zone. Biochar creates permanent microbial habitat. Humalite prevents phosphorus fixation on high-pH soils.",
+        "You are not just applying fertility. You are building a system that improves year over year."
+      ],
+      "cta": {
+        "label": "How it works",
+        "href": "/solutions/agriculture"
+      }
     },
     "fitSection": {
       "enabled": true,
-      "title": "Built for organic, transitioning, and conventional producers who believe healthy soil and strong yields are the same goal.",
-      "goodFitTitle": "You're a good fit if:",
-      "goodFitBullets": [
-        "You are an organic producer looking for a reliable, compliant fertility source that does not require extra equipment or a lost season.",
-        "You are transitioning to organic and need a fertility program that works while your operation shifts.",
-        "You are a conventional producer looking to reduce synthetic inputs without sacrificing yield.",
-        "You are tired of the true cost of manure: the hauling, the equipment, the inconsistency.",
-        "You have fallowed with legumes and you know what that lost season actually costs you.",
-        "You believe healthy soil and strong yields are the same goal, not competing ones."
+      "variant": "simple",
+      "title": "For farmers moving in the right direction.",
+      "paragraphs": [
+        "Whether you are certified organic, transitioning, regenerative, or biodynamic—if you are building your farm around soil health and need fertility products that keep up, you are in the right place.",
+        "No synthetic chemistry. No greenwashed conventional inputs with an organic label. Just products that work the way healthy soil does."
       ],
+      "goodFitTitle": "You're a good fit if:",
+      "goodFitBullets": [],
       "notFitTitle": "You might not be a fit if:",
-      "notFitBullets": [
-        "You are looking for a fast release, synthetic NPK.",
-        "You are looking for a complete fertility replacement without a current soil test. Our products work best as part of an informed nutrient program."
-      ]
+      "notFitBullets": []
     },
     "prairieSection": {
-      "enabled": true,
+      "enabled": false,
       "title": "This is where we work.",
-      "paragraph": "Our products are formulated specifically for growing in prairie soils. The phase release profiles, the retention strategy, and the pH advisories are built around the conditions your crops actually grow in."
+      "paragraph": ""
     },
     "storySection": {
       "enabled": true,
@@ -104,41 +110,38 @@
       "sections": [
         {
           "title": "The Founder",
-          "paragraph": "Lee Martineau farms north of Bearberry, Alberta. He came to regenerative agriculture through the same frustration most producers know well: the tools available did not match the problem in front of him. That gap led to Terra Preta."
+          "paragraph": "Lee Martineau farms north of Bearberry, Alberta. He did not come to regenerative agriculture through a textbook. He came through the same frustration most producers know well: the tools available did not match the problem in front of him. That gap led to Terra Preta Ag."
         },
         {
           "title": "Why Terra Preta",
-          "paragraph": "Terra preta means dark earth. It refers to ancient Amazonian soils deliberately enriched using biochar, bone, and organic matter. Those soils remain fertile centuries later. The principle is simple: soil health is about building biological systems that sustain fertility season after season without synthetic inputs."
+          "paragraph": "Terra preta means dark earth in Portuguese. It refers to ancient Amazonian soils deliberately enriched centuries ago using biochar, bone, and organic matter. Those soils remain extraordinarily fertile today, long after the civilizations that built them are gone. That is not a coincidence. It is a principle. Soil health is not about feeding plants. It is about building biological systems that sustain fertility season after season without synthetic inputs. That idea is the foundation of everything Terra Preta Ag makes."
         },
         {
           "title": "How It Started",
-          "paragraph": "Why does organic fertility have to mean manure equipment, lost seasons, or unreliable results? It does not. SuperN and OrganiPhos were built to deliver targeted fertility programs from a single pass at seeding—no extra equipment and no compromises on certification."
+          "paragraph": "The question was straightforward: why does organic fertility have to mean manure equipment, lost seasons, or unreliable results? It does not. SuperN and OrganiPhos were built to deliver targeted fertility programs from a single pass at seeding. No extra equipment. No fallowing. No compromises on certification for producers who need it. They are the products Lee wished existed before he had to build them himself."
         },
         {
           "title": "Who We Work With",
-          "paragraph": "We work directly with producers across the prairies. No dealer network. No runaround. Just a straight conversation about whether our products fit your operation before you spend a dollar."
+          "paragraph": "Terra Preta Ag works directly with producers across the prairies. Organic, transitioning, and conventional producers who believe that healthy soil and strong yields are the same goal. We are not a big ag company. We do not have a 1-800 number or a dealer network. You talk to us directly, and we help you figure out whether our products fit your operation before you spend a dollar."
         }
       ]
     },
     "talkSection": {
       "enabled": true,
-      "title": "Let's talk soil.",
-      "subtitle": "We work directly with producers. No dealer network, no runaround. Just a straight conversation about whether our products fit your operation.",
+      "title": "Start with the soil.",
+      "subtitle": "Not sure which product fits your operation? Get in touch. We are farmers and we talk soil. We will help you figure out what your land actually needs.",
       "ctas": [
         {
-          "title": "Order spring fertility",
-          "description": "Secure your spring fertility now. Order today to make sure your product arrives before seeding begins.",
-          "href": "/contact?intent=order"
+          "title": "Contact us",
+          "description": "Tell us about your rotation, soil tests, and goals—we will point you in the right direction.",
+          "href": "/contact",
+          "buttonLabel": "Contact us"
         },
         {
-          "title": "Request a sample",
-          "description": "Want to see and feel the product before committing? We will send you a sample bag so you can evaluate the format, density, and composition yourself.",
-          "href": "/contact?intent=sample"
-        },
-        {
-          "title": "General inquiry",
-          "description": "Questions about products, pricing, certification documentation, or application rates? Get in touch and we will get back to you within one business day.",
-          "href": "/contact?intent=general"
+          "title": "View products",
+          "description": "Specs, labels, SDS, and quote or sample forms for SuperN and OrganiPhos.",
+          "href": "#products",
+          "buttonLabel": "View products"
         }
       ],
       "directContactLine": "Prefer to talk directly?",
