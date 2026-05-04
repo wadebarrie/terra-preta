@@ -20,6 +20,7 @@ import {
 import { Link } from "wouter";
 import homeBase from "@content/pages/home.json";
 import homeAgPivot from "@content/pages/home-ag-pivot.json";
+import { isRetailProductHrefPublished } from "@/lib/retailAgProductVisibility";
 
 const homeContent = { ...homeBase, ...homeAgPivot };
 import { WistiaVideo, extractWistiaId } from "@/components/WistiaVideo";
@@ -63,6 +64,16 @@ export default function Home() {
 
   // Agriculture-first homepage (migrated from terrapretaag.com)
   if (homeContent.agPivot?.enabled) {
+    const heroPrimary = homeContent.agPivot.heroPrimaryCta;
+    const heroSecondary = homeContent.agPivot.heroSecondaryCta;
+    const showHeroPrimary = isRetailProductHrefPublished(heroPrimary.href);
+    const showHeroSecondary = isRetailProductHrefPublished(heroSecondary.href);
+    const pivotProducts = (
+      homeContent.agPivot.productsSection?.products ?? []
+    ).filter((p: { learnMoreCta?: { href?: string } }) =>
+      isRetailProductHrefPublished(p.learnMoreCta?.href ?? ""),
+    );
+
     return (
       <div>
         {/* Hero */}
@@ -91,23 +102,25 @@ export default function Home() {
               <p className="text-xl md:text-2xl mb-8 leading-relaxed text-black">
                 {homeContent.agPivot.heroSubtitle}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
-                  <Link href={homeContent.agPivot.heroPrimaryCta.href}>
-                    {homeContent.agPivot.heroPrimaryCta.label}
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  asChild
-                  className="text-primary"
-                >
-                  <Link href={homeContent.agPivot.heroSecondaryCta.href}>
-                    {homeContent.agPivot.heroSecondaryCta.label}
-                  </Link>
-                </Button>
-              </div>
+              {(showHeroPrimary || showHeroSecondary) && (
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  {showHeroPrimary ? (
+                    <Button size="lg" asChild>
+                      <Link href={heroPrimary.href}>{heroPrimary.label}</Link>
+                    </Button>
+                  ) : null}
+                  {showHeroSecondary ? (
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      asChild
+                      className="text-primary"
+                    >
+                      <Link href={heroSecondary.href}>{heroSecondary.label}</Link>
+                    </Button>
+                  ) : null}
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -156,7 +169,7 @@ export default function Home() {
         ) : null}
 
         {/* Products */}
-        {homeContent.agPivot.productsSection?.enabled ? (
+        {pivotProducts.length > 0 && homeContent.agPivot.productsSection?.enabled ? (
           <section
             id={homeContent.agPivot.productsSection.anchorId || "products"}
             className="py-20"
@@ -167,8 +180,12 @@ export default function Home() {
                   {homeContent.agPivot.productsSection.title}
                 </h2>
               </div>
-              <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {homeContent.agPivot.productsSection.products.map((p: any) => (
+              <div
+                className={`grid gap-8 max-w-5xl mx-auto ${
+                  pivotProducts.length === 1 ? "md:grid-cols-1" : "md:grid-cols-2"
+                }`}
+              >
+                {pivotProducts.map((p: any) => (
                   <Card key={p.name} className="hover:shadow-lg transition-shadow">
                     <CardContent className="pt-6">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -460,7 +477,10 @@ export default function Home() {
       <TrustStrip />
 
       {/* Agriculture retail products */}
-      {homeContent.agProductsSection?.enabled && (
+      {homeContent.agProductsSection?.enabled &&
+        homeContent.agProductsSection.products.some((product) =>
+          isRetailProductHrefPublished(product.href),
+        ) && (
         <section className="py-20 bg-muted">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center mb-12">
@@ -472,7 +492,9 @@ export default function Home() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {homeContent.agProductsSection.products.map((product) => (
+              {homeContent.agProductsSection.products
+                .filter((product) => isRetailProductHrefPublished(product.href))
+                .map((product) => (
                 <Card key={product.href} className="hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
                     <div className="flex flex-wrap items-center gap-2 mb-3">

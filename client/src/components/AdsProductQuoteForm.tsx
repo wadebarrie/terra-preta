@@ -10,10 +10,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { FORMSPREE_ENDPOINT, ADS_QUOTE_SUCCESS_MESSAGE } from "@/lib/formspree";
 import { trackQualifiedLead } from "@/lib/analytics";
+import organiphosContent from "@content/pages/organiphos.json";
+import supernContent from "@content/pages/supern.json";
 
 export type AdsProductChoice = "SuperN" | "OrganiPhos" | "Both";
 export type AdsInquiryIntent = "Order" | "Sample" | "General";
@@ -39,6 +41,20 @@ export function AdsProductQuoteForm({
   defaultProduct,
   defaultIntent,
 }: AdsProductQuoteFormProps) {
+  const productChoices = useMemo(() => {
+    const opts: { value: AdsProductChoice; label: string }[] = [];
+    if (supernContent.published !== false) {
+      opts.push({ value: "SuperN", label: "SuperN" });
+    }
+    if (organiphosContent.published !== false) {
+      opts.push({ value: "OrganiPhos", label: "OrganiPhos" });
+    }
+    if (opts.length === 2) {
+      opts.push({ value: "Both", label: "Both" });
+    }
+    return opts;
+  }, []);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -52,6 +68,13 @@ export function AdsProductQuoteForm({
   const [notes, setNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    setProductInterest((prev) => {
+      if (productChoices.some((c) => c.value === prev)) return prev;
+      return productChoices[0]?.value ?? defaultProduct;
+    });
+  }, [productChoices, defaultProduct]);
 
   useEffect(() => {
     if (defaultIntent) return;
@@ -111,7 +134,11 @@ export function AdsProductQuoteForm({
       setPhone("");
       setProvince("");
       setAcres("");
-      setProductInterest(defaultProduct);
+      setProductInterest(
+        productChoices.find((c) => c.value === defaultProduct)?.value ??
+          productChoices[0]?.value ??
+          "SuperN",
+      );
       setIntent("General");
       setNotes("");
     } catch (err) {
@@ -261,9 +288,11 @@ export function AdsProductQuoteForm({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="SuperN">SuperN</SelectItem>
-                <SelectItem value="OrganiPhos">OrganiPhos</SelectItem>
-                <SelectItem value="Both">Both</SelectItem>
+                {productChoices.map((c) => (
+                  <SelectItem key={c.value} value={c.value}>
+                    {c.label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>

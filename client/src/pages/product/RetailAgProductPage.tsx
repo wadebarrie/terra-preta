@@ -11,6 +11,8 @@ import { useMemo, useState } from "react";
 
 export type RetailAgProductContent = {
   slug: string;
+  /** When false, route renders NotFound (set in CMS / JSON). */
+  published?: boolean;
   productName: string;
   metaTitle?: string;
   metaDescription?: string;

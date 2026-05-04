@@ -33,7 +33,7 @@ export const organizationSchema = {
   url: SITE_ORIGIN,
   logo: `${SITE_ORIGIN}/logo.png`,
   description:
-    'Organic fertilizers (SuperN, OrganiPhos) and biological soil amendments (Terra Revive) for prairie agriculture and land restoration. Based in Sundre, Alberta, serving producers across Canada.',
+    'Organic nitrogen (SuperN), biological soil amendments (Terra Revive), and related organic fertility for prairie agriculture and land restoration. Based in Sundre, Alberta, serving producers across Canada.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Sundre',
@@ -72,7 +72,7 @@ export const websiteSchema = {
   name: 'Terra Preta Organics',
   url: SITE_ORIGIN,
   description:
-    'Organic fertilizers and soil amendments for Canadian agriculture — SuperN, OrganiPhos, and Terra Revive.',
+    'Organic fertilizers and soil amendments for Canadian agriculture — SuperN, Terra Revive, and related products.',
   inLanguage: 'en-CA',
   publisher: {
     '@type': 'Organization',
@@ -158,7 +158,7 @@ export const localBusinessSchema = {
   '@id': SITE_ORIGIN,
   name: 'Terra Preta Organics',
   description:
-    'Organic fertilizers and biological soil amendments for prairie producers — SuperN, OrganiPhos, Terra Revive. Sundre, Alberta.',
+    'Organic fertilizers and biological soil amendments for prairie producers — SuperN, Terra Revive, and related products. Sundre, Alberta.',
   url: SITE_ORIGIN,
   telephone: '+1-403-921-6291',
   email: 'chris@terrapreta.ca',

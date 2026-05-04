@@ -596,6 +596,7 @@ collections:
         file: "content/pages/supern.json"
         fields:
           - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Published on website", name: "published", widget: "boolean", default: true, hint: "When off, this product shows as not found and is removed from navigation, home, agriculture lineup, and forms." }
           - { label: "Product name", name: "productName", widget: "string" }
           - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
           - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }
@@ -628,6 +629,7 @@ collections:
         file: "content/pages/organiphos.json"
         fields:
           - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Published on website", name: "published", widget: "boolean", default: true, hint: "When off, this product shows as not found and is removed from navigation, home, agriculture lineup, and forms." }
           - { label: "Product name", name: "productName", widget: "string" }
           - { label: "SEO — Page title", name: "metaTitle", widget: "string" }
           - { label: "SEO — Meta description", name: "metaDescription", widget: "text" }

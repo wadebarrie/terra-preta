@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import agricultureContent from "@content/pages/agriculture.json";
+import { isRetailProductHrefPublished } from "@/lib/retailAgProductVisibility";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { SITE_ORIGIN } from "@/const";
 import { cmsStringList } from "@/lib/cmsStringList";
@@ -22,6 +23,11 @@ export default function Agriculture() {
     `${SITE_ORIGIN}/solutions/agriculture`,
   );
 
+  const lineupProducts =
+    agricultureContent.productLineupSection?.products.filter((product) =>
+      isRetailProductHrefPublished(product.href),
+    ) ?? [];
+
   return (
     <div>
       {/* Hero Section */}
@@ -39,7 +45,7 @@ export default function Agriculture() {
       </section>
 
       {/* Product lineup: SuperN, OrganiPhos, Terra Revive */}
-      {agricultureContent.productLineupSection?.enabled && (
+      {lineupProducts.length > 0 && agricultureContent.productLineupSection?.enabled && (
         <section className="py-16 border-b border-border">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center mb-12">
@@ -50,8 +56,12 @@ export default function Agriculture() {
                 {agricultureContent.productLineupSection.intro}
               </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {agricultureContent.productLineupSection.products.map((product) => (
+            <div
+              className={`grid gap-8 max-w-5xl mx-auto ${
+                lineupProducts.length >= 3 ? "md:grid-cols-3" : "md:grid-cols-2"
+              }`}
+            >
+              {lineupProducts.map((product) => (
                 <Card key={product.href} className="hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6 flex flex-col h-full">
                     <div className="flex flex-wrap items-center gap-2 mb-3">

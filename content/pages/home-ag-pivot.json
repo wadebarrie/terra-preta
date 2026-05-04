@@ -3,21 +3,21 @@
     "enabled": true,
     "brandLine": "Terra Preta Ag",
     "heroTitle": "Feed the Soil. Grow the Crop.",
-    "heroSubtitle": "Synthetic fertility feeds the plant and ignores the soil. SuperN and OrganiPhos work differently — biologically active, phased nutrient release, 100% organic. Built for farmers who are done compromising.",
+    "heroSubtitle": "Synthetic fertility feeds the plant and ignores the soil. SuperN works differently — biologically active, phased nitrogen release, 100% organic. Built for farmers who are done compromising.",
     "heroPrimaryCta": {
       "label": "Shop SuperN",
       "href": "/supern"
     },
     "heroSecondaryCta": {
-      "label": "Shop OrganiPhos",
-      "href": "/organiphos"
+      "label": "Talk to us",
+      "href": "/contact"
     },
     "compromiseSection": {
       "enabled": true,
       "title": "Organic fertility has a performance problem. We fixed it.",
       "paragraphs": [
         "Most organic amendments are too slow, too dilute, or formulated for somewhere other than here. They were designed to meet a certification standard, not to move the needle in the field.",
-        "We started from a different place. Both products are built around soil biology first — how nutrients release, how microbes activate, how prairie soils behave at high pH. The result is fertility that performs from germination through grain fill, in a single application at seeding."
+        "We started from a different place. SuperN is built around soil biology first — how nitrogen releases, how microbes activate, how prairie soils behave at high pH. The result is fertility that performs from germination through grain fill, in a single application at seeding."
       ]
     },
     "thereIsSection": {
@@ -27,7 +27,7 @@
     },
     "productsSection": {
       "enabled": true,
-      "title": "Two products. One pass.",
+      "title": "SuperN. One pass at seeding.",
       "anchorId": "products",
       "products": [
         {
@@ -78,7 +78,7 @@
       "title": "Built around how soil actually functions.",
       "paragraphs": [
         "Conventional fertilizers bypass biology and deliver nutrients directly to the plant. Fast results, long-term cost.",
-        "SuperN and OrganiPhos are designed around biological activation. Nutrients release in phases that match crop demand. Chitin from BSFL frass drives phosphorus-solubilizing bacteria in the root zone. Biochar creates permanent microbial habitat. Humalite prevents phosphorus fixation on high-pH soils.",
+        "SuperN is designed around biological activation. Nitrogen releases in phases that match crop demand. Chitin from BSFL frass drives phosphorus-solubilizing bacteria in the root zone. Biochar creates permanent microbial habitat. Humalite helps manage phosphorus dynamics on high-pH soils.",
         "You are not just applying fertility. You are building a system that improves year over year."
       ],
       "cta": {
@@ -118,7 +118,7 @@
         },
         {
           "title": "How It Started",
-          "paragraph": "The question was straightforward: why does organic fertility have to mean manure equipment, lost seasons, or unreliable results? It does not. SuperN and OrganiPhos were built to deliver targeted fertility programs from a single pass at seeding. No extra equipment. No fallowing. No compromises on certification for producers who need it. They are the products Lee wished existed before he had to build them himself."
+          "paragraph": "The question was straightforward: why does organic fertility have to mean manure equipment, lost seasons, or unreliable results? It does not. SuperN was built to deliver a targeted nitrogen program from a single pass at seeding. No extra equipment. No fallowing. No compromises on certification for producers who need it. It is the product Lee wished existed before he had to build it himself."
         },
         {
           "title": "Who We Work With",
@@ -139,7 +139,7 @@
         },
         {
           "title": "View products",
-          "description": "Specs, labels, SDS, and quote or sample forms for SuperN and OrganiPhos.",
+          "description": "Specs, labels, SDS, and quote or sample forms for SuperN.",
           "href": "#products",
           "buttonLabel": "View products"
         }

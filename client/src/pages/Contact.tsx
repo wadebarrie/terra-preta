@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { trackFormSubmission } from "@/lib/analytics";
 import { FORMSPREE_ENDPOINT, ADS_QUOTE_SUCCESS_MESSAGE } from "@/lib/formspree";
@@ -19,6 +19,8 @@ import contactContent from "@content/pages/contact.json";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { SITE_ORIGIN } from "@/const";
 import { cmsStringList } from "@/lib/cmsStringList";
+import organiphosContent from "@content/pages/organiphos.json";
+import supernContent from "@content/pages/supern.json";
 
 type InquiryIntent = "Order" | "Sample" | "General";
 type ProductInterest = "SuperN" | "OrganiPhos" | "Both";
@@ -51,13 +53,23 @@ export default function Contact() {
         { value: "General" as const, label: "General inquiry" },
       ];
 
-  const productOptions = lf?.productOptions?.length
-    ? lf.productOptions
-    : [
-        { value: "SuperN" as const, label: "SuperN" },
-        { value: "OrganiPhos" as const, label: "OrganiPhos" },
-        { value: "Both" as const, label: "Both" },
-      ];
+  const productOptions = useMemo(() => {
+    const raw = lf?.productOptions?.length
+      ? lf.productOptions
+      : [
+          { value: "SuperN" as const, label: "SuperN" },
+          { value: "OrganiPhos" as const, label: "OrganiPhos" },
+          { value: "Both" as const, label: "Both" },
+        ];
+    const sn = supernContent.published !== false;
+    const op = organiphosContent.published !== false;
+    return raw.filter((o) => {
+      if (o.value === "SuperN") return sn;
+      if (o.value === "OrganiPhos") return op;
+      if (o.value === "Both") return sn && op;
+      return true;
+    });
+  }, [lf?.productOptions]);
 
   const L = lf?.labels ?? {};
 
@@ -74,6 +86,13 @@ export default function Contact() {
   const [productInterest, setProductInterest] =
     useState<ProductInterest>("Both");
   const [notes, setNotes] = useState("");
+
+  useEffect(() => {
+    setProductInterest((prev) => {
+      if (productOptions.some((o) => o.value === prev)) return prev;
+      return (productOptions[0]?.value ?? "SuperN") as ProductInterest;
+    });
+  }, [productOptions]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -123,7 +142,11 @@ export default function Contact() {
       setPhone("");
       setProvince("");
       setAcres("");
-      setProductInterest("Both");
+      setProductInterest(
+        (productOptions.some((o) => o.value === "Both")
+          ? "Both"
+          : (productOptions[0]?.value ?? "SuperN")) as ProductInterest,
+      );
       setNotes("");
     } catch (error) {
       toast.error(errMsg);

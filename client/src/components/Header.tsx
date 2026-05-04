@@ -1,13 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { APP_LOGO, APP_TITLE } from "@/const";
+import { isRetailProductHrefPublished } from "@/lib/retailAgProductVisibility";
 import siteChrome from "@content/settings/site-chrome.json";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "wouter";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { ctaLabel, ctaHref, navItems } = siteChrome.header;
+  const { ctaLabel, ctaHref } = siteChrome.header;
+  const navItems = useMemo(
+    () =>
+      siteChrome.header.navItems
+        .map((item) => {
+          if (item.children?.length) {
+            const children = item.children.filter((c) =>
+              isRetailProductHrefPublished(c.href),
+            );
+            if (children.length === 0) return null;
+            return { ...item, children };
+          }
+          if (!isRetailProductHrefPublished(item.href)) return null;
+          return item;
+        })
+        .filter((item): item is NonNullable<typeof item> => item !== null),
+    [],
+  );
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border">

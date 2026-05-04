@@ -1,4 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { createElement, useEffect } from 'react';
+
+/** 16:9 — matches Wistia default embed `aspect` for this project’s hero. */
+const DEFAULT_ASPECT = '1.7777777777777777';
 
 interface WistiaVideoProps {
   videoId: string;
@@ -7,17 +10,13 @@ interface WistiaVideoProps {
   controls?: boolean;
   muted?: boolean;
   className?: string;
+  /** Aurora `aspect` attribute (width/height ratio). */
+  aspect?: string;
 }
 
 /**
- * Wistia Video Player Component
- * 
- * @param videoId - The Wistia video ID (e.g., "abc123xyz")
- * @param autoplay - Whether to autoplay the video (default: false)
- * @param loop - Whether to loop the video (default: false)
- * @param controls - Whether to show player controls (default: true)
- * @param muted - Whether to mute the video (default: false, recommended true for autoplay)
- * @param className - Additional CSS classes
+ * Wistia Aurora player (`wistia-player` web component).
+ * @see https://docs.wistia.com/docs/player-quick-start
  */
 export function WistiaVideo({
   videoId,
@@ -26,69 +25,51 @@ export function WistiaVideo({
   controls = true,
   muted = false,
   className = '',
+  aspect = DEFAULT_ASPECT,
 }: WistiaVideoProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    // Check if Wistia script is already loaded
-    if (!document.getElementById('wistia-script')) {
-      const script = document.createElement('script');
-      script.id = 'wistia-script';
-      script.src = 'https://fast.wistia.com/assets/external/E-v1.js';
-      script.async = true;
-      document.head.appendChild(script);
+    if (!document.getElementById('wistia-aurora-player-js')) {
+      const playerScript = document.createElement('script');
+      playerScript.id = 'wistia-aurora-player-js';
+      playerScript.src = 'https://fast.wistia.com/player.js';
+      playerScript.async = true;
+      document.head.appendChild(playerScript);
     }
 
-    return () => {};
+    const embedId = `wistia-aurora-embed-${videoId}`;
+    if (!document.getElementById(embedId)) {
+      const embedScript = document.createElement('script');
+      embedScript.id = embedId;
+      embedScript.src = `https://fast.wistia.com/embed/${videoId}.js`;
+      embedScript.async = true;
+      embedScript.type = 'module';
+      document.head.appendChild(embedScript);
+    }
+
+    const styleId = `wistia-aurora-swatch-${videoId}`;
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.textContent =
+        `wistia-player[media-id='${videoId}']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${videoId}/swatch'); display: block; filter: blur(5px); padding-top: 56.25%; }`;
+      document.head.appendChild(style);
+    }
   }, [videoId]);
 
-  // Build options string for Wistia
-  const options = [
-    autoplay && 'autoPlay=true',
-    !controls && 'controlsVisibleOnLoad=false',
-    muted && 'muted=true',
-    loop && 'endVideoBehavior=loop',
-    !controls && 'playbar=false',
-    !controls && 'playButton=false',
-    !controls && 'settingsControl=false',
-    !controls && 'volumeControl=false',
-    !controls && 'fullscreenButton=false',
-    'fitStrategy=cover',
-  ]
-    .filter(Boolean)
-    .join('&');
+  const playerProps = {
+    className: className.trim(),
+    style: { width: '100%', height: '100%', display: 'block' } as const,
+    'media-id': videoId,
+    aspect,
+    ...(autoplay ? { autoplay: true } : {}),
+    ...(muted ? { muted: true } : {}),
+    ...(loop ? { 'end-video-behavior': 'loop' } : {}),
+    ...(!controls ? { 'controls-visible-on-load': 'false' } : {}),
+  };
 
   return (
-    <div
-      ref={containerRef}
-      className={`wistia_responsive_wrapper ${className}`}
-      style={{ height: '100%', width: '100%', position: 'relative' }}
-    >
-      <div
-        className={`wistia_embed wistia_async_${videoId} ${options ? `${options}` : ''}`}
-        style={{ height: '100%', position: 'relative', width: '100%' }}
-      >
-        <div
-          className="wistia_swatch"
-          style={{
-            height: '100%',
-            left: 0,
-            opacity: 0,
-            overflow: 'hidden',
-            position: 'absolute',
-            top: 0,
-            transition: 'opacity 200ms',
-            width: '100%',
-          }}
-        >
-          <img
-            src={`https://fast.wistia.com/embed/medias/${videoId}/swatch`}
-            style={{ filter: 'blur(5px)', height: '100%', objectFit: 'cover', width: '100%' }}
-            alt=""
-            aria-hidden="true"
-          />
-        </div>
-      </div>
+    <div className="w-full h-full min-h-0" style={{ position: 'relative' }}>
+      {createElement('wistia-player', playerProps)}
     </div>
   );
 }
@@ -133,7 +114,8 @@ export function extractWistiaId(url: string): string {
 
   // Extract from common Wistia URL patterns (with subdomain support)
   const patterns = [
-    /wistia\.com\/medias\/([a-z0-9]+)/i,      // Matches any.wistia.com/medias/ID
+    /wistia\.com\/medias\/([a-z0-9]+)/i,
+    /wistia\.com\/embed\/([a-z0-9]+)\.js/i,
     /wistia\.net\/embed\/iframe\/([a-z0-9]+)/i,
     /wistia\.net\/embed\/medias\/([a-z0-9]+)/i,
   ];

@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { APP_LOGO, APP_TITLE } from "@/const";
+import { filterByRetailProductHref } from "@/lib/retailAgProductVisibility";
 import general from "@content/settings/general.json";
 import siteChrome from "@content/settings/site-chrome.json";
 import { Linkedin, Instagram, Phone } from "lucide-react";
@@ -22,10 +23,12 @@ export default function Footer() {
     resourcesColumnTitle,
     companyColumnTitle,
     copyrightEntity,
-    agricultureLinks,
+    agricultureLinks: agricultureLinksRaw,
     resourceLinks,
     companyLinks,
   } = siteChrome.footer;
+
+  const agricultureLinks = filterByRetailProductHref(agricultureLinksRaw);
 
   return (
     <footer className="bg-[#4A3728] text-white mt-24">
