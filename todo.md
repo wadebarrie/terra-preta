@@ -56,7 +56,7 @@
 - [x] Multi-step contact form with all required fields
 - [x] File upload support for photos, KML, shapefile
 - [x] Auto-email bid ready spec pack on submit (backend)
-- [x] Form submission routing to sales@terrapreta.ca (backend)
+- [x] Form submission routing to chris@terrapreta.ca (backend)
 
 ## Backend & Forms
 - [x] Database schema for form submissions

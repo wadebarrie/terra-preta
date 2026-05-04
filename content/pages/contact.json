@@ -18,7 +18,7 @@
     {
       "icon": "Mail",
       "title": "Email",
-      "email": "sales@terrapreta.ca"
+      "email": "chris@terrapreta.ca"
     }
   ],
   "leadForm": {
@@ -80,7 +80,7 @@
       "Environmental Manager",
       "Other"
     ],
-    "errorMessage": "Failed to submit form. Please try again or contact us directly at sales@terrapreta.ca"
+    "errorMessage": "Failed to submit form. Please try again or contact us directly at chris@terrapreta.ca"
   },
   "formspreeEndpoint": "https://formspree.io/f/mnjaqwoe"
 }

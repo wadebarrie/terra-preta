@@ -16,7 +16,7 @@ export default function Footer() {
     (general as { contactPhoneTel?: string }).contactPhoneTel ||
     "+14039216291";
   const phoneDisplay = general.contactPhone || "(403) 921-6291";
-  const email = general.contactEmail || "sales@terrapreta.ca";
+  const email = general.contactEmail || "chris@terrapreta.ca";
   const {
     agricultureColumnTitle,
     resourcesColumnTitle,

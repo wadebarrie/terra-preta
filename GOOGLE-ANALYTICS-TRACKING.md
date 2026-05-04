@@ -39,7 +39,7 @@ The tracking system uses **event delegation** to automatically detect and track 
 **Example:**
 ```tsx
 // This link will automatically track when clicked
-<a href="mailto:sales@terrapreta.ca">Contact Us</a>
+<a href="mailto:chris@terrapreta.ca">Contact Us</a>
 
 // This link will automatically track when clicked  
 <a href="tel:+14035551234">Call Us</a>
@@ -75,8 +75,8 @@ trackFormSubmission({
   event_category: 'engagement',
   event_label: 'email',
   method: 'email',
-  email_address: 'sales@terrapreta.ca',
-  link_url: 'mailto:sales@terrapreta.ca'
+  email_address: 'chris@terrapreta.ca',
+  link_url: 'mailto:chris@terrapreta.ca'
 }
 ```
 
@@ -112,11 +112,11 @@ trackFormSubmission({
 ### Current Tracking Locations
 
 1. **Contact Page** (`/contact`)
-   - Email link: `sales@terrapreta.ca` (in contact card)
+   - Email link: `chris@terrapreta.ca` (in contact card)
    - Form submission: Multi-step contact form
 
 2. **Footer** (all pages)
-   - Email link: `sales@terrapreta.ca`
+   - Email link: `chris@terrapreta.ca`
 
 3. **Future-Proof**
    - Any new email or phone links added anywhere on the site will automatically be tracked
