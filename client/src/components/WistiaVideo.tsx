@@ -10,8 +10,13 @@ interface WistiaVideoProps {
   controls?: boolean;
   muted?: boolean;
   className?: string;
-  /** Aurora `aspect` attribute (width/height ratio). */
+  /** Aurora `aspect` attribute (width/height ratio). Ignored when `layout` is `cover`. */
   aspect?: string;
+  /**
+   * `cover` — scale a 16:9 player to fill the parent (clips overflow). Use for hero backgrounds.
+   * `inline` — default responsive embed behavior.
+   */
+  layout?: 'inline' | 'cover';
 }
 
 /**
@@ -26,6 +31,7 @@ export function WistiaVideo({
   muted = false,
   className = '',
   aspect = DEFAULT_ASPECT,
+  layout = 'inline',
 }: WistiaVideoProps) {
   useEffect(() => {
     if (!document.getElementById('wistia-aurora-player-js')) {
@@ -56,21 +62,62 @@ export function WistiaVideo({
     }
   }, [videoId]);
 
-  const playerProps = {
-    className: `${className} w-full min-w-full h-full min-h-full max-w-none`.trim(),
-    style: {
-      width: '100%',
-      height: '100%',
-      minWidth: '100%',
-      minHeight: '100%',
-      display: 'block',
-    } as const,
-    'media-id': videoId,
-    aspect,
+  const playerBase = {
     ...(autoplay ? { autoplay: true } : {}),
     ...(muted ? { muted: true } : {}),
     ...(loop ? { 'end-video-behavior': 'loop' } : {}),
     ...(!controls ? { 'controls-visible-on-load': 'false' } : {}),
+  };
+
+  const fillStyle = {
+    width: '100%',
+    height: '100%',
+    display: 'block' as const,
+  };
+
+  if (layout === 'cover') {
+    const playerProps = {
+      ...playerBase,
+      className: 'h-full w-full max-w-none',
+      style: fillStyle,
+      'media-id': videoId,
+    };
+
+    return (
+      <div
+        className={`h-full w-full min-h-0 overflow-hidden ${className}`.trim()}
+        style={{
+          containerType: 'size',
+          position: 'relative',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 'max(100cqw, calc(100cqh * 16 / 9))',
+            aspectRatio: '16 / 9',
+            maxWidth: 'none',
+          }}
+        >
+          {createElement('wistia-player', playerProps)}
+        </div>
+      </div>
+    );
+  }
+
+  const playerProps = {
+    ...playerBase,
+    className: `${className} w-full min-w-full h-full min-h-full max-w-none`.trim(),
+    style: {
+      ...fillStyle,
+      minWidth: '100%',
+      minHeight: '100%',
+    } as const,
+    'media-id': videoId,
+    aspect,
   };
 
   return (
@@ -90,9 +137,11 @@ export function WistiaVideo({
 export function WistiaVideoBackground({
   videoId,
   className = '',
+  layout = 'cover',
 }: {
   videoId: string;
   className?: string;
+  layout?: 'inline' | 'cover';
 }) {
   return (
     <WistiaVideo
@@ -102,6 +151,7 @@ export function WistiaVideoBackground({
       controls={false}
       muted={true}
       className={className}
+      layout={layout}
     />
   );
 }

@@ -82,11 +82,12 @@ export default function Home() {
             <div className="absolute inset-0 z-0 w-full min-w-full h-full">
               <WistiaVideo
                 videoId={wistiaId}
+                layout="cover"
                 autoplay={homeContent.heroVideo.autoplay ?? true}
                 loop={homeContent.heroVideo.loop ?? true}
                 controls={homeContent.heroVideo.controls ?? false}
                 muted={homeContent.heroVideo.muted ?? true}
-                className="w-full min-w-full h-full"
+                className="h-full w-full"
               />
             </div>
           ) : null}
@@ -440,11 +441,12 @@ export default function Home() {
             <div className="absolute inset-0 z-0 w-full min-w-full h-full">
               <WistiaVideo
                 videoId={wistiaId}
+                layout="cover"
                 autoplay={homeContent.heroVideo.autoplay ?? true}
                 loop={homeContent.heroVideo.loop ?? true}
                 controls={homeContent.heroVideo.controls ?? false}
                 muted={homeContent.heroVideo.muted ?? true}
-                className="w-full min-w-full h-full"
+                className="h-full w-full"
               />
             </div>
           ) : null}
