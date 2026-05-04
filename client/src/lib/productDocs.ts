@@ -1,5 +1,4 @@
-import supernSpecUrl from "@/assets/docs/supern/SuperN-SpecSheet.pdf?url";
-import supernCertifiedSpecUrl from "@/assets/docs/supern/SuperN-Certified-SpecSheet.pdf?url";
+import supernProductSheetUrl from "@/assets/docs/supern/SuperN-ProductSheet-TerraPreta.pdf?url";
 import supernCfiaLabelUrl from "@/assets/docs/supern/SuperN-CFIA-Label.pdf?url";
 import supernSdsUrl from "@/assets/docs/supern/SuperN-SDS.pdf?url";
 
@@ -13,10 +12,9 @@ export type ProductDoc = {
 };
 
 export const supernDocs = {
-  primarySpecSheetUrl: supernCertifiedSpecUrl,
+  primarySpecSheetUrl: supernProductSheetUrl,
   docs: [
-    { title: "SuperN Spec Sheet", url: supernSpecUrl },
-    { title: "SuperN Certified Spec Sheet", url: supernCertifiedSpecUrl },
+    { title: "SuperN product sheet (PDF)", url: supernProductSheetUrl },
     { title: "SuperN CFIA Label", url: supernCfiaLabelUrl },
     { title: "SuperN Safety Data Sheet (SDS)", url: supernSdsUrl },
   ] satisfies ProductDoc[],
@@ -30,4 +28,3 @@ export const organiphosDocs = {
     { title: "OrganiPhos Safety Data Sheet (SDS)", url: organiphosSdsUrl },
   ] satisfies ProductDoc[],
 };
-

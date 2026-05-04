@@ -31,8 +31,8 @@ export default defineConfig({
         assetFileNames: (assetInfo) => {
           const name = assetInfo.names?.[0] ?? "";
           // SuperN
-          if (name === "SuperN-SpecSheet.pdf") return "spec-sheets/SuperN-SpecSheet.pdf";
-          if (name === "SuperN-Certified-SpecSheet.pdf") return "spec-sheets/SuperN-Certified-SpecSheet.pdf";
+          if (name === "SuperN-ProductSheet-TerraPreta.pdf")
+            return "spec-sheets/SuperN-ProductSheet-TerraPreta.pdf";
           if (name === "SuperN-CFIA-Label.pdf") return "docs/SuperN-CFIA-Label.pdf";
           if (name === "SuperN-SDS.pdf") return "docs/SuperN-SDS.pdf";
           // OrganiPhos
