@@ -77,16 +77,16 @@ export default function Home() {
     return (
       <div>
         {/* Hero */}
-        <section className="relative py-20 md:py-28 overflow-hidden">
+        <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 py-20 md:py-28 overflow-hidden">
           {wistiaId && homeContent.heroVideo ? (
-            <div className="absolute inset-0 w-full h-full z-0">
+            <div className="absolute inset-0 z-0 w-full min-w-full h-full">
               <WistiaVideo
                 videoId={wistiaId}
                 autoplay={homeContent.heroVideo.autoplay ?? true}
                 loop={homeContent.heroVideo.loop ?? true}
                 controls={homeContent.heroVideo.controls ?? false}
                 muted={homeContent.heroVideo.muted ?? true}
-                className="w-full h-full"
+                className="w-full min-w-full h-full"
               />
             </div>
           ) : null}
@@ -434,17 +434,17 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       {homeContent.heroSection.enabled && (
-        <section className="relative py-20 md:py-32 overflow-hidden">
+        <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 py-20 md:py-32 overflow-hidden">
           {/* Background Video */}
           {wistiaId && homeContent.heroVideo ? (
-            <div className="absolute inset-0 w-full h-full z-0">
+            <div className="absolute inset-0 z-0 w-full min-w-full h-full">
               <WistiaVideo
                 videoId={wistiaId}
                 autoplay={homeContent.heroVideo.autoplay ?? true}
                 loop={homeContent.heroVideo.loop ?? true}
                 controls={homeContent.heroVideo.controls ?? false}
                 muted={homeContent.heroVideo.muted ?? true}
-                className="w-full h-full"
+                className="w-full min-w-full h-full"
               />
             </div>
           ) : null}

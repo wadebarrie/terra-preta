@@ -57,8 +57,14 @@ export function WistiaVideo({
   }, [videoId]);
 
   const playerProps = {
-    className: className.trim(),
-    style: { width: '100%', height: '100%', display: 'block' } as const,
+    className: `${className} w-full min-w-full h-full min-h-full max-w-none`.trim(),
+    style: {
+      width: '100%',
+      height: '100%',
+      minWidth: '100%',
+      minHeight: '100%',
+      display: 'block',
+    } as const,
     'media-id': videoId,
     aspect,
     ...(autoplay ? { autoplay: true } : {}),
@@ -68,7 +74,10 @@ export function WistiaVideo({
   };
 
   return (
-    <div className="w-full h-full min-h-0" style={{ position: 'relative' }}>
+    <div
+      className="w-full min-w-full h-full min-h-0 overflow-hidden"
+      style={{ position: 'relative' }}
+    >
       {createElement('wistia-player', playerProps)}
     </div>
   );
