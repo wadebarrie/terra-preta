@@ -53,7 +53,7 @@ export const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
-    email: 'chris@terrapreta.ca',
+    email: 'sales@terrapreta.ca',
     telephone: '+1-403-921-6291',
     availableLanguage: 'English',
   },
@@ -161,7 +161,7 @@ export const localBusinessSchema = {
     'Organic fertilizers and biological soil amendments for prairie producers — SuperN, Terra Revive, and related products. Sundre, Alberta.',
   url: SITE_ORIGIN,
   telephone: '+1-403-921-6291',
-  email: 'chris@terrapreta.ca',
+  email: 'sales@terrapreta.ca',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Sundre',

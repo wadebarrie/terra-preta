@@ -83,7 +83,7 @@ export function ProductInquiryForm({
     } catch (err) {
       console.error(err);
       toast.error(
-        "Something went wrong. Please try again or email chris@terrapreta.ca."
+        "Something went wrong. Please try again or email sales@terrapreta.ca."
       );
     } finally {
       setIsSubmitting(false);

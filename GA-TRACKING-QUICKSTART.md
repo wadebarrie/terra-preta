@@ -12,8 +12,8 @@ Your website now tracks `qualified_lead` events in Google Analytics 4 for:
 ## 📍 Where Events Fire
 
 ### Current Locations:
-- ✅ **Contact page email link** - `chris@terrapreta.ca`
-- ✅ **Footer email link** - `chris@terrapreta.ca`
+- ✅ **Contact page email link** - `sales@terrapreta.ca`
+- ✅ **Footer email link** - `sales@terrapreta.ca`
 - ✅ **Contact form submission** - After successful Formspree submission
 
 ### To Add Phone Tracking:

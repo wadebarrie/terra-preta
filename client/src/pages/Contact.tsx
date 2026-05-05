@@ -43,7 +43,7 @@ export default function Contact() {
     contactContent.formspreeEndpoint?.trim() || FORMSPREE_ENDPOINT;
   const errMsg =
     contactContent.form?.errorMessage ||
-    "Failed to submit form. Please try again or contact us directly at chris@terrapreta.ca";
+    "Failed to submit form. Please try again or contact us directly at sales@terrapreta.ca";
 
   const intentOptions = lf?.intentOptions?.length
     ? lf.intentOptions
