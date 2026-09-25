@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 
 /**
- * Resets window scroll on client-side navigation so landing pages (e.g. /supern) start at the top.
+ * Resets window scroll on client-side navigation.
+ * Preserves in-page hash targets (e.g. /contact#agriculture-quote).
  */
 export function ScrollToTop() {
   const [location] = useLocation();
@@ -14,12 +15,26 @@ export function ScrollToTop() {
   }, []);
 
   useEffect(() => {
-    // Primary scroll containers (Safari / older WebKit)
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.slice(1);
+      const scrollToHash = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          return true;
+        }
+        return false;
+      };
+      if (scrollToHash()) return;
+      const t = window.setTimeout(scrollToHash, 50);
+      return () => clearTimeout(t);
+    }
+
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 
-    // Run again after layout / any hash scroll so we win over late browser adjustments
     const id = requestAnimationFrame(() => {
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;

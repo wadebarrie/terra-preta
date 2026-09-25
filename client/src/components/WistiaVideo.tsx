@@ -161,7 +161,7 @@ export function WistiaVideoBackground({
  * 
  * Supports:
  * - https://home.wistia.com/medias/abc123xyz
- * - https://growdoug.wistia.com/medias/abc123xyz (with subdomain)
+ * - https://example.wistia.com/medias/abc123xyz (with subdomain)
  * - https://fast.wistia.net/embed/iframe/abc123xyz
  * - Just the ID: abc123xyz
  */
