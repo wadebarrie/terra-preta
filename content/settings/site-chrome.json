@@ -1,48 +1,26 @@
 {
   "header": {
-    "ctaLabel": "Get a Quote",
+    "ctaLabel": "Request a quote",
     "ctaHref": "/contact",
     "navItems": [
-      {
-        "label": "Products",
-        "href": "/#products",
-        "children": [
-          { "label": "SuperN", "href": "/supern" },
-          { "label": "OrganiPhos", "href": "/organiphos" }
-        ]
-      },
-      { "label": "Prairie soils", "href": "/solutions/agriculture" },
+      { "label": "Agriculture", "href": "/agriculture" },
+      { "label": "Reclamation", "href": "/reclamation" },
       { "label": "About", "href": "/about" },
       { "label": "Contact", "href": "/contact" }
     ]
   },
   "trustStrip": {
-    "enabled": true,
+    "enabled": false,
     "heading": "Trusted by leading partners:",
-    "partners": [
-      { "name": "Choice Environmental", "logo": "/partner-choice.png" },
-      { "name": "Trace Associates", "logo": "/partner-trace.png" },
-      { "name": "Gran Tierra Energy", "logo": "/partner-grantierra.png" }
-    ]
+    "partners": []
   },
   "footer": {
-    "agricultureColumnTitle": "Agriculture",
-    "resourcesColumnTitle": "Resources",
-    "companyColumnTitle": "Company",
-    "copyrightEntity": "Terra Preta Organics",
-    "agricultureLinks": [
-      { "label": "Prairie soils", "href": "/solutions/agriculture" },
-      { "label": "SuperN", "href": "/supern" },
-      { "label": "OrganiPhos", "href": "/organiphos" }
-    ],
-    "resourceLinks": [
-      { "label": "Order spring fertility", "href": "/contact?intent=order" },
-      { "label": "Request a sample", "href": "/contact?intent=sample" },
-      { "label": "General inquiry", "href": "/contact?intent=general" }
-    ],
-    "companyLinks": [
-      { "label": "About Us", "href": "/about" },
+    "navLinks": [
+      { "label": "Agriculture", "href": "/agriculture" },
+      { "label": "Reclamation", "href": "/reclamation" },
+      { "label": "About", "href": "/about" },
       { "label": "Contact", "href": "/contact" }
-    ]
+    ],
+    "lineTemplate": "Terra Preta Organics · Sundre, Alberta · {email}"
   }
 }

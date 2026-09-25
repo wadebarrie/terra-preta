@@ -350,15 +350,13 @@ export function attachCTATracking() {
   if (typeof document === 'undefined') return;
 
   const ctaKeywords = [
-    'get a quote',
+    'request a quote',
+    'request my quote',
     'contact us',
     'get started',
     'request',
-    'start a pilot',
-    'add to quote',
-    'calculate',
-    'download',
-    'learn more',
+    'agriculture quote',
+    'reclamation quote',
   ];
 
   document.addEventListener('click', (e) => {

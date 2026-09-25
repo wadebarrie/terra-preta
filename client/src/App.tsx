@@ -18,19 +18,8 @@ import { useEffect } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import TerraRevive from "./pages/product/TerraRevive";
-import ReclamationSites from "./pages/solutions/ReclamationSites";
-import HydroseedingPartners from "./pages/solutions/HydroseedingPartners";
-import MiningIndustrial from "./pages/solutions/MiningIndustrial";
-import Agriculture from "./pages/solutions/Agriculture";
-import PelletSelector from "./pages/calculator/PelletSelector";
-import CostPayback from "./pages/calculator/CostPayback";
-import EvidenceLibrary from "./pages/evidence/EvidenceLibrary";
-import CaseStudies from "./pages/evidence/CaseStudies";
-import MethodStatements from "./pages/evidence/MethodStatements";
-import SdsTds from "./pages/evidence/SdsTds";
-import SuperN from "./pages/SuperN";
-import OrganiPhos from "./pages/OrganiPhos";
+import Agriculture from "./pages/Agriculture";
+import Reclamation from "./pages/Reclamation";
 
 function Router() {
   return (
@@ -38,38 +27,10 @@ function Router() {
       <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
-        <Route path="/supern" component={SuperN} />
-        <Route path="/organiphos" component={OrganiPhos} />
-
-        {/* Solutions */}
-        <Route path="/solutions/reclamation" component={ReclamationSites} />
-        <Route
-          path="/solutions/hydroseeding"
-          component={HydroseedingPartners}
-        />
-        <Route path="/solutions/mining" component={MiningIndustrial} />
-        <Route path="/solutions/agriculture" component={Agriculture} />
-
-        {/* Product */}
-        <Route path="/product/terra-revive" component={TerraRevive} />
-
-        {/* Calculator Hub */}
-        <Route path="/calculator/pellet-selector" component={PelletSelector} />
-        <Route path="/calculator/cost-payback" component={CostPayback} />
-
-        {/* Evidence Library */}
-        <Route path="/evidence" component={EvidenceLibrary} />
-        <Route path="/evidence/case-studies" component={CaseStudies} />
-        <Route
-          path="/evidence/method-statements"
-          component={MethodStatements}
-        />
-        <Route path="/evidence/sds-tds" component={SdsTds} />
-
-        {/* About & Contact */}
+        <Route path="/agriculture" component={Agriculture} />
+        <Route path="/reclamation" component={Reclamation} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
-
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
@@ -78,7 +39,6 @@ function Router() {
 }
 
 function App() {
-  // Initialize Google Analytics tracking for email and phone links
   useEffect(() => {
     initializeTracking();
   }, []);
@@ -88,7 +48,6 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          {/* Global Structured Data */}
           <StructuredData data={organizationSchema} />
           <StructuredData data={localBusinessSchema} />
           <StructuredData data={websiteSchema} />
