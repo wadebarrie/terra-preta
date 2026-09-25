@@ -42,7 +42,7 @@ export default function Home() {
         <div className={`absolute inset-0 ${gradientClass} z-10`} />
         <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 leading-snug text-black">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 leading-snug text-heading">
               Organic based fertilizer for prairie crops and disturbed land.
               Made in Sundre, Alberta.
             </h1>
